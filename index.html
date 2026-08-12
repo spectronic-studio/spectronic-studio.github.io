@@ -1342,6 +1342,124 @@
         }
 
         /* ================================================================
+           WORLD-CLASS MOBILE EXPERIENCE  (≤639px)
+           ================================================================ */
+        @media (max-width: 639px) {
+            /* Global rhythm */
+            html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+            body { overflow-x: hidden; }
+            .container { padding-left: 1.25rem; padding-right: 1.25rem; }
+
+            /* Hero */
+            .hero-phone-wrap { display: none; }
+            section[aria-label="Hero"] > .container,
+            #hero > .container,
+            section:first-of-type > .container { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+            h1.text-5xl { font-size: 2.35rem !important; line-height: 1.12 !important; letter-spacing: -0.02em; }
+            h1 .prism-typer { display: inline-block; min-height: 1.15em; }
+            .h-1.w-24.grad-rule { width: 4.5rem; }
+
+            /* Section headings */
+            h2.text-3xl { font-size: 1.85rem !important; line-height: 1.2 !important; letter-spacing: -0.015em; }
+            h2.text-3xl + p, .sec-badge + h2 + p { font-size: 0.95rem !important; }
+
+            /* Buttons — full-width, comfortable touch */
+            .mag-btn, a.mag-btn, button.mag-btn { width: 100%; padding: 0.85rem 1.25rem; font-size: 1rem; }
+            .flex.flex-col.sm\\:flex-row.gap-4 > * { width: 100%; }
+            .cta-arrow { width: 1.1rem; height: 1.1rem; }
+
+            /* Quality chips wrap tighter */
+            .flex.flex-wrap.gap-3 > span { padding: 0.5rem 0.75rem; font-size: 0.78rem; }
+
+            /* Services */
+            .services-grid { gap: 1rem !important; }
+            .services-grid .prism-card { padding: 1.25rem !important; border-radius: 1.25rem; }
+
+            /* Portfolio cards — phones shrink + tighter */
+            .phone-frame { width: 11.5rem !important; height: 23rem !important; border-radius: 2.25rem !important; }
+            .phone-frame .phone-screen { border-radius: 1.85rem !important; }
+            .grid.md\\:grid-cols-3.gap-8.mb-16 { gap: 2.5rem 1.25rem !important; }
+            .grid.md\\:grid-cols-3.gap-8.mb-16 > div > .mt-6 { padding: 0 0.25rem; }
+            .grid.md\\:grid-cols-3.gap-8.mb-16 h3 { font-size: 1.15rem; }
+
+            /* Showcase/testi cards */
+            .testi-grid { gap: 1rem !important; }
+            .testi-card { padding: 1.25rem !important; border-radius: 1.25rem; }
+            .testi-card h3 { font-size: 0.98rem; }
+            .testi-card p { font-size: 0.86rem !important; line-height: 1.65; }
+
+            /* Stats */
+            .grid.grid-cols-1.sm\\:grid-cols-2.lg\\:grid-cols-4 { gap: 0.75rem !important; }
+            .stat-card { padding: 1rem !important; border-radius: 1rem; }
+            .stat-num { font-size: 1.65rem !important; }
+
+            /* Process timeline — vertical-friendly */
+            .grid.lg\\:grid-cols-3.gap-8 { gap: 1rem !important; }
+            .process-step { padding-inline-start: 54px !important; }
+            .process-card { padding: 1.1rem 1.25rem !important; }
+            .process-icon { width: 40px !important; height: 40px !important; font-size: 1.1rem !important; }
+
+            /* Calculator */
+            .bg-slate-800.border.border-white\\/10.rounded-3xl.p-6.sm\\:p-10 { padding: 1.25rem !important; border-radius: 1.25rem; }
+            .calc-option-group { gap: 0.35rem !important; }
+            .calc-option { padding: 0.55rem 0.7rem !important; font-size: 0.78rem !important; width: 100%; text-align: center; }
+
+            /* Contact */
+            .bg-gradient-to-br.from-emerald-600.to-emerald-700.p-8.lg\\:p-12,
+            .p-8.lg\\:p-12 { padding: 1.5rem !important; }
+            .contact-card-grid { gap: 1rem !important; }
+
+            /* CTA hero */
+            .max-w-4xl.mx-auto.relative.overflow-hidden.rounded-\\[2rem\\].p-10.sm\\:p-16 { padding: 2rem 1.25rem !important; border-radius: 1.5rem !important; }
+
+            /* FAQ */
+            details > summary { padding: 1rem 1.1rem !important; font-size: 0.95rem; }
+            details > div { padding: 0 1.1rem 1rem !important; font-size: 0.88rem; line-height: 1.7; }
+
+            /* Footer */
+            .grid.md\\:grid-cols-4.gap-8 { gap: 1.5rem !important; }
+            .pt-8.border-t.border-white\\/10.flex.flex-col.md\\:flex-row { gap: 0.75rem; text-align: center; }
+
+            /* AI panel — near-full-width, shorter */
+            .ai-widget { bottom: 16px !important; inset-inline-end: 12px !important; gap: 10px !important; }
+            .ai-launcher { width: 54px !important; height: 54px !important; }
+            .ai-panel { width: calc(100vw - 24px) !important; max-width: 380px; height: 72vh !important; max-height: 560px; border-radius: 1.2rem; }
+            .ai-bubble { max-width: 88%; font-size: 0.82rem; padding: 0.65rem 0.85rem; }
+            .ai-quick button { padding: 0.45rem 0.75rem; font-size: 0.74rem; }
+
+            /* Video/lightbox container tighter */
+            #video-trigger { min-height: 240px !important; }
+
+            /* General tap targets */
+            button, [role="button"], summary { min-height: 44px; }
+            a[class*="mag-btn"], button[class*="mag-btn"], .nav-link, .lang-btn, #menu-btn { min-height: 44px; display: inline-flex; align-items: center; }
+            a.nav-link, .lang-btn { justify-content: center; }
+        }
+
+        /* Very small phones (≤360px) refinements */
+        @media (max-width: 360px) {
+            .container { padding-left: 1rem; padding-right: 1rem; }
+            h1.text-5xl { font-size: 2rem !important; }
+            h2.text-3xl { font-size: 1.65rem !important; }
+            .phone-frame { width: 10rem !important; height: 20rem !important; }
+            .stat-num { font-size: 1.4rem !important; }
+            .ai-panel { height: 70vh !important; }
+            .ai-launcher { width: 50px !important; height: 50px !important; }
+        }
+
+        /* Landscape phone — taller AI panel + hero breathing room */
+        @media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+            .ai-panel { height: 88vh !important; max-height: 420px; }
+        }
+
+        /* Prevent horizontal overflow from any element */
+        @media (max-width: 639px) {
+            section, header, footer, main { overflow-x: clip; }
+            section[id], main, footer, header { overflow-x: hidden; }
+            img, video { max-width: 100%; height: auto; }
+        }
+
+        /* ================================================================
            PRODUCTION-GRADE ELEVATION  (added for world-class polish)
            ================================================================ */
 
@@ -2191,7 +2309,7 @@
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 rv" style="--rl:.25s">
-                        <a href="#contact" class="mag-btn ripple ripple-ink cta-group btn-glow bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 text-center flex items-center justify-center space-x-2 space-x-reverse hover:shadow-lg hover:shadow-emerald-500/30 hover:scale-105 active:scale-95">
+                        <a href="#contact" class="mag-btn ripple cta-group btn-glow bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 text-center flex items-center justify-center space-x-2 space-x-reverse hover:shadow-lg hover:shadow-emerald-500/30 hover:scale-105 active:scale-95">
                             <span data-i18n="hero.cta1">اطلب مشروعك الآن</span>
                             <svg class="w-5 h-5 cta-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -2908,7 +3026,7 @@
                     <p class="text-slate-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed" data-i18n="cta.desc">استخدم أداة تقدير التكلفة التفاعلية للحصول على عرض سعر فوري، أو تواصل معنا للحصول على استشارة تقنية مجانية.</p>
 
                     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <a href="#calculator" class="mag-btn ripple ripple-ink cta-group btn-glow bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 inline-flex items-center justify-center space-x-2 space-x-reverse hover:shadow-lg hover:shadow-emerald-500/30 hover:scale-105 active:scale-95">
+                        <a href="#calculator" class="mag-btn ripple cta-group btn-glow bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 inline-flex items-center justify-center space-x-2 space-x-reverse hover:shadow-lg hover:shadow-emerald-500/30 hover:scale-105 active:scale-95">
                             <span data-i18n="cta.estimateBtn">قدّر التكلفة الآن</span>
                             <svg class="w-5 h-5 cta-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 11l3 3L22 4"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
                         </a>
