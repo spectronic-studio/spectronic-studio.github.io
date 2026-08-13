@@ -29,7 +29,7 @@
     <meta name="twitter:image" content="https://spectronic.studio/og-image.png">
 
     <!-- Favicon Set -->
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -2197,6 +2197,88 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        /* ================================================================
+           RESPONSIVE-FIRST FIXES  (winning cascade — appended last)
+           ================================================================ */
+        html, body { overflow-x: hidden; }
+        body { -webkit-font-smoothing: antialiased; }
+        * { box-sizing: border-box; }
+        main, section, header, footer { box-sizing: border-box; }
+
+        /* Fluid typography for all headings */
+        h1, h2, h3 { text-wrap: balance; }
+        h1 { font-size: clamp(2rem, 7.5vw, 4.5rem); line-height: 1.12; }
+        h2 { font-size: clamp(1.6rem, 5.4vw, 3rem); line-height: 1.2; }
+        .stat-num { font-size: clamp(1.7rem, 6.5vw, 3.2rem); }
+
+        /* Global container discipline */
+        .container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 1.25rem; }
+
+        /* Everything collapses to single column below 768px */
+        @media (max-width: 767px) {
+            .services-grid,
+            .grid.md\:grid-cols-3.gap-8,
+            .grid.md\:grid-cols-3.gap-8.mb-16,
+            .grid.md\:grid-cols-4.gap-8,
+            .grid.md\:grid-cols-4.gap-8.mb-8,
+            .grid.md\:grid-cols-2,
+            .contact-card-grid,
+            .process-scroll {
+                grid-template-columns: 1fr !important;
+                gap: 1.75rem !important;
+            }
+
+            /* Stats: 2-up on small phones, 1-up on very narrow */
+            .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 { grid-template-columns: repeat(2, 1fr) !important; gap: 0.85rem !important; }
+            @media (max-width: 400px) {
+                .grid.grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 { grid-template-columns: 1fr !important; }
+            }
+
+            /* Tech grid: 2-up cards, no squeezing */
+            .tech-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 0.85rem !important; }
+            .tech-card, .tech-inner { width: 100%; }
+
+            /* Calculator field pairs stack */
+            .grid.sm\:grid-cols-2.gap-4.mb-6 { grid-template-columns: 1fr !important; gap: 0.9rem !important; }
+
+            /* Portfolio phone mockups: fit viewport without clipping */
+            .phone-frame { width: 12rem !important; height: 24rem !important; }
+
+            /* Section heading paragraph sizes */
+            h2 + p, .text-center p { font-size: 0.95rem; line-height: 1.7; }
+        }
+
+        /* Below 600px: buttons stack, hero tightens */
+        @media (max-width: 600px) {
+            .flex.flex-col.sm\:flex-row.gap-4,
+            .flex.flex-col.sm\:flex-row.gap-4.justify-center,
+            .flex.flex-col.sm\:flex-row.gap-4.justify-center.items-center { flex-direction: column !important; align-items: stretch !important; }
+            .flex.flex-col.sm\:flex-row.gap-4 > *,
+            .flex.flex-col.sm\:flex-row.gap-4.justify-center > *,
+            .flex.flex-col.sm\:flex-row.gap-4.justify-center.items-center > * { width: 100% !important; }
+            .mag-btn { width: 100% !important; padding: 0.8rem 1.1rem !important; font-size: 0.95rem; }
+            #video-trigger { min-height: 260px !important; }
+            .ai-panel { width: calc(100vw - 20px) !important; max-width: 380px; }
+        }
+
+        /* Forms: full-width inputs on mobile */
+        @media (max-width: 640px) {
+            input, textarea, select, .ai-input, .calc-option { width: 100% !important; max-width: 100% !important; box-sizing: border-box; }
+            input[type="radio"], input[type="checkbox"] { width: auto !important; }
+            button, .link-btn { max-width: 100%; }
+            form .grid > * { min-width: 0; }
+        }
+
+        /* Hero typography guard — never clip or awkwardly wrap */
+        @media (max-width: 600px) {
+            h1 { font-size: clamp(1.9rem, 8.5vw, 2.6rem) !important; line-height: 1.15 !important; }
+            h1 span.block { display: block; }
+            .prism-typer { min-height: 1.2em; }
+            .sec-badge { transform: none !important; }
+            .grad-rule { width: 4rem; }
+        }
+
     </style>
 </head>
 <body class="bg-slate-900 text-slate-200 overflow-x-hidden">
@@ -2221,12 +2303,8 @@
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <a href="#hero" class="flex items-center space-x-3 space-x-reverse group" aria-label="SPECTRONIC Studio - Home">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300" style="background: linear-gradient(135deg, rgba(0,229,255,0.15), rgba(168,85,247,0.15)); border: 1px solid rgba(0,229,255,0.3); backdrop-filter: blur(8px);">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                            <path d="M12 2L2 20h20L12 2z" stroke="url(#prism-nav)" stroke-width="2" stroke-linejoin="round"/>
-                            <path d="M12 2v8M7 14h10" stroke="url(#prism-nav)" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-                            <defs><linearGradient id="prism-nav" x1="2" y1="20" x2="22" y2="2"><stop stop-color="#00E5FF"/><stop offset="0.5" stop-color="#A855F7"/><stop offset="1" stop-color="#10B981"/></linearGradient></defs>
-                        </svg>
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center overflow-hidden transform group-hover:scale-105 group-hover:rotate-3 transition-transform duration-300" style="background: rgba(0,0,0,0.35); border: 1px solid rgba(0,229,255,0.28); backdrop-filter: blur(8px);">
+                        <img src="logo-nav.png" alt="SPECTRONIC Studio logo" class="w-full h-full object-contain" width="44" height="44" fetchpriority="high">
                     </div>
                     <span class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">SPECTRONIC <span class="text-emerald-400">.</span></span>
                 </a>
