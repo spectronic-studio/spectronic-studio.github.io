@@ -2432,6 +2432,30 @@
         .ai-list { display: flex; flex-direction: column; gap: 0.22rem; margin-bottom: 0.5rem; }
         .ai-bullet { display: flex; align-items: flex-start; gap: 0.4rem; font-size: 0.72rem; color: rgba(226,232,240,0.95); }
         .ai-bullet-dot { width: 0.4rem; height: 0.4rem; border-radius: 9999px; background: var(--ac); flex: 0 0 auto; margin-top: 0.3rem; }
+        .ai-badge {
+            position: fixed;
+            bottom: 96px;
+            inset-inline-end: 22px;
+            z-index: 59;
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            max-width: min(86vw, 300px);
+            padding: 0.7rem 0.9rem;
+            border-radius: 1rem 1rem 0.25rem 1rem;
+            background: rgba(9, 14, 28, 0.94);
+            border: 1px solid rgba(0, 229, 255, 0.35);
+            box-shadow: 0 16px 34px -16px rgba(0,0,0,0.7), 0 0 20px rgba(0,229,255,0.12);
+            color: #E2E8F0;
+            font-size: 0.8rem;
+            line-height: 1.45;
+            cursor: pointer;
+            animation: aiBadgeIn .35s ease;
+        }
+        @keyframes aiBadgeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        .ai-badge-txt { flex: 1; }
+        .ai-badge-x { flex: 0 0 auto; border: none; background: rgba(255,255,255,0.08); color: #94A3B8; width: 20px; height: 20px; border-radius: 50%; font-size: 0.9rem; line-height: 1; cursor: pointer; padding: 0; }
+        .ai-badge-x:hover { color: #fff; background: rgba(255,255,255,0.18); }
 
     </style>
 </head>
@@ -5710,6 +5734,43 @@
             /* ---------- Chat UI ---------- */
             var open = false, leadState = null, lead = { budget:null, deadline:null, platform:null, contact:null };
 
+            /* ---------- Session memory & lead scoring ---------- */
+            var userSession = { language: 'ar', budgetRange: null, interestedApp: null, leadScore: 1, topics: [] };
+            var estimateState = null;
+            var estimateLang = 'ar';
+            var urgencyShown = false;
+            var triggerPortfolioFired = false;
+            var triggerCalcFired = false;
+            var HIGH_INTENT_RX = /شراء|اشتري|شرايا|جاهز|جاهزة|تسليم|عقد|buy|buying|purchase|order|custom order|contract|sign the deal|i want to start/i;
+            var LOW_INTENT_RX = /أريد فقط|سؤال فقط|مجرد|just asking|just curious|just a question|je demande juste|juste une question|only asking/i;
+            var BUDGET_RX = /(\d[\d,]*\.?\d*)\s*(k|K|دج|دينار|da|dzd|€|eur|usd|\$)?/i;
+
+            function bumpScore(n) { userSession.leadScore = Math.min(10, Math.max(1, userSession.leadScore + n)); }
+            function extractBudget(text) {
+                var m = text.match(/(?:(\$|usd|€|eur)\s*)?([\d,]+\.?\d*)\s*(k|K|دج|دينار|da|dzd)?/i);
+                if (!m || !m[2]) return null;
+                var n = parseFloat(m[2].replace(/,/g, ''));
+                if (m[3] && m[3].toLowerCase() === 'k') n = n * 1000;
+                if (isNaN(n) || n <= 0) return null;
+                if (n < 500 && !m[1]) return null;
+                if (m[2].charAt(0) === '0' && !m[1]) return null;
+                return Math.round(n);
+            }
+            function noteBudget(text) {
+                var b = extractBudget(text);
+                if (b) { userSession.budgetRange = b; bumpScore(1); return true; }
+                return false;
+            }
+            function updateLeadScore(text) {
+                if (HIGH_INTENT_RX.test(text)) bumpScore(3);
+                if (LOW_INTENT_RX.test(text)) bumpScore(-1);
+                noteBudget(text);
+            }
+            function rememberTopic(t) {
+                if (userSession.topics.indexOf(t) === -1) userSession.topics.push(t);
+                if (userSession.topics.length > 6) userSession.topics.shift();
+            }
+
             function addBot(html, delay) {
                 return new Promise(function(res){
                     var typing = document.createElement('div');
@@ -5997,6 +6058,50 @@
                     ar:['🛠️ طبعاً! أي ميزة يمكن تعديلها أو إضافتها. أخبرني ما الذي تريد تغييره، وسنعدّ لك عرضاً مخصصاً بكل التفاصيل.'],
                     en:['🛠️ Of course! Any feature can be adjusted or added. Tell me what you want to change and we\'ll prepare a fully customized quote.'],
                     fr:['🛠️ Bien sûr ! Toute fonctionnalité peut être ajustée ou ajoutée. Dites-moi ce que vous voulez changer et nous préparons un devis entièrement personnalisé.']
+                },
+                estimateQ1: {
+                    ar:['💡 سؤالان فقط وسأعطيك تقديراً دقيقاً. أولاً: ما هي ميزانيتك التقريبية؟ (مثلاً $1,000 أو 150,000 دج)'],
+                    en:['💡 Just two quick questions and I\'ll give you an accurate estimate. First: what\'s your approximate budget? (e.g. $1,000)'],
+                    fr:['💡 Deux petites questions et je vous donne une estimation précise. D\'abord : quel est votre budget approximatif ? (ex. 1 000 $)']
+                },
+                estimateQ2: {
+                    ar:['وماذا تريد بناءه بالضبط؟ (تطبيق جوال / موقع ويب / كلاهما)'],
+                    en:['And what exactly do you want to build? (mobile app / website / both)'],
+                    fr:['Et que voulez-vous exactement ? (application mobile / site web / les deux)']
+                },
+                estimateHead: {
+                    ar:['📋 التقدير الذكي لمشروعك:'],
+                    en:['📋 Your smart project estimate:'],
+                    fr:['📋 Votre estimation intelligente du projet :']
+                },
+                estimateTime: { ar:'المدة التقديرية', en:'Estimated timeline', fr:'Délai estimé' },
+                estimateRange: { ar:'النطاق التقديري', en:'Estimated range', fr:'Fourchette estimée' },
+                estimateInc: { ar:'يشمل: Clean Architecture، Native Kotlin، ملكية 100% لكود المصدر', en:'Includes: Clean Architecture, Native Kotlin, 100% source-code ownership', fr:'Inclus : Clean Architecture, Kotlin natif, propriété à 100% du code source' },
+                estimateFor: { ar:'بناءً على اهتمامك بـ', en:'Based on your interest in', fr:'D\'après votre intérêt pour' },
+                urgency: {
+                    ar:['رائع! طلبك واضح وجاهز للتنفيذ — اضغط هنا للتحويل المباشر إلى مهندس المشروع عبر واتساب الأعمال وحجز موعد الإطلاق.'],
+                    en:['Great! Your request is clear and ready to execute — click here for a direct handoff to the project engineer via WhatsApp Business and book your launch date.'],
+                    fr:['Parfait ! Votre demande est claire et prête à être exécutée — cliquez ici pour un transfert direct vers l\'ingénieur de projet via WhatsApp Business et réservez votre date de lancement.']
+                },
+                decline: {
+                    ar:['نحن في SPECTRONIC نلتزم بتقديم حلول برمجية وفق معايير الجودة والضوابط الأخلاقية المعتمدة.'],
+                    en:['At SPECTRONIC we\'re committed to building software that meets our quality standards and ethical guidelines.'],
+                    fr:['Chez SPECTRONIC, nous nous engageons à développer des logiciels conformes à nos normes de qualité et à nos directives éthiques.']
+                },
+                altGambling: {
+                    ar:['لكن يمكننا تحويل فكرتك إلى منصة تحفيز وولاء (نقاط مكافآت وتحديات بدون أموال) تخدم جمهورك بذكاء.'],
+                    en:['But we can turn your idea into a gamified engagement & loyalty platform (reward points and challenges, no money involved) that serves your audience smartly.'],
+                    fr:['Mais nous pouvons transformer votre idée en une plateforme d\'engagement et de fidélité gamifiée (points de récompense et défis, sans argent) qui sert intelligemment votre audience.']
+                },
+                altMusic: {
+                    ar:['لكن يمكننا بناء بديل ملتزم: بودكاست، دروس صوتية، أصوات طبيعة للتركيز، أو منصة ندوات ومحاضرات — مثل روح تطبيق أورورا.'],
+                    en:['But we can build a compliant alternative: podcasts, audio courses, nature sounds for focus, or a webinars & talks platform — in the spirit of our Aurora app.'],
+                    fr:['Mais nous pouvons créer une alternative conforme : podcasts, cours audio, sons de la nature pour la concentration, ou une plateforme de webinaires et conférences — dans l\'esprit de notre application Aurora.']
+                },
+                altRiba: {
+                    ar:['لكن يمكننا بناء بديل متوافق: إدارة الميزانية والمدخرات، الدفع بالتقسيط بدون فوائد، أو منصة تمويل بالمرابحة المتوافقة مع الشريعة.'],
+                    en:['But we can build a compliant alternative: budgeting & savings management, interest-free installment payments, or a Sharia-compliant Murabaha financing platform.'],
+                    fr:['Mais nous pouvons créer une alternative conforme : gestion de budget et d\'épargne, paiement en plusieurs fois sans intérêts, ou une plateforme de financement Murabaha conforme à la charia.']
                 }
             };
 
@@ -6004,9 +6109,19 @@
             function linesHtml(arr) {
                 return arr.map(function(l){ return '<div>' + esc(l) + '</div>'; }).join('');
             }
+            function buildWaSummary() {
+                var l = curL || 'ar';
+                var parts = [];
+                if (userSession.interestedApp) parts.push('App: ' + userSession.interestedApp);
+                if (userSession.budgetRange) parts.push('Budget: ~$' + userSession.budgetRange.toLocaleString());
+                if (userSession.topics.length) parts.push('Topics: ' + userSession.topics.join(', '));
+                parts.push('Lead: ' + userSession.leadScore + '/10');
+                var head = (l === 'ar' ? 'ملخص محادثتي مع SPECTRONIC AI' : l === 'fr' ? 'Résumé de ma conversation avec SPECTRONIC AI' : 'My conversation summary with SPECTRONIC AI');
+                return head + ' — ' + parts.join(' | ');
+            }
             function waCta(l) {
                 l = l || curL || 'ar';
-                var msg = c('waMsg', l);
+                var msg = c('waMsg', l) + ' — ' + buildWaSummary();
                 return '<a class="ai-wa-btn" href="https://wa.me/213777566691?text=' + encodeURIComponent(msg) + '" target="_blank" rel="noopener">' + c('wa', l) + '</a>';
             }
 
@@ -6063,6 +6178,11 @@
                     renderChips([APP_CTAS[l].consult]);
                     return;
                 }
+                if (intent.id === 'pricing') {
+                    addBot(esc(l === 'ar' ? 'ممتاز! دعني أعطيك تقديراً دقيقاً حسب مشروعك. ✨' : l === 'fr' ? 'Excellent ! Laissez-moi vous donner une estimation précise selon votre projet. ✨' : 'Great! Let me give you an accurate estimate for your project. ✨'), 300);
+                    startEstimate();
+                    return;
+                }
                 if (intent.id === 'howareyou') { replyHowAreYou(); return; }
                 var body = TMPL[intent.id] ? TMPL[intent.id][l] : null;
                 if (body) {
@@ -6075,6 +6195,26 @@
             var AI_SELF_RX = /هل انت ذكي|هل أنت ذكي|انت بوت|أنت بوت|انت روبوت|أنت روبوت|هل انت انسان|هل أنت إنسان|are you (a |an |)bot|are you human|are you a robot|tu es un bot|tu es un robot|es tu un robot|es-tu un robot|tu es une ia/i;
             var OFFTOPIC_RX = /الطقس|طقس|توقعات|weather|الأخبار|اخبار|news|رياضيات|maths|math|جبر|وصفة|طبخ|recipe|recette|واجب|فرض|homework|devoirs|عاصمة|capital|فيلم|مسلسل|movie|series|مباراة|football|كورة|كرة القدم|كوكب|planet|space|فضاء|علم|شعر|قصيدة|poem|ترجمة|translate|météo|meteo|quel temps fait/i;
             var PROJ_SIGNAL_RX = /تطبيق|ابليكيشن|تطبيقات|أب|موقع|ويب|صفحة|لاندينغ|متجر|متاجر|بوت|شات|لوحة|نظام|خدمة|برنامج|سوفت|سوفتوير|app|application|mobile|android|ios|website|web|site|landing|store|shop|ecommerce|e-comm|platform|dashboard|bot|chatbot/i;
+
+            /* ---- Ethical guardrails ---- */
+            var FORBIDDEN = [
+                { rx: /مقامرة|قمار|قمارية|مراهنة|مراهنات|رهان|كازينو|cazino|casino|gambl|betting|poker|slots|روليت|لوتري|يانصيب/i, alt: 'altGambling' },
+                { rx: /موسيقى|موسيقي|أغاني|أغنية|غناء|مشغل موسيقى|music|musique|chanson|songs|song/i, alt: 'altMusic' },
+                { rx: /ربا|ربوي|فائدة ربوية|فوائد ربوية|قرض بفائدة|قرض بفوائد|فائدة بنكية|فوائد بنكية|interest|usury|usurious|interet|interets|pret a interet/i, alt: 'altRiba' }
+            ];
+            function matchForbidden(text) {
+                var t = normalize(text);
+                for (var i = 0; i < FORBIDDEN.length; i++) {
+                    if (FORBIDDEN[i].rx.test(t)) return FORBIDDEN[i];
+                }
+                return null;
+            }
+            function replyForbidden(f) {
+                var l = curL || 'ar';
+                var out = TMPL.decline[l][0] + '<br><br>' + TMPL[f.alt][l][0];
+                addBot(esc(out) + '<br>' + waCta(l), 600);
+                renderChips([APP_CTAS[curL].consult]);
+            }
 
             /* ---- App name matcher ---- */
             function matchApp(text) {
@@ -6089,27 +6229,39 @@
             }
 
             /* ---- Main responder ---- */
-            function respond(raw) {
+            function dispatchRespond(raw) {
                 var text = raw.trim(); if (!text) return;
                 addUser(raw);
                 inputEl.value = '';
                 curL = detectLang(text);
+                userSession.language = curL;
+                updateLeadScore(text);
 
                 var greet = /^\s*(مرحبا|سلام|اهلا|أهلا|السلام|hello|hi|hey|bonjour|salut)/i.test(text) && text.length < 30;
                 var thanks = /شكرا|شكراً|thx|thanks|thank you|merci/i.test(text);
                 var bye = /مع السلامة|وداعا|وداعاً|bye|goodbye|au revoir|adieu/i.test(text);
 
                 if (leadState) { handleLead(text); return; }
+
+                if (estimateState) {
+                    var fresh = /[؟?]/.test(text) || matchApp(text);
+                    if (!fresh) { handleEstimate(text); return; }
+                    estimateState = null;
+                }
+
                 if (AI_SELF_RX.test(text)) { addBot(esc(TMPL.aiSelf[curL][0])); renderChips([c('chips', curL)[3], APP_CTAS[curL].consult]); return; }
                 if (greet) { addBot(linesHtml(TMPL.greet[curL])); renderChips(c('chips', curL)); return; }
                 if (thanks) { addBot(esc(TMPL.thanks[curL][0])); return; }
                 if (bye) { addBot(esc(TMPL.bye[curL][0])); return; }
 
+                var forbidden = matchForbidden(text);
+                if (forbidden) { replyForbidden(forbidden); return; }
+
                 var app = matchApp(text);
-                if (app) { addBot(replyApp(app), 700); return; }
+                if (app) { userSession.interestedApp = APP_KB[app].name[curL]; rememberTopic(app); bumpScore(1); addBot(replyApp(app), 700); return; }
 
                 var intent = matchIntent(text);
-                if (intent) { replyIntent(intent); return; }
+                if (intent) { rememberTopic(intent.id); replyIntent(intent); return; }
 
                 var arch = matchKw(text);
                 var plat = detectPlatform(text);
@@ -6128,6 +6280,13 @@
 
                 addBot(linesHtml(TMPL.fallback[curL]));
                 renderChips(c('chips', curL));
+            }
+            function respond(raw) {
+                dispatchRespond(raw);
+                if (userSession.leadScore >= 7 && !urgencyShown) {
+                    urgencyShown = true;
+                    addBot(esc(TMPL.urgency[curL][0]) + '<br>' + waCta(curL), 1000);
+                }
             }
 
             function replyGreet() {
@@ -6149,14 +6308,60 @@
                     addBot(esc(c('platformGot') + ' ' + c('qContact')), 400);
                 } else if (leadState === 'contact') {
                     lead.contact = text; leadState = null;
-                    var wa = 'https://wa.me/213777566691?text=' + encodeURIComponent(c('waMsg') + ' | Budget: ' + (lead.budget||'?') + ' | Deadline: ' + (lead.deadline||'?') + ' | Platform: ' + (lead.platform||'?') + ' | Contact: ' + text);
+                    if (!userSession.budgetRange) noteBudget(lead.budget || '');
+                    var wa = 'https://wa.me/213777566691?text=' + encodeURIComponent(c('waMsg') + ' | Budget: ' + (lead.budget||'?') + ' | Deadline: ' + (lead.deadline||'?') + ' | Platform: ' + (lead.platform||'?') + ' | Contact: ' + text + ' | ' + buildWaSummary());
                     addBot(esc(c('contactGot') + '\n' + c('thanks')) + '<br><a class="ai-wa-btn" href="' + wa + '" target="_blank" rel="noopener">' + c('wa') + '</a>', 500);
                 }
             }
             function startLead() {
                 if (leadState) return;
+                estimateState = null;
                 leadState = 'budget';
                 addBot(esc(c('qBudget')), 500);
+            }
+
+            /* ---------- Instant cost estimator tool ---------- */
+            function startEstimate() {
+                if (estimateState) return;
+                leadState = null;
+                estimateState = 'budget';
+                estimateLang = curL || 'ar';
+                addBot(esc(TMPL.estimateQ1[estimateLang][0]), 400);
+            }
+            function handleEstimate(text) {
+                if (estimateState === 'budget') {
+                    var appNow = matchApp(text); if (appNow) userSession.interestedApp = APP_KB[appNow].name[curL];
+                    estimateState = 'type';
+                    addBot(esc(TMPL.estimateQ2[estimateLang][0]), 400);
+                } else if (estimateState === 'type') {
+                    var plat = detectPlatform(text) || 'mobile';
+                    userSession.interestedApp = userSession.interestedApp || (matchApp(text) ? APP_KB[matchApp(text)].name[curL] : null);
+                    estimateState = null;
+                    addBot(renderEstimateSummary(plat), 700);
+                    renderChips([APP_CTAS[estimateLang].consult, APP_CTAS[estimateLang].whatsapp]);
+                }
+            }
+            function renderEstimateSummary(plat) {
+                var l = estimateLang || curL || 'ar';
+                var platLabel = (l === 'ar' ? { mobile: 'تطبيق جوال', web: 'موقع ويب', both: 'تطبيق وموقع ويب' } :
+                                 l === 'fr' ? { mobile: 'application mobile', web: 'site web', both: 'application mobile et site web' } :
+                                 { mobile: 'mobile app', web: 'website', both: 'mobile app & website' })[plat] || plat;
+                var budgetNote = userSession.budgetRange ? ' (~$' + userSession.budgetRange.toLocaleString() + ')' : '';
+                var out = TMPL.estimateHead[l][0] + '<br>' +
+                          '• ' + TMPL.estimateTime[l] + ': 3 - 5 ' + (l === 'ar' ? 'أسابيع' : l === 'fr' ? 'semaines' : 'weeks') + '<br>' +
+                          '• ' + TMPL.estimateRange[l] + ': $800 - $1,200' + budgetNote + '<br>' +
+                          '• ' + TMPL.estimateInc[l] + '<br>' +
+                          '• ' + TMPL.estimateFor[l] + ': ' + platLabel;
+                return esc(out) + '<br>' + waCta(l);
+            }
+            function promptApps() {
+                var l = curL || 'ar';
+                addBot(esc(l === 'ar' ? 'بكل سرور! أي تطبيق من تطبيقاتنا تود استكشافه؟' : l === 'fr' ? 'Avec plaisir ! Laquelle de nos applications voulez-vous explorer ?' : 'With pleasure! Which of our apps would you like to explore?'));
+                renderChips([
+                    { label: APP_KB.velora.name[l], cmd: function(){ replyApp('velora'); } },
+                    { label: APP_KB.aurora.name[l], cmd: function(){ replyApp('aurora'); } },
+                    { label: APP_KB.kaizen.name[l], cmd: function(){ replyApp('kaizen'); } }
+                ]);
             }
 
             /* Send */
@@ -6167,6 +6372,7 @@
             /* Open/close */
             function openPanel() {
                 open = true;
+                hideBadge();
                 panel.classList.remove('closed');
                 panel.classList.add('open');
                 launcher.classList.add('open');
@@ -6208,6 +6414,83 @@
                 if (quickEl && !quickEl.children.length && open) renderChips(c('chips'));
             }
             window.aiRefresh = refreshLang;
+            function resetSession() {
+                userSession.language = 'ar'; userSession.budgetRange = null; userSession.interestedApp = null; userSession.leadScore = 1; userSession.topics = [];
+                estimateState = null; urgencyShown = false; triggerPortfolioFired = false; triggerCalcFired = false;
+            }
+            window.aiTest = { showBadge: showBadge, hideBadge: hideBadge, promptApps: promptApps, startEstimate: startEstimate, buildWaSummary: buildWaSummary, resetSession: resetSession, userSession: userSession };
+
+            /* ---------- Proactive engagement triggers ---------- */
+            function uiLang() { return window.getCurrentLang ? window.getCurrentLang() : 'ar'; }
+            var badgeEl = null, badgeDismissed = false;
+            function showBadge(text, onClick) {
+                if (badgeDismissed || !document.body) return;
+                if (!badgeEl) {
+                    badgeEl = document.createElement('div');
+                    badgeEl.className = 'ai-badge';
+                    var inner = document.createElement('span');
+                    inner.className = 'ai-badge-txt';
+                    var x = document.createElement('button');
+                    x.className = 'ai-badge-x';
+                    x.setAttribute('aria-label', 'Dismiss');
+                    x.innerHTML = '&times;';
+                    x.addEventListener('click', function(ev){ ev.stopPropagation(); hideBadge(); badgeDismissed = true; });
+                    badgeEl.appendChild(inner);
+                    badgeEl.appendChild(x);
+                    badgeEl.style.display = 'none';
+                    document.body.appendChild(badgeEl);
+                    badgeEl.addEventListener('click', function(){
+                        hideBadge(); badgeDismissed = true;
+                        if (onClick) onClick();
+                    });
+                }
+                badgeEl.querySelector('.ai-badge-txt').textContent = text;
+                badgeEl.style.display = 'flex';
+            }
+            function hideBadge() {
+                if (badgeEl) badgeEl.style.display = 'none';
+            }
+
+            (function() {
+                var section = document.getElementById('portfolio');
+                if (!section) return;
+                var inView = false, dwellStart = 0;
+                var iv = setInterval(function() {
+                    if (open) { clearInterval(iv); return; }
+                    var r = section.getBoundingClientRect();
+                    var vh = window.innerHeight || document.documentElement.clientHeight;
+                    var visible = r.top < vh * 0.7 && r.bottom > vh * 0.3;
+                    var now = Date.now();
+                    if (visible && !inView) { inView = true; dwellStart = now; }
+                    if (!visible && inView) { inView = false; }
+                    if (inView && !triggerPortfolioFired && now - dwellStart > 12000) {
+                        triggerPortfolioFired = true; clearInterval(iv);
+                        var l = uiLang();
+                        var t = l === 'ar' ? 'هل تود استكشاف كود Velora أو Kaizen AI والتجربة المباشرة؟' :
+                                l === 'fr' ? 'Aimeriez-vous explorer le code de Velora ou Kaizen AI et l\'essayer en direct ?' :
+                                'Would you like to explore Velora or Kaizen AI code and try it live?';
+                        showBadge(t, function(){
+                            openPanel();
+                            setTimeout(promptApps, 500);
+                        });
+                    }
+                }, 800);
+            })();
+
+            document.addEventListener('click', function(ev) {
+                if (triggerCalcFired || open || !ev.target || !ev.target.closest) return;
+                if (ev.target.closest('#calculator .calc-option')) {
+                    triggerCalcFired = true;
+                    var l = uiLang();
+                    var t = l === 'ar' ? 'يمكنني مساعدتك في ضبط الميزانية بدقة أكبر هنا، هل نتحاور؟' :
+                            l === 'fr' ? 'Je peux vous aider à affiner le budget plus précisément ici, on en parle ?' :
+                            'I can help you fine-tune the budget more precisely here — shall we talk?';
+                    showBadge(t, function(){
+                        openPanel();
+                        setTimeout(startEstimate, 500);
+                    });
+                }
+            });
         })();
     </script>
 
