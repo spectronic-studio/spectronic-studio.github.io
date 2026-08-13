@@ -2279,6 +2279,106 @@
             .grad-rule { width: 4rem; }
         }
 
+        /* ================================================================
+           DENSITY + TABS  (scroll-fatigue pass — appended last, wins cascade)
+           ================================================================ */
+        .tab-tabs { display: flex; justify-content: center; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+        .tab-btn {
+            padding: 0.6rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: 1px solid rgba(148,163,184,0.25);
+            color: #94A3B8;
+            background: rgba(30,41,59,0.6);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Readex Pro', sans-serif;
+            white-space: nowrap;
+        }
+        .tab-btn:hover { color: #E2E8F0; border-color: rgba(0,229,255,0.4); }
+        .tab-btn.active {
+            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 8px 24px -8px rgba(99,102,241,0.55);
+        }
+        .portfolio-panel { display: none; }
+        .portfolio-panel.active { display: grid; grid-template-columns: 320px 1fr; gap: 2.75rem; align-items: center; }
+        .info-tab-pane { display: none; }
+        .info-tab-pane.active { display: block; }
+        .tech-chips {
+            display: flex;
+            gap: 0.75rem;
+            overflow-x: auto;
+            padding: 0.25rem 0.25rem 0.75rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scroll-snap-type: x proximity;
+        }
+        .tech-chips::-webkit-scrollbar { height: 6px; }
+        .tech-chips::-webkit-scrollbar-thumb { background: rgba(100,116,139,0.4); border-radius: 3px; }
+        .tech-chip {
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.7rem 1.2rem;
+            border-radius: 9999px;
+            background: linear-gradient(150deg, rgba(30,41,59,0.7), rgba(15,23,42,0.65));
+            border: 1px solid rgba(148,163,184,0.18);
+            color: #E2E8F0;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+        .tech-chip:hover { border-color: rgba(0,229,255,0.45); transform: translateY(-2px); }
+        .tech-chip .tech-avatar { font-size: 0.9rem; }
+        .tech-chip .text-start { line-height: 1.25; }
+        .process-acc { text-align: start; }
+        .process-acc .faq-question { gap: 0.75rem; }
+        .process-acc .faq-question .acc-head { display: flex; align-items: center; gap: 0.9rem; }
+        .process-acc .faq-question .acc-icon {
+            width: 42px; height: 42px; border-radius: 0.8rem;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.15rem; flex-shrink: 0;
+            background: rgba(0,229,255,0.1); border: 1px solid rgba(0,229,255,0.22);
+        }
+        .process-acc .acc-title { display: block; }
+        .process-acc .acc-tag { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 0.1rem; }
+
+        /* Compact mobile spacing — big scroll-length win below 768px */
+        @media (max-width: 767px) {
+            #services, #portfolio, #about, #stats, #stack, #showcase, #process, #cta, #calculator, #faq, #contact {
+                padding-top: 2.5rem !important;
+                padding-bottom: 2.5rem !important;
+            }
+            #services > .container > .text-center,
+            #portfolio > .container > .text-center,
+            #about > .container > .text-center,
+            #stats > .container > .text-center,
+            #stack > .container > .text-center,
+            #showcase > .container > .text-center,
+            #process > .container > .text-center,
+            #cta > .container > .text-center,
+            #calculator > .container > .text-center,
+            #faq > .container > .text-center,
+            #contact > .container > .text-center {
+                margin-bottom: 1.75rem !important;
+            }
+            #services h2, #portfolio h2, #about h2, #stats h2, #stack h2, #showcase h2, #process h2, #cta h2, #calculator h2, #faq h2, #contact h2 {
+                margin-top: 0.5rem !important;
+                margin-bottom: 0.6rem !important;
+            }
+            #services .sec-badge, #portfolio .sec-badge, #about .sec-badge, #stats .sec-badge, #stack .sec-badge, #showcase .sec-badge, #process .sec-badge, #cta .sec-badge {
+                margin-bottom: 0.5rem !important;
+            }
+            .tab-tabs { margin-bottom: 1.5rem; }
+            .portfolio-panel.active { grid-template-columns: 1fr; gap: 1.5rem; }
+            .phone-frame { width: 11.5rem !important; height: 23rem !important; }
+            .tech-chips { padding-bottom: 0.6rem; }
+            .testi-grid { gap: 1rem !important; }
+        }
+
     </style>
 </head>
 <body class="bg-slate-900 text-slate-200 overflow-x-hidden">
@@ -2584,10 +2684,15 @@
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-4 mb-6" data-i18n="portfolio.title">تطبيقاتنا بأفضل صورة</h2>
                 <p class="text-slate-400 text-lg max-w-2xl mx-auto" data-i18n="portfolio.desc">ثلاثة تطبيقات احترافية صممناها وبرمجانها بالكامل من الصفر</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8 mb-16">
+            <div class="tab-tabs" role="tablist" aria-label="App showcase">
+                <button class="tab-btn active" data-app="aurora" onclick="switchPortfolioTab('aurora')" role="tab" aria-selected="true">Aurora</button>
+                <button class="tab-btn" data-app="kaizen" onclick="switchPortfolioTab('kaizen')" role="tab" aria-selected="false">Kaizen AI</button>
+                <button class="tab-btn" data-app="velora" onclick="switchPortfolioTab('velora')" role="tab" aria-selected="false">Velora</button>
+            </div>
+
+            <div class="portfolio-panel active" data-app="aurora" role="tabpanel">
                 <!-- Aurora -->
-                <div class="fade-in-up text-center">
-                    <div class="phone-frame relative mx-auto w-56 h-[440px] bg-slate-900 rounded-[3rem] border-4 border-white/10 shadow-2xl overflow-hidden group cursor-pointer" style="box-shadow: 0 0 40px rgba(99,102,241,0.15);" role="button" tabindex="0" aria-label="View Aurora app preview" onclick="openLightbox(this.querySelector('.phone-screen').innerHTML, 'Aurora — App Preview')">
+                <div class="phone-frame relative mx-auto w-56 h-[440px] bg-slate-900 rounded-[3rem] border-4 border-white/10 shadow-2xl overflow-hidden group cursor-pointer" style="box-shadow: 0 0 40px rgba(99,102,241,0.15);" role="button" tabindex="0" aria-label="View Aurora app preview" onclick="openLightbox(this.querySelector('.phone-screen').innerHTML, 'Aurora — App Preview')">
                         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-slate-900 rounded-b-2xl z-10"></div>
                         <div class="absolute inset-2 bg-gradient-to-b from-indigo-900 to-slate-900 rounded-[2.5rem] overflow-hidden phone-screen">
                             <div class="pt-10 px-3">
@@ -2607,18 +2712,22 @@
                         </div>
                     </div>
                     <div class="mt-6">
-                        <h3 class="text-xl font-bold text-white">Aurora</h3>
+                        <h3 class="text-2xl font-bold text-white">Aurora</h3>
                         <p class="text-slate-400 text-sm mt-1" data-i18n="portfolio.aurora.tag">تتبع القراءة والتركيز</p>
-                        <div class="flex flex-wrap gap-1.5 justify-center mt-3">
+                        <p class="text-slate-400 text-sm leading-relaxed mt-3" data-i18n="testi.aurora.desc">قراءة بلا تشتيت مع تتبع العادات وأصوات الطبيعة لتعميق التركيز، وترتيب الأهداف بشكل ممتع.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
                             <span class="px-2 py-0.5 text-[10px] rounded-full" style="background:rgba(99,102,241,0.15);color:#818CF8;">Kotlin</span>
                             <span class="px-2 py-0.5 text-[10px] rounded-full" style="background:rgba(99,102,241,0.15);color:#818CF8;">Compose</span>
                             <span class="px-2 py-0.5 text-[10px] rounded-full" style="background:rgba(99,102,241,0.15);color:#818CF8;">Offline</span>
                         </div>
-                        <button onclick="openPortfolioModal('aurora')" class="mt-4 px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 active:scale-95" style="background:rgba(99,102,241,0.15);color:#818CF8;border:1px solid rgba(99,102,241,0.3);" data-i18n="portfolio.viewDetails">عرض التفاصيل</button>
+                        <div class="flex flex-wrap gap-3 mt-5">
+                            <button onclick="openDemoModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all duration-300 hover:scale-105 active:scale-95" style="background:linear-gradient(135deg,#00E5FF,#10B981);box-shadow:0 8px 22px -8px rgba(0,229,255,0.5);" data-i18n="testi.demoBtn">عرض حي</button>
+                            <button onclick="openPortfolioModal('aurora')" class="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 active:scale-95" style="background:rgba(99,102,241,0.15);color:#818CF8;border:1px solid rgba(99,102,241,0.3);" data-i18n="portfolio.viewDetails">عرض التفاصيل</button>
+                        </div>
                     </div>
                 </div>
                 <!-- Kaizen AI -->
-                <div class="fade-in-up text-center" style="animation-delay: 0.1s;">
+                <div class="portfolio-panel" data-app="kaizen" role="tabpanel">
                     <div class="phone-frame relative mx-auto w-56 h-[440px] bg-slate-900 rounded-[3rem] border-4 border-white/10 shadow-2xl overflow-hidden group cursor-pointer" style="box-shadow: 0 0 40px rgba(168,85,247,0.15);" role="button" tabindex="0" aria-label="View Kaizen AI app preview" onclick="openLightbox(this.querySelector('.phone-screen').innerHTML, 'Kaizen AI — App Preview')">
                         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-slate-900 rounded-b-2xl z-10"></div>
                         <div class="absolute inset-2 bg-gradient-to-b from-purple-900 to-slate-900 rounded-[2.5rem] overflow-hidden phone-screen">
@@ -2638,18 +2747,22 @@
                         </div>
                     </div>
                     <div class="mt-6">
-                        <h3 class="text-xl font-bold text-white">Kaizen AI</h3>
+                        <h3 class="text-2xl font-bold text-white">Kaizen AI</h3>
                         <p class="text-slate-400 text-sm mt-1" data-i18n="portfolio.kaizen.tag">مدرب الذكاء الاصطناعي واللياقة</p>
-                        <div class="flex flex-wrap gap-1.5 justify-center mt-3">
+                        <p class="text-slate-400 text-sm leading-relaxed mt-3" data-i18n="testi.kaizen.desc">مدرب لياقة ذكي يعدل التمارين يومياً حسب تقدمك، مع حساب السعرات وخطط وجبات مبنية على نشاطك.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
                             <span class="px-2 py-0.5 text-[10px] rounded-full bg-purple-500/15 text-purple-400;">Kotlin</span>
                             <span class="px-2 py-0.5 text-[10px] rounded-full bg-purple-500/15 text-purple-400;">AI Coach</span>
                             <span class="px-2 py-0.5 text-[10px] rounded-full bg-purple-500/15 text-purple-400;">Room DB</span>
                         </div>
-                        <button onclick="openPortfolioModal('kaizen')" class="mt-4 px-5 py-2 rounded-xl text-sm font-semibold bg-purple-500/15 text-purple-400 border border-purple-500/30 transition-all duration-300 hover:scale-105 active:scale-95" data-i18n="portfolio.viewDetails">عرض التفاصيل</button>
+                        <div class="flex flex-wrap gap-3 mt-5">
+                            <button onclick="openDemoModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all duration-300 hover:scale-105 active:scale-95" style="background:linear-gradient(135deg,#00E5FF,#10B981);box-shadow:0 8px 22px -8px rgba(16,185,129,0.5);" data-i18n="testi.demoBtn">عرض حي</button>
+                            <button onclick="openPortfolioModal('kaizen')" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-purple-500/15 text-purple-400 border border-purple-500/30 transition-all duration-300 hover:scale-105 active:scale-95" data-i18n="portfolio.viewDetails">عرض التفاصيل</button>
+                        </div>
                     </div>
                 </div>
                 <!-- Velora -->
-                <div class="fade-in-up text-center" style="animation-delay: 0.2s;">
+                <div class="portfolio-panel" data-app="velora" role="tabpanel">
                     <div class="phone-frame relative mx-auto w-56 h-[440px] bg-slate-900 rounded-[3rem] border-4 border-white/10 shadow-2xl overflow-hidden group cursor-pointer" style="box-shadow: 0 0 40px rgba(245,158,11,0.15);" role="button" tabindex="0" aria-label="View Velora app preview" onclick="openLightbox(this.querySelector('.phone-screen').innerHTML, 'Velora — App Preview')">
                         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-6 bg-slate-900 rounded-b-2xl z-10"></div>
                         <div class="absolute inset-2 bg-gradient-to-b from-slate-700 to-slate-900 rounded-[2.5rem] overflow-hidden phone-screen">
@@ -2669,21 +2782,24 @@
                         </div>
                     </div>
                     <div class="mt-6">
-                        <h3 class="text-xl font-bold text-white">Velora</h3>
+                        <h3 class="text-2xl font-bold text-white">Velora</h3>
                         <p class="text-slate-400 text-sm mt-1" data-i18n="portfolio.velora.tag">منصة تسوق إلكتروني فاخرة</p>
-                        <div class="flex flex-wrap gap-1.5 justify-center mt-3">
+                        <p class="text-slate-400 text-sm leading-relaxed mt-3" data-i18n="testi.velora.desc">منصة تسوق فاخرة بـ Kotlin و Jetpack Compose مع كتالوج أنيق ودفع آمن ولوحة تحكم كاملة للبائع.</p>
+                        <div class="flex flex-wrap gap-1.5 mt-4">
                             <span class="px-2 py-0.5 text-[10px] rounded-full" style="background:rgba(245,158,11,0.15);color:#F59E0B;">Kotlin</span>
                             <span class="px-2 py-0.5 text-[10px] rounded-full" style="background:rgba(245,158,11,0.15);color:#F59E0B;">Compose</span>
                             <span class="px-2 py-0.5 text-[10px] rounded-full" style="background:rgba(245,158,11,0.15);color:#F59E0B;">REST API</span>
                         </div>
-                        <button onclick="openPortfolioModal('velora')" class="mt-4 px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 active:scale-95" style="background:rgba(245,158,11,0.15);color:#F59E0B;border:1px solid rgba(245,158,11,0.3);" data-i18n="portfolio.viewDetails">عرض التفاصيل</button>
+                        <div class="flex flex-wrap gap-3 mt-5">
+                            <button onclick="openDemoModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all duration-300 hover:scale-105 active:scale-95" style="background:linear-gradient(135deg,#00E5FF,#10B981);box-shadow:0 8px 22px -8px rgba(0,229,255,0.5);" data-i18n="testi.demoBtn">عرض حي</button>
+                            <button onclick="openPortfolioModal('velora')" class="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 active:scale-95" style="background:rgba(245,158,11,0.15);color:#F59E0B;border:1px solid rgba(245,158,11,0.3);" data-i18n="portfolio.viewDetails">عرض التفاصيل</button>
+                        </div>
                     </div>
                 </div>
-            </div>
             <!-- Video / Live Preview Container -->
             <div class="fade-in-up">
                 <div class="relative rounded-3xl overflow-hidden border border-white/10 group cursor-pointer" style="background: linear-gradient(135deg, rgba(99,102,241,0.05), rgba(139,92,246,0.05));" id="video-trigger" role="button" aria-label="Play demo video">
-                    <div class="aspect-video flex items-center justify-center relative" style="min-height: 400px;">
+                    <div class="aspect-video flex items-center justify-center relative" style="min-height: 300px;">
                         <div class="absolute inset-0 overflow-hidden opacity-20">
                             <div class="absolute inset-0" style="background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(99,102,241,0.1) 2px, rgba(99,102,241,0.1) 4px); animation: scanmove 8s linear infinite;"></div>
                         </div>
@@ -2774,46 +2890,7 @@
         </div>
     </section>
 
-    <!-- Stats / Numbers Section -->
-    <section id="stats" class="py-20 relative">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 rv">
-                <span class="sec-badge" data-i18n="stats.badge">معايير الجودة</span>
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-5 mb-6 h-grade" data-i18n="stats.title">معاييرنا الأساسية للجودة</h2>
-                <p class="text-slate-400 text-lg max-w-2xl mx-auto" data-i18n="stats.desc">ما يميز عملنا في SPECTRONIC — التزام واضح ومسؤول نحو كل مشروع</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                <div class="stat-card rv-s" data-t="cyan">
-                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-5" style="color:#00E5FF;background:rgba(0,229,255,0.12);box-shadow:0 0 24px -6px rgba(0,229,255,0.45);">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-                    </div>
-                    <h3 class="font-bold text-white text-lg mb-2" data-i18n="stats.q1.title">ملكية كاملة للكود والملكية الفكرية</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed" data-i18n="stats.q1.desc">استلام 100% من الكود المصدري عند اكتمال المشروع.</p>
-                </div>
-                <div class="stat-card rv-s" style="--rl:.08s" data-t="purple">
-                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-5" style="color:#A855F7;background:rgba(168,85,247,0.12);box-shadow:0 0 24px -6px rgba(168,85,247,0.45);">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                    </div>
-                    <h3 class="font-bold text-white text-lg mb-2" data-i18n="stats.q2.title">ضمان 30 يوم بعد الإطلاق</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed" data-i18n="stats.q2.desc">إصلاح مجاني للأخطاء ودعم تقني كامل لمدة 30 يوماً بعد الإطلاق.</p>
-                </div>
-                <div class="stat-card rv-s" style="--rl:.16s" data-t="green">
-                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-5" style="color:#10B981;background:rgba(16,185,129,0.12);box-shadow:0 0 24px -6px rgba(16,185,129,0.45);">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                    </div>
-                    <h3 class="font-bold text-white text-lg mb-2" data-i18n="stats.q3.title">أداء أصلي Native</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed" data-i18n="stats.q3.desc">مبني أصلاً بلغة Kotlin و Jetpack Compose لأقصى سرعة واستقرار.</p>
-                </div>
-                <div class="stat-card rv-s" style="--rl:.24s" data-t="gold">
-                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-5" style="color:#F59E0B;background:rgba(245,158,11,0.12);box-shadow:0 0 24px -6px rgba(245,158,11,0.45);">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                    </div>
-                    <h3 class="font-bold text-white text-lg mb-2" data-i18n="stats.q4.title">برمجيات أخلاقية ونظيفة</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed" data-i18n="stats.q4.desc">ضمان صفر محتوى غير أخلاقي أو موسيقى أو إعلانات مشبوهة.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Quality Standards (relocated into #stack segmented tab) -->
 
     <!-- Process Timeline Section -->
     <section id="process" class="py-24 relative">
@@ -2824,88 +2901,95 @@
                 <p class="text-slate-400 text-lg max-w-2xl mx-auto" data-i18n="process.desc">ست مراحل دقيقة تضمن تسليم مشروع بجودة عالمية — من الفكرة حتى الإطلاق</p>
             </div>
 
-            <div class="process-scroll rv" style="--rl:.1s">
-                <div class="process-col-l">
-                    <div class="process-step">
-                        <div class="process-node"><i></i></div>
-                        <div class="process-card">
-                            <div class="flex items-center gap-4 mb-3">
-                                <span class="process-icon">💡</span>
-                                <div>
-                                    <div class="text-xs font-bold tracking-wide" style="color:#00E5FF;" data-i18n="process.step1.tag">المرحلة 01</div>
-                                    <h3 class="text-lg font-bold text-white" data-i18n="process.step1.title">الفكرة</h3>
-                                </div>
-                            </div>
-                            <p class="text-sm text-slate-400 leading-relaxed" data-i18n="process.step1.desc">نستمع لرؤيتك ونصيغ أهداف المشروع ومتطلباته ونحدد نطاق العمل بدقة.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="process-node"><i></i></div>
-                        <div class="process-card">
-                            <div class="flex items-center gap-4 mb-3">
-                                <span class="process-icon" style="border-color:rgba(168,85,247,0.25);background:rgba(168,85,247,0.1);">🔍</span>
-                                <div>
-                                    <div class="text-xs font-bold tracking-wide" style="color:#A855F7;" data-i18n="process.step2.tag">المرحلة 02</div>
-                                    <h3 class="text-lg font-bold text-white" data-i18n="process.step2.title">البحث والتحليل</h3>
-                                </div>
-                            </div>
-                            <p class="text-sm text-slate-400 leading-relaxed" data-i18n="process.step2.desc">ندرس السوق والمنافسين وسلوك المستخدم لبناء الأساس التقني السليم.</p>
-                        </div>
-                    </div>
-                    <div class="process-step">
-                        <div class="process-node"><i></i></div>
-                        <div class="process-card">
-                            <div class="flex items-center gap-4 mb-3">
-                                <span class="process-icon">🎨</span>
-                                <div>
-                                    <div class="text-xs font-bold tracking-wide" style="color:#10B981;" data-i18n="process.step3.tag">المرحلة 03</div>
-                                    <h3 class="text-lg font-bold text-white" data-i18n="process.step3.title">التصميم</h3>
-                                </div>
-                            </div>
-                            <p class="text-sm text-slate-400 leading-relaxed" data-i18n="process.step3.desc">تصميم UI/UX على Figma مع بروتوتايب تفاعلي يختبر كل تجربة قبل البرمجة.</p>
-                        </div>
+            <div class="max-w-3xl mx-auto space-y-3" role="list" aria-label="Project workflow steps">
+                <div class="faq-item process-acc" role="listitem">
+                    <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                        <span class="acc-head">
+                            <span class="acc-icon">💡</span>
+                            <span>
+                                <span class="acc-tag" style="color:#00E5FF;" data-i18n="process.step1.tag">المرحلة 01</span>
+                                <span class="acc-title text-white font-bold text-lg" data-i18n="process.step1.title">الفكرة</span>
+                            </span>
+                        </span>
+                        <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="process.step1.desc">نستمع لرؤيتك ونصيغ أهداف المشروع ومتطلباته ونحدد نطاق العمل بدقة.</div>
                     </div>
                 </div>
-
-                <div class="process-col-r">
-                    <div class="process-step">
-                        <div class="process-node"><i></i></div>
-                        <div class="process-card">
-                            <div class="flex items-center gap-4 mb-3">
-                                <span class="process-icon">⚙️</span>
-                                <div>
-                                    <div class="text-xs font-bold tracking-wide" style="color:#F59E0B;" data-i18n="process.step4.tag">المرحلة 04</div>
-                                    <h3 class="text-lg font-bold text-white" data-i18n="process.step4.title">التطوير</h3>
-                                </div>
-                            </div>
-                            <p class="text-sm text-slate-400 leading-relaxed" data-i18n="process.step4.desc">برمجة نظيفة بمعمارية حديثة (Clean Architecture) مع مراجعات كود مستمرة.</p>
-                        </div>
+                <div class="faq-item process-acc">
+                    <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                        <span class="acc-head">
+                            <span class="acc-icon" style="border-color:rgba(168,85,247,0.25);background:rgba(168,85,247,0.1);">🔍</span>
+                            <span>
+                                <span class="acc-tag" style="color:#A855F7;" data-i18n="process.step2.tag">المرحلة 02</span>
+                                <span class="acc-title text-white font-bold text-lg" data-i18n="process.step2.title">البحث والتحليل</span>
+                            </span>
+                        </span>
+                        <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="process.step2.desc">ندرس السوق والمنافسين وسلوك المستخدم لبناء الأساس التقني السليم.</div>
                     </div>
-                    <div class="process-step">
-                        <div class="process-node"><i></i></div>
-                        <div class="process-card">
-                            <div class="flex items-center gap-4 mb-3">
-                                <span class="process-icon" style="border-color:rgba(0,229,255,0.25);background:rgba(0,229,255,0.1);">🧪</span>
-                                <div>
-                                    <div class="text-xs font-bold tracking-wide" style="color:#00E5FF;" data-i18n="process.step5.tag">المرحلة 05</div>
-                                    <h3 class="text-lg font-bold text-white" data-i18n="process.step5.title">الاختبار</h3>
-                                </div>
-                            </div>
-                            <p class="text-sm text-slate-400 leading-relaxed" data-i18n="process.step5.desc">اختبارات وظيفية وأداء وأمان شاملة، وتجربة استخدام دقيقة على أجهزة حقيقية.</p>
-                        </div>
+                </div>
+                <div class="faq-item process-acc">
+                    <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                        <span class="acc-head">
+                            <span class="acc-icon">🎨</span>
+                            <span>
+                                <span class="acc-tag" style="color:#10B981;" data-i18n="process.step3.tag">المرحلة 03</span>
+                                <span class="acc-title text-white font-bold text-lg" data-i18n="process.step3.title">التصميم</span>
+                            </span>
+                        </span>
+                        <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="process.step3.desc">تصميم UI/UX على Figma مع بروتوتايب تفاعلي يختبر كل تجربة قبل البرمجة.</div>
                     </div>
-                    <div class="process-step">
-                        <div class="process-node"><i></i></div>
-                        <div class="process-card">
-                            <div class="flex items-center gap-4 mb-3">
-                                <span class="process-icon">🚀</span>
-                                <div>
-                                    <div class="text-xs font-bold tracking-wide" style="color:#A855F7;" data-i18n="process.step6.tag">المرحلة 06</div>
-                                    <h3 class="text-lg font-bold text-white" data-i18n="process.step6.title">الإطلاق</h3>
-                                </div>
-                            </div>
-                            <p class="text-sm text-slate-400 leading-relaxed" data-i18n="process.step6.desc">نطلق مشروعك للجمهور مع مراقبة الأداء ودعم فني مستمر وتحديثات دورية.</p>
-                        </div>
+                </div>
+                <div class="faq-item process-acc">
+                    <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                        <span class="acc-head">
+                            <span class="acc-icon">⚙️</span>
+                            <span>
+                                <span class="acc-tag" style="color:#F59E0B;" data-i18n="process.step4.tag">المرحلة 04</span>
+                                <span class="acc-title text-white font-bold text-lg" data-i18n="process.step4.title">التطوير</span>
+                            </span>
+                        </span>
+                        <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="process.step4.desc">برمجة نظيفة بمعمارية حديثة (Clean Architecture) مع مراجعات كود مستمرة.</div>
+                    </div>
+                </div>
+                <div class="faq-item process-acc">
+                    <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                        <span class="acc-head">
+                            <span class="acc-icon" style="border-color:rgba(0,229,255,0.25);background:rgba(0,229,255,0.1);">🧪</span>
+                            <span>
+                                <span class="acc-tag" style="color:#00E5FF;" data-i18n="process.step5.tag">المرحلة 05</span>
+                                <span class="acc-title text-white font-bold text-lg" data-i18n="process.step5.title">الاختبار</span>
+                            </span>
+                        </span>
+                        <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="process.step5.desc">اختبارات وظيفية وأداء وأمان شاملة، وتجربة استخدام دقيقة على أجهزة حقيقية.</div>
+                    </div>
+                </div>
+                <div class="faq-item process-acc">
+                    <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                        <span class="acc-head">
+                            <span class="acc-icon">🚀</span>
+                            <span>
+                                <span class="acc-tag" style="color:#A855F7;" data-i18n="process.step6.tag">المرحلة 06</span>
+                                <span class="acc-title text-white font-bold text-lg" data-i18n="process.step6.title">الإطلاق</span>
+                            </span>
+                        </span>
+                        <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner" data-i18n="process.step6.desc">نطلق مشروعك للجمهور مع مراقبة الأداء ودعم فني مستمر وتحديثات دورية.</div>
                     </div>
                 </div>
             </div>
@@ -2913,85 +2997,62 @@
     </section>
 
     <!-- Tech Stack Section -->
-    <section id="stack" class="py-24 relative">
+    <section id="stack" class="py-20 relative">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14 rv">
+            <div class="text-center mb-10 rv">
                 <span class="sec-badge" data-i18n="stack.badge">التقنيات</span>
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-5 mb-6 h-grade" data-i18n="stack.title">أدوات نبني بها المستقبل</h2>
                 <p class="text-slate-400 text-lg max-w-2xl mx-auto" data-i18n="stack.desc">نختار أفضل التقنيات لكل مشروع لضمان الأداء والتوسع والاستدامة</p>
             </div>
 
-            <div class="tech-grid">
-                <div class="tech-card rv-s" data-t="cyan">
-                    <div class="tech-glow"></div>
-                    <div class="tech-inner">
-                        <span class="tech-avatar">◈</span>
-                        <span class="font-bold text-white text-sm" data-i18n="stack.kotlin">Kotlin</span>
-                        <span class="text-[11px] text-slate-500" data-i18n="stack.kotlinSub">لغة برمجة عصرية وآمنة</span>
-                    </div>
+            <div class="tab-tabs rv" role="tablist" aria-label="Stack and quality">
+                <button class="tab-btn active" data-tab="tech" onclick="switchInfoTab(this)" role="tab" aria-selected="true" data-i18n="stack.tabTech">التقنيات</button>
+                <button class="tab-btn" data-tab="stats" onclick="switchInfoTab(this)" role="tab" aria-selected="false" data-i18n="stack.tabStats">معايير الجودة</button>
+            </div>
+
+            <div class="info-tab-pane active" data-tab="tech">
+                <div class="tech-chips rv-s">
+                    <div class="tech-chip" data-t="cyan"><span class="tech-avatar">◈</span><span class="text-start"><span class="block font-bold text-white text-sm" data-i18n="stack.kotlin">Kotlin</span><span class="block text-[10px] text-slate-500" data-i18n="stack.kotlinSub">لغة برمجة عصرية وآمنة</span></span></div>
+                    <div class="tech-chip" data-t="purple"><span class="tech-avatar">◈</span><span class="text-start"><span class="block font-bold text-white text-sm" data-i18n="stack.compose">Jetpack Compose</span><span class="block text-[10px] text-slate-500" data-i18n="stack.composeSub">واجهات Android عصرية</span></span></div>
+                    <div class="tech-chip" data-t="green"><span class="tech-avatar">◈</span><span class="text-start"><span class="block font-bold text-white text-sm" data-i18n="stack.material">Material Design 3</span><span class="block text-[10px] text-slate-500" data-i18n="stack.materialSub">تصميم متكيف حديث</span></span></div>
+                    <div class="tech-chip" data-t="gold"><span class="tech-avatar">◈</span><span class="text-start"><span class="block font-bold text-white text-sm" data-i18n="stack.cleanArch">Clean Architecture</span><span class="block text-[10px] text-slate-500" data-i18n="stack.cleanArchSub">بنية قابلة للتوسع</span></span></div>
+                    <div class="tech-chip" data-t="indigo"><span class="tech-avatar">◈</span><span class="text-start"><span class="block font-bold text-white text-sm" data-i18n="stack.mvvm">MVVM</span><span class="block text-[10px] text-slate-500" data-i18n="stack.mvvmSub">فصل كامل للمسؤوليات</span></span></div>
+                    <div class="tech-chip" data-t="rose"><span class="tech-avatar">◈</span><span class="text-start"><span class="block font-bold text-white text-sm" data-i18n="stack.koin">Koin</span><span class="block text-[10px] text-slate-500" data-i18n="stack.koinSub">حقن تبعيات خفيف</span></span></div>
+                    <div class="tech-chip" data-t="cyan"><span class="tech-avatar">◈</span><span class="text-start"><span class="block font-bold text-white text-sm" data-i18n="stack.room">Room DB</span><span class="block text-[10px] text-slate-500" data-i18n="stack.roomSub">قاعدة بيانات محلية قوية</span></span></div>
+                    <div class="tech-chip" data-t="purple"><span class="tech-avatar">◈</span><span class="text-start"><span class="block font-bold text-white text-sm">Supabase</span><span class="block text-[10px] text-slate-500" data-i18n="stack.supabaseSub">Postgres + Auth</span></span></div>
+                    <div class="tech-chip" data-t="green"><span class="tech-avatar">✦</span><span class="text-start"><span class="block font-bold text-white text-sm" data-i18n="stack.aiFeat">دمج ميزات الذكاء الاصطناعي</span><span class="block text-[10px] text-slate-500" data-i18n="stack.aiFeatSub">دمج نماذج AI مخصصة مباشرة داخل تطبيقات العملاء</span></span></div>
                 </div>
-                <div class="tech-card rv-s" style="--rl:.05s" data-t="purple">
-                    <div class="tech-glow"></div>
-                    <div class="tech-inner">
-                        <span class="tech-avatar">◈</span>
-                        <span class="font-bold text-white text-sm" data-i18n="stack.compose">Jetpack Compose</span>
-                        <span class="text-[11px] text-slate-500" data-i18n="stack.composeSub">واجهات Android عصرية</span>
+            </div>
+
+            <div class="info-tab-pane" data-tab="stats">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                    <div class="stat-card rv-s" data-t="cyan">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-5" style="color:#00E5FF;background:rgba(0,229,255,0.12);box-shadow:0 0 24px -6px rgba(0,229,255,0.45);">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-2" data-i18n="stats.q1.title">ملكية كاملة للكود والملكية الفكرية</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed" data-i18n="stats.q1.desc">استلام 100% من الكود المصدري عند اكتمال المشروع.</p>
                     </div>
-                </div>
-                <div class="tech-card rv-s" style="--rl:.1s" data-t="green">
-                    <div class="tech-glow"></div>
-                    <div class="tech-inner">
-                        <span class="tech-avatar">◈</span>
-                        <span class="font-bold text-white text-sm" data-i18n="stack.material">Material Design 3</span>
-                        <span class="text-[11px] text-slate-500" data-i18n="stack.materialSub">تصميم متكيف حديث</span>
+                    <div class="stat-card rv-s" style="--rl:.08s" data-t="purple">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-5" style="color:#A855F7;background:rgba(168,85,247,0.12);box-shadow:0 0 24px -6px rgba(168,85,247,0.45);">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-2" data-i18n="stats.q2.title">ضمان 30 يوم بعد الإطلاق</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed" data-i18n="stats.q2.desc">إصلاح مجاني للأخطاء ودعم تقني كامل لمدة 30 يوماً بعد الإطلاق.</p>
                     </div>
-                </div>
-                <div class="tech-card rv-s" style="--rl:.15s" data-t="gold">
-                    <div class="tech-glow"></div>
-                    <div class="tech-inner">
-                        <span class="tech-avatar">◈</span>
-                        <span class="font-bold text-white text-sm" data-i18n="stack.cleanArch">Clean Architecture</span>
-                        <span class="text-[11px] text-slate-500" data-i18n="stack.cleanArchSub">بنية قابلة للتوسع</span>
+                    <div class="stat-card rv-s" style="--rl:.16s" data-t="green">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-5" style="color:#10B981;background:rgba(16,185,129,0.12);box-shadow:0 0 24px -6px rgba(16,185,129,0.45);">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-2" data-i18n="stats.q3.title">أداء أصلي Native</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed" data-i18n="stats.q3.desc">مبني أصلاً بلغة Kotlin و Jetpack Compose لأقصى سرعة واستقرار.</p>
                     </div>
-                </div>
-                <div class="tech-card rv-s" style="--rl:.2s" data-t="indigo">
-                    <div class="tech-glow"></div>
-                    <div class="tech-inner">
-                        <span class="tech-avatar">◈</span>
-                        <span class="font-bold text-white text-sm" data-i18n="stack.mvvm">MVVM</span>
-                        <span class="text-[11px] text-slate-500" data-i18n="stack.mvvmSub">فصل كامل للمسؤوليات</span>
-                    </div>
-                </div>
-                <div class="tech-card rv-s" style="--rl:.25s" data-t="rose">
-                    <div class="tech-glow"></div>
-                    <div class="tech-inner">
-                        <span class="tech-avatar">◈</span>
-                        <span class="font-bold text-white text-sm" data-i18n="stack.koin">Koin</span>
-                        <span class="text-[11px] text-slate-500" data-i18n="stack.koinSub">حقن تبعيات خفيف</span>
-                    </div>
-                </div>
-                <div class="tech-card rv-s" style="--rl:.3s" data-t="cyan">
-                    <div class="tech-glow"></div>
-                    <div class="tech-inner">
-                        <span class="tech-avatar">◈</span>
-                        <span class="font-bold text-white text-sm" data-i18n="stack.room">Room DB</span>
-                        <span class="text-[11px] text-slate-500" data-i18n="stack.roomSub">قاعدة بيانات محلية قوية</span>
-                    </div>
-                </div>
-                <div class="tech-card rv-s" style="--rl:.35s" data-t="purple">
-                    <div class="tech-glow"></div>
-                    <div class="tech-inner">
-                        <span class="tech-avatar">◈</span>
-                        <span class="font-bold text-white text-sm">Supabase</span>
-                        <span class="text-[11px] text-slate-500" data-i18n="stack.supabaseSub">Postgres + Auth</span>
-                    </div>
-                </div>
-                <div class="tech-card rv-s" style="--rl:.4s" data-t="green">
-                    <div class="tech-glow"></div>
-                    <div class="tech-inner">
-                        <span class="tech-avatar">✦</span>
-                        <span class="font-bold text-white text-sm" data-i18n="stack.aiFeat">دمج ميزات الذكاء الاصطناعي</span>
-                        <span class="text-[11px] text-slate-500" data-i18n="stack.aiFeatSub">دمج نماذج AI مخصصة مباشرة داخل تطبيقات العملاء</span>
+                    <div class="stat-card rv-s" style="--rl:.24s" data-t="gold">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-5" style="color:#F59E0B;background:rgba(245,158,11,0.12);box-shadow:0 0 24px -6px rgba(245,158,11,0.45);">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-white text-lg mb-2" data-i18n="stats.q4.title">برمجيات أخلاقية ونظيفة</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed" data-i18n="stats.q4.desc">ضمان صفر محتوى غير أخلاقي أو موسيقى أو إعلانات مشبوهة.</p>
                     </div>
                 </div>
             </div>
@@ -4042,6 +4103,7 @@
                     'process.step5.tag': 'المرحلة 05', 'process.step5.title': 'الاختبار', 'process.step5.desc': 'اختبارات وظيفية وأداء وأمان شاملة، وتجربة استخدام دقيقة على أجهزة حقيقية.',
                     'process.step6.tag': 'المرحلة 06', 'process.step6.title': 'الإطلاق', 'process.step6.desc': 'نطلق مشروعك للجمهور مع مراقبة الأداء ودعم فني مستمر وتحديثات دورية.',
                     'stack.badge': 'التقنيات', 'stack.title': 'أدوات نبني بها المستقبل', 'stack.desc': 'نختار أفضل التقنيات لكل مشروع لضمان الأداء والتوسع والاستدامة',
+                    'stack.tabTech': 'التقنيات', 'stack.tabStats': 'معايير الجودة',
                     'stack.flutter': 'Flutter', 'stack.flutterSub': 'تطبيقات متعددة المنصات',
                     'stack.compose': 'Jetpack Compose', 'stack.composeSub': 'واجهات Android عصرية',
                     'stack.material': 'Material 3', 'stack.materialSub': 'تصميم متكيف حديث',
@@ -4169,6 +4231,7 @@
                     'process.step5.tag': 'Phase 05', 'process.step5.title': 'Testing', 'process.step5.desc': 'Comprehensive functional, performance, and security testing with precise UX on real devices.',
                     'process.step6.tag': 'Phase 06', 'process.step6.title': 'Launch', 'process.step6.desc': 'We launch your project to the public with performance monitoring, ongoing support, and periodic updates.',
                     'stack.badge': 'Tech Stack', 'stack.title': 'Tools to Build the Future', 'stack.desc': 'We choose the best technologies for each project to ensure performance, scalability, and sustainability',
+                    'stack.tabTech': 'Technologies', 'stack.tabStats': 'Quality Standards',
                     'stack.flutter': 'Flutter', 'stack.flutterSub': 'Cross-platform apps',
                     'stack.compose': 'Jetpack Compose', 'stack.composeSub': 'Modern Android UI',
                     'stack.material': 'Material 3', 'stack.materialSub': 'Adaptive modern design',
@@ -4296,6 +4359,7 @@
                     'process.step5.tag': 'Phase 05', 'process.step5.title': 'Tests', 'process.step5.desc': 'Tests fonctionnels, de performance et de sécurité complets avec une UX précise sur appareils réels.',
                     'process.step6.tag': 'Phase 06', 'process.step6.title': 'Lancement', 'process.step6.desc': 'Nous lançons votre projet au public avec surveillance des performances, support continu et mises à jour périodiques.',
                     'stack.badge': 'Stack Technique', 'stack.title': 'Les outils pour bâtir le futur', 'stack.desc': 'Nous choisissons les meilleures technologies pour chaque projet : performance, scalabilité et durabilité',
+                    'stack.tabTech': 'Technologies', 'stack.tabStats': 'Normes de qualité',
                     'stack.flutter': 'Flutter', 'stack.flutterSub': 'Apps multiplateformes',
                     'stack.compose': 'Jetpack Compose', 'stack.composeSub': 'UI Android moderne',
                     'stack.material': 'Material 3', 'stack.materialSub': 'Design adaptatif moderne',
@@ -4695,6 +4759,33 @@
                 if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleFaq(btn); }
             });
         });
+
+        // === App Showcase Tabs ===
+        function switchPortfolioTab(id) {
+            document.querySelectorAll('.tab-btn[data-app]').forEach(function(b) {
+                var on = b.getAttribute('data-app') === id;
+                b.classList.toggle('active', on);
+                b.setAttribute('aria-selected', on ? 'true' : 'false');
+            });
+            document.querySelectorAll('.portfolio-panel').forEach(function(p) {
+                p.classList.toggle('active', p.getAttribute('data-app') === id);
+            });
+        }
+        window.switchPortfolioTab = switchPortfolioTab;
+
+        // === Info Segmented Tabs (Tech / Quality) ===
+        function switchInfoTab(btn) {
+            var tab = btn.getAttribute('data-tab');
+            btn.parentElement.querySelectorAll('.tab-btn').forEach(function(b) {
+                var on = b === btn;
+                b.classList.toggle('active', on);
+                b.setAttribute('aria-selected', on ? 'true' : 'false');
+            });
+            document.querySelectorAll('.info-tab-pane').forEach(function(p) {
+                p.classList.toggle('active', p.getAttribute('data-tab') === tab);
+            });
+        }
+        window.switchInfoTab = switchInfoTab;
 
         // === Project Calculator ===
         (function() {
