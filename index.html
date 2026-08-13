@@ -52,7 +52,7 @@
         "logo": "https://spectronic.studio/logo.png",
         "image": "https://spectronic.studio/og-image.png",
         "email": "spectronic.studio1@gmail.com",
-        "telephone": "+213-600-000-000",
+        "telephone": "+213-777-56-66-91",
         "address": {
             "@type": "PostalAddress",
             "addressCountry": "DZ",
@@ -82,7 +82,7 @@
             "https://www.instagram.com/spectronic.studio",
             "https://www.tiktok.com/@spectronic.studio",
             "https://www.youtube.com/@spectronic.studio",
-            "https://wa.me/213600000000"
+            "https://wa.me/213777566691"
         ],
         "priceRange": "$$",
         "hasOfferCatalog": {
@@ -2379,6 +2379,50 @@
             .testi-grid { gap: 1rem !important; }
         }
 
+        /* App detail: features, specs, gallery */
+        .app-detail-heading {
+            display: flex; align-items: center; gap: 0.55rem;
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
+            color: #E2E8F0; margin: 1.4rem 0 0.8rem;
+        }
+        .app-detail-heading:first-of-type { margin-top: 1.1rem; }
+        .app-head-dot { width: 0.5rem; height: 0.5rem; border-radius: 9999px; flex-shrink: 0; }
+        .feature-list { display: grid; grid-template-columns: 1fr; gap: 0.55rem 1rem; margin-top: 0.5rem; }
+        @media (min-width: 640px) { .feature-list { grid-template-columns: 1fr 1fr; } }
+        .feature-item { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.85rem; color: #CBD5E1; line-height: 1.55; }
+        .feature-check { width: 1rem; height: 1rem; flex-shrink: 0; margin-top: 0.2rem; }
+        .spec-chip {
+            padding: 0.3rem 0.75rem; font-size: 10px; font-weight: 600;
+            border-radius: 9999px; border: 1px solid; letter-spacing: 0.02em;
+        }
+        .gallery-row {
+            display: flex; gap: 0.7rem; overflow-x: auto;
+            padding: 0.25rem 0 0.5rem; -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+        .gallery-row::-webkit-scrollbar { height: 4px; }
+        .gallery-row::-webkit-scrollbar-thumb { background: rgba(100,116,139,0.4); border-radius: 3px; }
+        .gallery-item {
+            flex-shrink: 0; width: 5.5rem; height: 7rem; border-radius: 0.9rem; overflow: hidden;
+            background: #0F172A; border: 1px solid rgba(148,163,184,0.2); cursor: pointer;
+            position: relative; display: block; padding: 0;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery-item:hover { transform: translateY(-3px); border-color: rgba(0,229,255,0.5); box-shadow: 0 10px 24px -12px rgba(0,229,255,0.35); }
+        .gallery-item:focus-visible { outline: 2px solid #00E5FF; outline-offset: 2px; }
+        .gal-screen { height: 100%; padding: 0.55rem; box-sizing: border-box; display: flex; flex-direction: column; gap: 0.35rem; }
+        .gal-notch { align-self: center; width: 1.6rem; height: 0.35rem; border-radius: 9999px; background: rgba(255,255,255,0.35); margin-bottom: 0.1rem; }
+        .gal-line { height: 0.3rem; border-radius: 9999px; background: rgba(255,255,255,0.3); }
+        .gal-chip { height: 0.45rem; border-radius: 0.35rem; background: rgba(255,255,255,0.16); }
+        .gal-block { flex: 1; border-radius: 0.5rem; background: rgba(255,255,255,0.14); }
+        .gal-avatar { width: 1.5rem; height: 1.5rem; border-radius: 9999px; background: rgba(255,255,255,0.22); }
+        .gal-ring { align-self: center; width: 2.2rem; height: 2.2rem; border-radius: 9999px; border: 0.28rem solid rgba(255,255,255,0.35); margin: 0.15rem 0; }
+        .gal-label {
+            position: absolute; bottom: 0; left: 0; right: 0; padding: 0.2rem 0;
+            font-size: 9px; font-weight: 700; color: #fff; background: rgba(15,23,42,0.88);
+            text-align: center; letter-spacing: 0.05em;
+        }
+
     </style>
 </head>
 <body class="bg-slate-900 text-slate-200 overflow-x-hidden">
@@ -2418,6 +2462,10 @@
                     <a href="#calculator" data-nav="calculator" class="nav-link text-slate-300 hover:text-emerald-400 transition-all duration-300 font-medium relative after:absolute after:bottom-[-6px] after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[2px] after:bg-emerald-400 after:rounded-full after:transition-all after:duration-300 hover:after:w-full" data-i18n="nav.calc">التسعير</a>
                     <a href="#faq" data-nav="faq" class="nav-link text-slate-300 hover:text-emerald-400 transition-all duration-300 font-medium relative after:absolute after:bottom-[-6px] after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[2px] after:bg-emerald-400 after:rounded-full after:transition-all after:duration-300 hover:after:w-full" data-i18n="nav.faq">FAQ</a>
                     <a href="#contact" data-nav="contact" class="nav-link bg-emerald-500 hover:bg-emerald-400 text-white px-6 py-2.5 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/30 hover:scale-105 active:scale-95" data-i18n="nav.contact">اتصل بي</a>
+                    <a href="tel:+213777566691" dir="ltr" class="text-emerald-400 hover:text-emerald-300 font-semibold transition-all duration-300 hover:scale-105 inline-flex items-center gap-2" aria-label="Call SPECTRONIC Studio">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        <span>+213 777 56 66 91</span>
+                    </a>
                     <div class="lang-switcher">
                         <button class="lang-btn active" data-lang="ar">AR</button>
                         <button class="lang-btn" data-lang="en">EN</button>
@@ -2450,6 +2498,7 @@
                     <a href="#calculator" data-nav="calculator" class="nav-link block text-slate-300 hover:text-emerald-400 transition-all duration-300 font-medium py-2 hover:translate-x-[-4px]" data-i18n="nav.calc">التسعير</a>
                     <a href="#faq" data-nav="faq" class="nav-link block text-slate-300 hover:text-emerald-400 transition-all duration-300 font-medium py-2 hover:translate-x-[-4px]" data-i18n="nav.faq">FAQ</a>
                     <a href="#contact" data-nav="contact" class="block bg-emerald-500 hover:bg-emerald-400 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 text-center mt-4 hover:shadow-lg hover:shadow-emerald-500/30 hover:scale-105 active:scale-95" data-i18n="nav.contact">اتصل بي</a>
+                    <a href="tel:+213777566691" dir="ltr" class="block text-emerald-400 hover:text-emerald-300 font-semibold transition-all duration-300 py-2 text-center" aria-label="Call SPECTRONIC Studio">+213 777 56 66 91</a>
                     <div class="lang-switcher mt-4">
                         <button class="lang-btn active" data-lang="ar">AR</button>
                         <button class="lang-btn" data-lang="en">EN</button>
@@ -2713,17 +2762,71 @@
                     </div>
                     <div class="mt-6">
                         <h3 class="text-2xl font-bold text-white">Aurora</h3>
-                        <p class="text-slate-400 text-sm mt-1" data-i18n="portfolio.aurora.tag">تتبع القراءة والتركيز</p>
-                        <p class="text-slate-400 text-sm leading-relaxed mt-3" data-i18n="testi.aurora.desc">قراءة بلا تشتيت مع تتبع العادات وأصوات الطبيعة لتعميق التركيز، وترتيب الأهداف بشكل ممتع.</p>
-                        <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="px-2 py-0.5 text-[10px] rounded-full" style="background:rgba(99,102,241,0.15);color:#818CF8;">Kotlin</span>
-                            <span class="px-2 py-0.5 text-[10px] rounded-full" style="background:rgba(99,102,241,0.15);color:#818CF8;">Compose</span>
-                            <span class="px-2 py-0.5 text-[10px] rounded-full" style="background:rgba(99,102,241,0.15);color:#818CF8;">Offline</span>
+                        <p class="text-slate-400 text-sm mt-1" data-i18n="portfolio.aurora.tag">تطبيق المكتبة ومتابعة القراءة</p>
+                        <p class="text-slate-400 text-sm leading-relaxed mt-3" data-i18n="testi.aurora.desc">تطبيق المكتبة ومتابعة القراءة: نظام نقاط ومكافآت للقراءة، أصوات طبيعة للتركيز العميق، ومجتمع قرّاء وتحديات مستمرة.</p>
+
+                        <h4 class="app-detail-heading"><span class="app-head-dot" style="background:#818CF8;"></span><span data-i18n="portfolio.features">المميزات الرئيسية</span></h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><svg class="feature-check" style="color:#818CF8;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span data-i18n="portfolio.aurora.f1">نظام نقاط ومكافآت للقراءة</span></li>
+                            <li class="feature-item"><svg class="feature-check" style="color:#818CF8;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span data-i18n="portfolio.aurora.f2">أصوات طبيعة للتركيز العميق</span></li>
+                            <li class="feature-item"><svg class="feature-check" style="color:#818CF8;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span data-i18n="portfolio.aurora.f3">مجتمع قرّاء وتحديات مستمرة</span></li>
+                            <li class="feature-item"><svg class="feature-check" style="color:#818CF8;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span data-i18n="portfolio.aurora.f4">مزامنة التقدم عبر الأجهزة</span></li>
+                        </ul>
+
+                        <h4 class="app-detail-heading"><span class="app-head-dot" style="background:#818CF8;"></span><span data-i18n="portfolio.specs">المواصفات التقنية</span></h4>
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="spec-chip" style="color:#818CF8;border-color:rgba(99,102,241,0.3);background:rgba(99,102,241,0.12);">Kotlin</span>
+                            <span class="spec-chip" style="color:#818CF8;border-color:rgba(99,102,241,0.3);background:rgba(99,102,241,0.12);">Jetpack Compose</span>
+                            <span class="spec-chip" style="color:#818CF8;border-color:rgba(99,102,241,0.3);background:rgba(99,102,241,0.12);">Room DB</span>
+                            <span class="spec-chip" style="color:#818CF8;border-color:rgba(99,102,241,0.3);background:rgba(99,102,241,0.12);">MVVM</span>
+                            <span class="spec-chip" style="color:#818CF8;border-color:rgba(99,102,241,0.3);background:rgba(99,102,241,0.12);">REST API</span>
+                            <span class="spec-chip" style="color:#818CF8;border-color:rgba(99,102,241,0.3);background:rgba(99,102,241,0.12);">Offline First</span>
                         </div>
+
+                        <h4 class="app-detail-heading"><span class="app-head-dot" style="background:#818CF8;"></span><span data-i18n="portfolio.gallery">معرض الوسائط</span></h4>
+                        <div class="gallery-row">
+                            <button type="button" class="gallery-item" onclick="showAppScreen('aurora',1)" aria-label="Aurora screen 1">
+                                <div class="gal-screen" style="background:linear-gradient(160deg,#4F46E5,#1E1B4B);">
+                                    <div class="gal-notch"></div>
+                                    <div class="gal-chip w-2/3"></div>
+                                    <div class="gal-line w-full"></div>
+                                    <div class="gal-line w-4/5"></div>
+                                    <div class="gal-block"></div>
+                                </div>
+                                <span class="gal-label">1</span>
+                            </button>
+                            <button type="button" class="gallery-item" onclick="showAppScreen('aurora',2)" aria-label="Aurora screen 2">
+                                <div class="gal-screen" style="background:linear-gradient(160deg,#7C3AED,#1E1B4B);">
+                                    <div class="gal-notch"></div>
+                                    <div class="gal-avatar"></div>
+                                    <div class="gal-line w-4/5"></div>
+                                    <div class="gal-chip w-full"></div>
+                                    <div class="gal-chip w-3/4"></div>
+                                </div>
+                                <span class="gal-label">2</span>
+                            </button>
+                            <button type="button" class="gallery-item" onclick="showAppScreen('aurora',3)" aria-label="Aurora screen 3">
+                                <div class="gal-screen" style="background:linear-gradient(160deg,#6366F1,#0F172A);">
+                                    <div class="gal-notch"></div>
+                                    <div class="gal-ring"></div>
+                                    <div class="gal-line w-3/4"></div>
+                                    <div class="gal-line w-1/2"></div>
+                                </div>
+                                <span class="gal-label">3</span>
+                            </button>
+                        </div>
+
                         <div class="flex flex-wrap gap-3 mt-5">
-                            <button onclick="openDemoModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all duration-300 hover:scale-105 active:scale-95" style="background:linear-gradient(135deg,#00E5FF,#10B981);box-shadow:0 8px 22px -8px rgba(0,229,255,0.5);" data-i18n="testi.demoBtn">عرض حي</button>
-                            <button onclick="openPortfolioModal('aurora')" class="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 active:scale-95" style="background:rgba(99,102,241,0.15);color:#818CF8;border:1px solid rgba(99,102,241,0.3);" data-i18n="portfolio.viewDetails">عرض التفاصيل</button>
+                            <button onclick="openDemoModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all duration-300 hover:scale-105 active:scale-95" style="background:linear-gradient(135deg,#00E5FF,#10B981);box-shadow:0 8px 22px -8px rgba(0,229,255,0.5);">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span data-i18n="portfolio.primaryCta">جرّب التطبيق الآن</span>
+                            </button>
+                            <a href="https://wa.me/213777566691?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A7%D8%B3%D8%AA%D9%88%D8%AF%D9%8A%D9%88%20%D8%B3%D8%A8%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D9%83%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20Aurora%20(%D9%85%D8%AA%D8%A7%D8%A8%D8%B9%D8%A9%20%D8%A7%D9%84%D9%82%D8%B1%D8%A7%D8%A1%D8%A9)" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 active:scale-95" style="background:rgba(37,211,102,0.12);color:#25D366;border:1px solid rgba(37,211,102,0.35);">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                <span data-i18n="portfolio.inquireBtn">استفسر عن هذا المشروع</span>
+                            </a>
                         </div>
+                        <button onclick="openPortfolioModal('aurora')" class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold transition-all duration-300 hover:scale-105 active:scale-95" style="color:#818CF8;" data-i18n="portfolio.viewDetails">عرض التفاصيل</button>
                     </div>
                 </div>
                 <!-- Kaizen AI -->
@@ -2748,17 +2851,71 @@
                     </div>
                     <div class="mt-6">
                         <h3 class="text-2xl font-bold text-white">Kaizen AI</h3>
-                        <p class="text-slate-400 text-sm mt-1" data-i18n="portfolio.kaizen.tag">مدرب الذكاء الاصطناعي واللياقة</p>
-                        <p class="text-slate-400 text-sm leading-relaxed mt-3" data-i18n="testi.kaizen.desc">مدرب لياقة ذكي يعدل التمارين يومياً حسب تقدمك، مع حساب السعرات وخطط وجبات مبنية على نشاطك.</p>
-                        <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="px-2 py-0.5 text-[10px] rounded-full bg-purple-500/15 text-purple-400;">Kotlin</span>
-                            <span class="px-2 py-0.5 text-[10px] rounded-full bg-purple-500/15 text-purple-400;">AI Coach</span>
-                            <span class="px-2 py-0.5 text-[10px] rounded-full bg-purple-500/15 text-purple-400;">Room DB</span>
+                        <p class="text-slate-400 text-sm mt-1" data-i18n="portfolio.kaizen.tag">تطبيق اللياقة والتغذية الذكي</p>
+                        <p class="text-slate-400 text-sm leading-relaxed mt-3" data-i18n="testi.kaizen.desc">مدرب ذكاء اصطناعي لحساب السعرات، توليد الوجبات، وخطط تمارين متكيفة — برسوم متجهة نظيفة متوافقة مع الشريعة الإسلامية.</p>
+
+                        <h4 class="app-detail-heading"><span class="app-head-dot" style="background:#A855F7;"></span><span data-i18n="portfolio.features">المميزات الرئيسية</span></h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><svg class="feature-check" style="color:#A855F7;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span data-i18n="portfolio.kaizen.f1">مدرب سعرات بالذكاء الاصطناعي</span></li>
+                            <li class="feature-item"><svg class="feature-check" style="color:#A855F7;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span data-i18n="portfolio.kaizen.f2">مولّد وجبات ذكي</span></li>
+                            <li class="feature-item"><svg class="feature-check" style="color:#A855F7;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span data-i18n="portfolio.kaizen.f3">خطط تمارين متكيفة</span></li>
+                            <li class="feature-item"><svg class="feature-check" style="color:#A855F7;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span data-i18n="portfolio.kaizen.f4">تقارير تقدم أسبوعية</span></li>
+                        </ul>
+
+                        <h4 class="app-detail-heading"><span class="app-head-dot" style="background:#A855F7;"></span><span data-i18n="portfolio.specs">المواصفات التقنية</span></h4>
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="spec-chip" style="color:#C084FC;border-color:rgba(168,85,247,0.3);background:rgba(168,85,247,0.12);">Kotlin</span>
+                            <span class="spec-chip" style="color:#C084FC;border-color:rgba(168,85,247,0.3);background:rgba(168,85,247,0.12);">Jetpack Compose</span>
+                            <span class="spec-chip" style="color:#C084FC;border-color:rgba(168,85,247,0.3);background:rgba(168,85,247,0.12);">Room DB</span>
+                            <span class="spec-chip" style="color:#C084FC;border-color:rgba(168,85,247,0.3);background:rgba(168,85,247,0.12);">MVVM</span>
+                            <span class="spec-chip" style="color:#C084FC;border-color:rgba(168,85,247,0.3);background:rgba(168,85,247,0.12);">REST API</span>
+                            <span class="spec-chip" style="color:#C084FC;border-color:rgba(168,85,247,0.3);background:rgba(168,85,247,0.12);">WorkManager</span>
                         </div>
+
+                        <h4 class="app-detail-heading"><span class="app-head-dot" style="background:#A855F7;"></span><span data-i18n="portfolio.gallery">معرض الوسائط</span></h4>
+                        <div class="gallery-row">
+                            <button type="button" class="gallery-item" onclick="showAppScreen('kaizen',1)" aria-label="Kaizen AI screen 1">
+                                <div class="gal-screen" style="background:linear-gradient(160deg,#7C3AED,#2E1065);">
+                                    <div class="gal-notch"></div>
+                                    <div class="gal-chip w-2/3"></div>
+                                    <div class="gal-line w-full"></div>
+                                    <div class="gal-line w-4/5"></div>
+                                    <div class="gal-block"></div>
+                                </div>
+                                <span class="gal-label">1</span>
+                            </button>
+                            <button type="button" class="gallery-item" onclick="showAppScreen('kaizen',2)" aria-label="Kaizen AI screen 2">
+                                <div class="gal-screen" style="background:linear-gradient(160deg,#A855F7,#2E1065);">
+                                    <div class="gal-notch"></div>
+                                    <div class="gal-avatar"></div>
+                                    <div class="gal-line w-4/5"></div>
+                                    <div class="gal-chip w-full"></div>
+                                    <div class="gal-chip w-3/4"></div>
+                                </div>
+                                <span class="gal-label">2</span>
+                            </button>
+                            <button type="button" class="gallery-item" onclick="showAppScreen('kaizen',3)" aria-label="Kaizen AI screen 3">
+                                <div class="gal-screen" style="background:linear-gradient(160deg,#8B5CF6,#0F172A);">
+                                    <div class="gal-notch"></div>
+                                    <div class="gal-ring"></div>
+                                    <div class="gal-line w-3/4"></div>
+                                    <div class="gal-line w-1/2"></div>
+                                </div>
+                                <span class="gal-label">3</span>
+                            </button>
+                        </div>
+
                         <div class="flex flex-wrap gap-3 mt-5">
-                            <button onclick="openDemoModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all duration-300 hover:scale-105 active:scale-95" style="background:linear-gradient(135deg,#00E5FF,#10B981);box-shadow:0 8px 22px -8px rgba(16,185,129,0.5);" data-i18n="testi.demoBtn">عرض حي</button>
-                            <button onclick="openPortfolioModal('kaizen')" class="px-5 py-2.5 rounded-xl text-sm font-semibold bg-purple-500/15 text-purple-400 border border-purple-500/30 transition-all duration-300 hover:scale-105 active:scale-95" data-i18n="portfolio.viewDetails">عرض التفاصيل</button>
+                            <button onclick="openDemoModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all duration-300 hover:scale-105 active:scale-95" style="background:linear-gradient(135deg,#00E5FF,#10B981);box-shadow:0 8px 22px -8px rgba(16,185,129,0.5);">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span data-i18n="portfolio.primaryCta">جرّب التطبيق الآن</span>
+                            </button>
+                            <a href="https://wa.me/213777566691?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A7%D8%B3%D8%AA%D9%88%D8%AF%D9%8A%D9%88%20%D8%B3%D8%A8%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D9%83%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20Kaizen%20AI%20(%D8%A7%D9%84%D9%84%D9%8A%D8%A7%D9%82%D8%A9%20%D9%88%D8%A7%D9%84%D8%AA%D8%BA%D8%B0%D9%8A%D8%A9)" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 active:scale-95" style="background:rgba(37,211,102,0.12);color:#25D366;border:1px solid rgba(37,211,102,0.35);">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                <span data-i18n="portfolio.inquireBtn">استفسر عن هذا المشروع</span>
+                            </a>
                         </div>
+                        <button onclick="openPortfolioModal('kaizen')" class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold transition-all duration-300 hover:scale-105 active:scale-95" style="color:#C084FC;" data-i18n="portfolio.viewDetails">عرض التفاصيل</button>
                     </div>
                 </div>
                 <!-- Velora -->
@@ -2783,17 +2940,71 @@
                     </div>
                     <div class="mt-6">
                         <h3 class="text-2xl font-bold text-white">Velora</h3>
-                        <p class="text-slate-400 text-sm mt-1" data-i18n="portfolio.velora.tag">منصة تسوق إلكتروني فاخرة</p>
-                        <p class="text-slate-400 text-sm leading-relaxed mt-3" data-i18n="testi.velora.desc">منصة تسوق فاخرة بـ Kotlin و Jetpack Compose مع كتالوج أنيق ودفع آمن ولوحة تحكم كاملة للبائع.</p>
-                        <div class="flex flex-wrap gap-1.5 mt-4">
-                            <span class="px-2 py-0.5 text-[10px] rounded-full" style="background:rgba(245,158,11,0.15);color:#F59E0B;">Kotlin</span>
-                            <span class="px-2 py-0.5 text-[10px] rounded-full" style="background:rgba(245,158,11,0.15);color:#F59E0B;">Compose</span>
-                            <span class="px-2 py-0.5 text-[10px] rounded-full" style="background:rgba(245,158,11,0.15);color:#F59E0B;">REST API</span>
+                        <p class="text-slate-400 text-sm mt-1" data-i18n="portfolio.velora.tag">متجر إلكتروني متكامل</p>
+                        <p class="text-slate-400 text-sm leading-relaxed mt-3" data-i18n="testi.velora.desc">متجر إلكتروني متكامل جاهز للبيع فوراً: متعدد اللغات والمظاهر، بكتالوج فاخر ودفع آمن ولوحة تحكم كاملة للبائع.</p>
+
+                        <h4 class="app-detail-heading"><span class="app-head-dot" style="background:#F59E0B;"></span><span data-i18n="portfolio.features">المميزات الرئيسية</span></h4>
+                        <ul class="feature-list">
+                            <li class="feature-item"><svg class="feature-check" style="color:#F59E0B;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span data-i18n="portfolio.velora.f1">متعدد اللغات والمظاهر</span></li>
+                            <li class="feature-item"><svg class="feature-check" style="color:#F59E0B;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span data-i18n="portfolio.velora.f2">كتالوج فاخر ودفع آمن</span></li>
+                            <li class="feature-item"><svg class="feature-check" style="color:#F59E0B;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span data-i18n="portfolio.velora.f3">لوحة تحكم كاملة للبائع</span></li>
+                            <li class="feature-item"><svg class="feature-check" style="color:#F59E0B;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg><span data-i18n="portfolio.velora.f4">إشعارات فورية للطلبات</span></li>
+                        </ul>
+
+                        <h4 class="app-detail-heading"><span class="app-head-dot" style="background:#F59E0B;"></span><span data-i18n="portfolio.specs">المواصفات التقنية</span></h4>
+                        <div class="flex flex-wrap gap-1.5 mt-3">
+                            <span class="spec-chip" style="color:#FBBF24;border-color:rgba(245,158,11,0.3);background:rgba(245,158,11,0.12);">Kotlin</span>
+                            <span class="spec-chip" style="color:#FBBF24;border-color:rgba(245,158,11,0.3);background:rgba(245,158,11,0.12);">Jetpack Compose</span>
+                            <span class="spec-chip" style="color:#FBBF24;border-color:rgba(245,158,11,0.3);background:rgba(245,158,11,0.12);">MVVM</span>
+                            <span class="spec-chip" style="color:#FBBF24;border-color:rgba(245,158,11,0.3);background:rgba(245,158,11,0.12);">Room DB</span>
+                            <span class="spec-chip" style="color:#FBBF24;border-color:rgba(245,158,11,0.3);background:rgba(245,158,11,0.12);">REST API</span>
+                            <span class="spec-chip" style="color:#FBBF24;border-color:rgba(245,158,11,0.3);background:rgba(245,158,11,0.12);">Firebase</span>
                         </div>
+
+                        <h4 class="app-detail-heading"><span class="app-head-dot" style="background:#F59E0B;"></span><span data-i18n="portfolio.gallery">معرض الوسائط</span></h4>
+                        <div class="gallery-row">
+                            <button type="button" class="gallery-item" onclick="showAppScreen('velora',1)" aria-label="Velora screen 1">
+                                <div class="gal-screen" style="background:linear-gradient(160deg,#B45309,#451A03);">
+                                    <div class="gal-notch"></div>
+                                    <div class="gal-chip w-2/3"></div>
+                                    <div class="gal-line w-full"></div>
+                                    <div class="gal-line w-4/5"></div>
+                                    <div class="gal-block"></div>
+                                </div>
+                                <span class="gal-label">1</span>
+                            </button>
+                            <button type="button" class="gallery-item" onclick="showAppScreen('velora',2)" aria-label="Velora screen 2">
+                                <div class="gal-screen" style="background:linear-gradient(160deg,#F59E0B,#451A03);">
+                                    <div class="gal-notch"></div>
+                                    <div class="gal-avatar"></div>
+                                    <div class="gal-line w-4/5"></div>
+                                    <div class="gal-chip w-full"></div>
+                                    <div class="gal-chip w-3/4"></div>
+                                </div>
+                                <span class="gal-label">2</span>
+                            </button>
+                            <button type="button" class="gallery-item" onclick="showAppScreen('velora',3)" aria-label="Velora screen 3">
+                                <div class="gal-screen" style="background:linear-gradient(160deg,#D97706,#0F172A);">
+                                    <div class="gal-notch"></div>
+                                    <div class="gal-ring"></div>
+                                    <div class="gal-line w-3/4"></div>
+                                    <div class="gal-line w-1/2"></div>
+                                </div>
+                                <span class="gal-label">3</span>
+                            </button>
+                        </div>
+
                         <div class="flex flex-wrap gap-3 mt-5">
-                            <button onclick="openDemoModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all duration-300 hover:scale-105 active:scale-95" style="background:linear-gradient(135deg,#00E5FF,#10B981);box-shadow:0 8px 22px -8px rgba(0,229,255,0.5);" data-i18n="testi.demoBtn">عرض حي</button>
-                            <button onclick="openPortfolioModal('velora')" class="px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 active:scale-95" style="background:rgba(245,158,11,0.15);color:#F59E0B;border:1px solid rgba(245,158,11,0.3);" data-i18n="portfolio.viewDetails">عرض التفاصيل</button>
+                            <button onclick="openDemoModal()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all duration-300 hover:scale-105 active:scale-95" style="background:linear-gradient(135deg,#00E5FF,#10B981);box-shadow:0 8px 22px -8px rgba(0,229,255,0.5);">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span data-i18n="portfolio.primaryCta">جرّب التطبيق الآن</span>
+                            </button>
+                            <a href="https://wa.me/213777566691?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A7%D8%B3%D8%AA%D9%88%D8%AF%D9%8A%D9%88%20%D8%B3%D8%A8%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D9%83%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20Velora%20(%D9%85%D8%AA%D8%AC%D8%B1%20%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A)" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 active:scale-95" style="background:rgba(37,211,102,0.12);color:#25D366;border:1px solid rgba(37,211,102,0.35);">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                <span data-i18n="portfolio.inquireBtn">استفسر عن هذا المشروع</span>
+                            </a>
                         </div>
+                        <button onclick="openPortfolioModal('velora')" class="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold transition-all duration-300 hover:scale-105 active:scale-95" style="color:#FBBF24;" data-i18n="portfolio.viewDetails">عرض التفاصيل</button>
                     </div>
                 </div>
             <!-- Video / Live Preview Container -->
@@ -3169,7 +3380,7 @@
                             <span data-i18n="cta.estimateBtn">قدّر التكلفة الآن</span>
                             <svg class="w-5 h-5 cta-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 11l3 3L22 4"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
                         </a>
-                        <a href="https://wa.me/213600000000" target="_blank" rel="noopener" class="mag-btn border-2 border-[#25D366] hover:border-emerald-400 text-[#25D366] hover:text-emerald-400 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 inline-flex items-center justify-center space-x-2 space-x-reverse hover:shadow-xl hover:shadow-emerald-500/10 hover:scale-105 active:scale-95">
+                        <a href="https://wa.me/213777566691?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A7%D8%B3%D8%AA%D9%88%D8%AF%D9%8A%D9%88%20%D8%B3%D8%A8%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D9%83%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D8%B7%D9%88%D9%8A%D8%B1%20%D8%AA%D8%B7%D8%A8%D9%8A%D9%82" target="_blank" rel="noopener" class="mag-btn border-2 border-[#25D366] hover:border-emerald-400 text-[#25D366] hover:text-emerald-400 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 inline-flex items-center justify-center space-x-2 space-x-reverse hover:shadow-xl hover:shadow-emerald-500/10 hover:scale-105 active:scale-95">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                             <span data-i18n="cta.waBtn">تحدث عبر واتساب</span>
                         </a>
@@ -3246,7 +3457,7 @@
                             </div>
                         </div>
                         <p class="text-slate-500 text-xs text-center mb-5" data-i18n="calc.disclaimer">* تقدير تقريبي فقط — السعر النهائي يعتمد على تفاصيل المشروع الفعلية</p>
-                        <a id="calc-whatsapp" href="https://wa.me/213600000000?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%81%D8%B1%D9%8A%D9%82%20SPECTRONIC%D8%8C%20%D8%A3%D9%88%D8%AF%D9%8E%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%AA%D9%83%D9%88%D9%8A%D9%86%D9%8A" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/30 flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98]">
+                        <a id="calc-whatsapp" href="https://wa.me/213777566691?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%81%D8%B1%D9%8A%D9%82%20SPECTRONIC%D8%8C%20%D8%A3%D9%88%D8%AF%D9%8E%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%AA%D9%83%D9%88%D9%8A%D9%86%D9%8A" target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-500 hover:bg-emerald-400 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/30 flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98]">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                             <span data-i18n="calc.cta">أرسل التقييم عبر واتساب</span>
                         </a>
@@ -3363,7 +3574,7 @@
                                     </div>
                                     <div>
                                         <p class="text-emerald-100 text-sm" data-i18n="contact.info.phone">الهاتف</p>
-                                        <p class="font-semibold" dir="ltr">+213 600 000 000</p>
+                                        <a href="tel:+213777566691" class="font-semibold hover:text-emerald-400 transition-colors" dir="ltr">+213 777 56 66 91</a>
                                     </div>
                                 </div>
 
@@ -3457,7 +3668,7 @@
 
                             <!-- WhatsApp Button -->
                             <div class="mt-6">
-                                <a href="https://wa.me/213600000000?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%81%D8%B1%D9%8A%D9%82%20SPECTRONIC%D8%8C%20%D8%A3%D9%88%D8%AF%D9%8E%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D8%B7%D9%88%D9%8A%D8%B1%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%D9%8A" target="_blank" rel="noopener noreferrer" class="w-full bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30 flex items-center justify-center space-x-2 space-x-reverse hover:scale-[1.02] active:scale-[0.98]">
+                                <a href="https://wa.me/213777566691?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A7%D8%B3%D8%AA%D9%88%D8%AF%D9%8A%D9%88%20%D8%B3%D8%A8%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D9%83%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AA%D8%B7%D9%88%D9%8A%D8%B1%20%D8%AA%D8%B7%D8%A8%D9%8A%D9%82" target="_blank" rel="noopener noreferrer" class="w-full bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/30 flex items-center justify-center space-x-2 space-x-reverse hover:scale-[1.02] active:scale-[0.98]">
                                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                                     </svg>
@@ -3500,7 +3711,7 @@
                         <a href="https://www.youtube.com/@spectronic.studio" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="YouTube">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                         </a>
-                        <a href="https://wa.me/213600000000" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="WhatsApp">
+                        <a href="https://wa.me/213777566691" target="_blank" rel="noopener noreferrer" class="footer-social-icon" aria-label="WhatsApp">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                         </a>
                     </div>
@@ -3541,7 +3752,7 @@
                         </li>
                         <li class="flex items-center gap-2 text-sm text-slate-400">
                             <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                            <span dir="ltr" class="text-slate-300">+213 600 000 000</span>
+                            <span dir="ltr" class="text-slate-300"><a href="tel:+213777566691" class="hover:text-emerald-400 transition-colors">+213 777 56 66 91</a></span>
                         </li>
                         <li class="flex items-center gap-2 text-sm text-slate-400">
                             <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
@@ -3622,6 +3833,88 @@
         </div>
     </div>
 
+
+    <!-- Video Modal -->
+    <div id="video-modal-overlay" class="video-modal-overlay">
+        <div class="video-modal-content">
+            <button id="video-modal-close" class="video-modal-close" aria-label="Close video">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <div class="aspect-video bg-black flex items-center justify-center">
+                <div class="text-center px-8">
+                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full mb-4" style="background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.15)); border: 1px solid rgba(139,92,246,0.3);">
+                        <svg class="w-10 h-10" style="color: #818CF8;" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                    <p class="text-slate-400 text-sm">Video demo coming soon</p>
+                    <p class="text-slate-500 text-xs mt-1">Replace this section with an embedded YouTube/Vimeo iframe</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Lightbox -->
+    <div id="lightbox-overlay" class="lightbox-overlay">
+        <button id="lightbox-close" class="lightbox-close" aria-label="Close lightbox">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+        <img id="lightbox-img" src="" alt="">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="policy-modal-overlay">
+        <div class="policy-modal-glass">
+            <button class="modal-close-btn" onclick="closePolicyModal('privacy')" aria-label="Close">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <h3 class="text-2xl font-bold text-white mb-4" data-i18n="footer.privacy">سياسة الخصوصية</h3>
+            <div class="space-y-4 text-slate-400 text-sm leading-relaxed">
+                <p>SPECTRONIC Studio ("نحن") نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية.</p>
+                <h4 class="text-white font-semibold">جمع المعلومات</h4>
+                <p>نجمع فقط المعلومات التي تقدمها طوعاً عبر نموذج التواصل: الاسم وعنوان البريد الإلكتروني وتفاصيل المشروع.</p>
+                <h4 class="text-white font-semibold">استخدام المعلومات</h4>
+                <p>نستخدم معلوماتك فقط للتواصل معك بخصوص استفساراتك ومشاريعك المطلوبة.</p>
+                <h4 class="text-white font-semibold">حماية البيانات</h4>
+                <p>نستخدم إجراءات أمنية مناسبة لحماية بياناتك من الوصول غير المصرح به.</p>
+                <h4 class="text-white font-semibold">التواصل</h4>
+                <p>لأي استفسار بخصوص الخصوصية، تواصل معنا عبر البريد الإلكتروني: spectronic.studio1@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-modal" class="policy-modal-overlay">
+        <div class="policy-modal-glass">
+            <button class="modal-close-btn" onclick="closePolicyModal('terms')" aria-label="Close">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <h3 class="text-2xl font-bold text-white mb-4" data-i18n="footer.terms">شروط الاستخدام</h3>
+            <div class="space-y-4 text-slate-400 text-sm leading-relaxed">
+                <p>باستخدام موقع SPECTRONIC Studio فإنك توافق على الشروط التالية:</p>
+                <h4 class="text-white font-semibold">الخدمات</h4>
+                <p>نقدم خدمات تطوير تطبيقات الجوال والمواقع الإلكترونية وتصميم الواجهات والهوية البصرية. جميع الأسعار والمدة الزمنية يتم الاتفاق عليها مسبقاً.</p>
+                <h4 class="text-white font-semibold">الملكية الفكرية</h4>
+                <p>بعد الدفع الكامل، ينتقل حق ملكية المشروع النهائي للعميل. نحتفظ بحق عرض الأعمال في معرض أعمالنا ما لم يُطلب خلاف ذلك.</p>
+                <h4 class="text-white font-semibold">الدفع</h4>
+                <p>يتم الدفع وفقاً للجدول الزمني المتفق عليه في العقد. لا يمكن استرداد المدفوعات بعد بدء العمل.</p>
+                <h4 class="text-white font-semibold">المسؤولية</h4>
+                <p>نسعى دائماً لتقديم أعلى جودة، لكن لا نضمن نتائج محددة مثل عدد المستخدمين أو الإيرادات.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modals -->
+    <div id="portfolio-modal-overlay" class="portfolio-modal-overlay">
+        <div class="portfolio-modal-glass">
+            <button id="portfolio-close-btn" class="portfolio-close-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <div id="portfolio-modal-content"></div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
     <script>
         const menuBtn = document.getElementById('menu-btn');
         const closeMenu = document.getElementById('close-menu');
@@ -4028,10 +4321,27 @@
                     'services.brand.desc': 'تصميم شعارات عصرية وهوية بصرية متكاملة تعكس هوية علامتك التجارية وتبرزها عن المنافسين',
                     'portfolio.badge': 'معرض التطبيقات', 'portfolio.title': 'تطبيقاتنا بأفضل صورة',
                     'portfolio.desc': 'ثلاثة تطبيقات احترافية صممناها وبرمجانها بالكامل من الصفر',
-                    'portfolio.aurora.tag': 'تتبع القراءة والتركيز',
-                    'portfolio.kaizen.tag': 'مدرب الذكاء الاصطناعي واللياقة',
-                    'portfolio.velora.tag': 'منصة تسوق إلكتروني فاخرة',
+                    'portfolio.aurora.tag': 'تطبيق المكتبة ومتابعة القراءة',
+                    'portfolio.kaizen.tag': 'تطبيق اللياقة والتغذية الذكي',
+                    'portfolio.velora.tag': 'متجر إلكتروني متكامل',
                     'portfolio.viewDetails': 'عرض التفاصيل',
+                    'portfolio.features': 'المميزات الرئيسية',
+                    'portfolio.specs': 'المواصفات التقنية',
+                    'portfolio.gallery': 'معرض الوسائط',
+                    'portfolio.primaryCta': 'جرّب التطبيق الآن',
+                    'portfolio.inquireBtn': 'استفسر عن هذا المشروع',
+                    'portfolio.velora.f1': 'متعدد اللغات والمظاهر',
+                    'portfolio.velora.f2': 'كتالوج فاخر ودفع آمن',
+                    'portfolio.velora.f3': 'لوحة تحكم كاملة للبائع',
+                    'portfolio.velora.f4': 'إشعارات فورية للطلبات',
+                    'portfolio.aurora.f1': 'نظام نقاط ومكافآت للقراءة',
+                    'portfolio.aurora.f2': 'أصوات طبيعة للتركيز العميق',
+                    'portfolio.aurora.f3': 'مجتمع قرّاء وتحديات مستمرة',
+                    'portfolio.aurora.f4': 'مزامنة التقدم عبر الأجهزة',
+                    'portfolio.kaizen.f1': 'مدرب سعرات بالذكاء الاصطناعي',
+                    'portfolio.kaizen.f2': 'مولّد وجبات ذكي',
+                    'portfolio.kaizen.f3': 'خطط تمارين متكيفة',
+                    'portfolio.kaizen.f4': 'تقارير تقدم أسبوعية',
                     'portfolio.video.title': 'شاهد التطبيق بعمل',
                     'portfolio.video.desc': 'تجربة تمرير مستمر وسلس تعكس جودة التصميم والبرمجة الدقيقة',
                     'portfolio.video.cta1': 'شاهد فيديو الاستوديو',
@@ -4122,9 +4432,9 @@
                     'stats.q2.title': 'ضمان 30 يوم بعد الإطلاق', 'stats.q2.desc': 'إصلاح مجاني للأخطاء ودعم تقني كامل لمدة 30 يوماً بعد الإطلاق.',
                     'stats.q3.title': 'أداء أصلي Native', 'stats.q3.desc': 'مبني أصلاً بلغة Kotlin و Jetpack Compose لأقصى سرعة واستقرار.',
                     'stats.q4.title': 'برمجيات أخلاقية ونظيفة', 'stats.q4.desc': 'ضمان صفر محتوى غير أخلاقي أو موسيقى أو إعلانات مشبوهة.',
-                    'testi.aurora.desc': 'قراءة بلا تشتيت مع تتبع العادات وأصوات الطبيعة لتعميق التركيز، وترتيب الأهداف بشكل ممتع.',
-                    'testi.kaizen.desc': 'مدرب لياقة ذكي يعدل التمارين يومياً حسب تقدمك، مع حساب السعرات وخطط وجبات مبنية على نشاطك.',
-                    'testi.velora.desc': 'منصة تسوق فاخرة بـ Kotlin و Jetpack Compose مع كتالوج أنيق ودفع آمن ولوحة تحكم كاملة للبائع.',
+                    'testi.aurora.desc': 'تطبيق المكتبة ومتابعة القراءة: نظام نقاط ومكافآت للقراءة، أصوات طبيعة للتركيز العميق، ومجتمع قرّاء وتحديات مستمرة.',
+                    'testi.kaizen.desc': 'مدرب ذكاء اصطناعي لحساب السعرات، توليد الوجبات، وخطط تمارين متكيفة — برسوم متجهة نظيفة متوافقة مع الشريعة الإسلامية.',
+                    'testi.velora.desc': 'متجر إلكتروني متكامل جاهز للبيع فوراً: متعدد اللغات والمظاهر، بكتالوج فاخر ودفع آمن ولوحة تحكم كاملة للبائع.',
                     'testi.demoBtn': 'عرض حي', 'testi.archBtn': 'استكشف المعمارية',
                     'stack.kotlin': 'Kotlin', 'stack.kotlinSub': 'لغة برمجة عصرية وآمنة',
                     'stack.koin': 'Koin', 'stack.koinSub': 'حقن تبعيات خفيف',
@@ -4156,10 +4466,27 @@
                     'services.brand.desc': 'Modern minimalist logo design and comprehensive brand identity that stands out from competitors',
                     'portfolio.badge': 'Our Portfolio', 'portfolio.title': 'Our Best Work',
                     'portfolio.desc': 'Three professional apps we designed and developed entirely from scratch',
-                    'portfolio.aurora.tag': 'Gamified Reading & Focus Tracker',
-                    'portfolio.kaizen.tag': 'AI Fitness & Health Coach',
-                    'portfolio.velora.tag': 'Luxury E-Commerce Platform',
+                    'portfolio.aurora.tag': 'Library & Reading Tracker',
+                    'portfolio.kaizen.tag': 'Fitness & Nutrition App',
+                    'portfolio.velora.tag': 'Complete E-Commerce Solution',
                     'portfolio.viewDetails': 'View Details',
+                    'portfolio.features': 'Key Features',
+                    'portfolio.specs': 'Tech Specs',
+                    'portfolio.gallery': 'Media Gallery',
+                    'portfolio.primaryCta': 'Try the App Now',
+                    'portfolio.inquireBtn': 'Inquire About This Project',
+                    'portfolio.velora.f1': 'Multi-language & multi-theme',
+                    'portfolio.velora.f2': 'Luxury catalog & secure checkout',
+                    'portfolio.velora.f3': 'Full seller dashboard',
+                    'portfolio.velora.f4': 'Instant order notifications',
+                    'portfolio.aurora.f1': 'Reading points & rewards system',
+                    'portfolio.aurora.f2': 'Natural sounds for deep focus',
+                    'portfolio.aurora.f3': 'Reading community & ongoing challenges',
+                    'portfolio.aurora.f4': 'Progress synced across devices',
+                    'portfolio.kaizen.f1': 'AI calorie coach',
+                    'portfolio.kaizen.f2': 'Smart meal generator',
+                    'portfolio.kaizen.f3': 'Adaptive workout plans',
+                    'portfolio.kaizen.f4': 'Weekly progress reports',
                     'portfolio.video.title': 'See the App in Action',
                     'portfolio.video.desc': 'A seamless scrolling experience that reflects the quality of design and precise development',
                     'portfolio.video.cta1': 'Watch Studio Demo',
@@ -4250,9 +4577,9 @@
                     'stats.q2.title': '30-Day Post-Launch Warranty', 'stats.q2.desc': 'Free bug fixes and technical support for 30 days post-launch.',
                     'stats.q3.title': 'Native Performance', 'stats.q3.desc': 'Built natively with Kotlin & Jetpack Compose for maximum speed and stability.',
                     'stats.q4.title': 'Ethical & Clean Software', 'stats.q4.desc': 'Guaranteed zero unethical content, music, or shady ads.',
-                    'testi.aurora.desc': 'Distraction-free reading with habit tracking and nature soundscapes for deeper focus, gamified goals and progress insights.',
-                    'testi.kaizen.desc': 'Smart AI coach that adjusts your workouts daily based on progress, with calorie counting and meal plans built from your activity.',
-                    'testi.velora.desc': 'A luxury shopping platform built with Kotlin & Jetpack Compose, featuring an elegant catalog, secure checkout, and a full seller dashboard.',
+                    'testi.aurora.desc': 'A digital library & reading tracker with a points and rewards system, natural focus sounds, and a thriving reading community with challenges.',
+                    'testi.kaizen.desc': 'An AI coach that counts calories, generates smart meal plans, and builds adaptive workout plans — with clean, Sharia-compliant vector & 3D clay illustrations.',
+                    'testi.velora.desc': 'A complete, ready-to-sell e-commerce solution: multi-language and multi-theme, with a luxury catalog, secure checkout, and a full seller dashboard.',
                     'testi.demoBtn': 'Watch Live Demo', 'testi.archBtn': 'Explore Architecture',
                     'stack.kotlin': 'Kotlin', 'stack.kotlinSub': 'Modern & safe language',
                     'stack.koin': 'Koin', 'stack.koinSub': 'Lightweight DI',
@@ -4284,10 +4611,27 @@
                     'services.brand.desc': 'Design de logos modernes et identité visuelle complète qui se distingue',
                     'portfolio.badge': 'Notre Portfolio', 'portfolio.title': 'Nos Meilleures Réalisations',
                     'portfolio.desc': 'Trois applications professionnelles conçues et développées de zéro',
-                    'portfolio.aurora.tag': 'Lecture & Focus Gamifiés',
-                    'portfolio.kaizen.tag': 'Coach IA Fitness & Santé',
-                    'portfolio.velora.tag': 'Plateforme E-Commerce de Luxe',
+                    'portfolio.aurora.tag': 'Bibliothèque & Suivi de lecture',
+                    'portfolio.kaizen.tag': 'Application Fitness & Nutrition',
+                    'portfolio.velora.tag': 'Solution E-Commerce complète',
                     'portfolio.viewDetails': 'Voir les Détails',
+                    'portfolio.features': 'Fonctionnalités',
+                    'portfolio.specs': 'Spécifications techniques',
+                    'portfolio.gallery': 'Galerie média',
+                    'portfolio.primaryCta': 'Essayer l\'application',
+                    'portfolio.inquireBtn': 'Demander ce projet',
+                    'portfolio.velora.f1': 'Multilingue & multi-thèmes',
+                    'portfolio.velora.f2': 'Catalogue de luxe & paiement sécurisé',
+                    'portfolio.velora.f3': 'Tableau de bord vendeur complet',
+                    'portfolio.velora.f4': 'Notifications de commandes instantanées',
+                    'portfolio.aurora.f1': 'Système de points et récompenses',
+                    'portfolio.aurora.f2': 'Sons naturels pour la concentration',
+                    'portfolio.aurora.f3': 'Communauté de lecteurs & défis',
+                    'portfolio.aurora.f4': 'Progression synchronisée',
+                    'portfolio.kaizen.f1': 'Coach calories IA',
+                    'portfolio.kaizen.f2': 'Générateur de repas intelligent',
+                    'portfolio.kaizen.f3': 'Plans d\'entraînement adaptatifs',
+                    'portfolio.kaizen.f4': 'Rapports de progression hebdomadaires',
                     'portfolio.video.title': 'Voir l\'Application en Action',
                     'portfolio.video.desc': 'Une expérience de défilement fluide qui reflète la qualité du design',
                     'portfolio.video.cta1': 'Voir la Démo Studio',
@@ -4378,9 +4722,9 @@
                     'stats.q2.title': 'Garantie 30 Jours après Lancement', 'stats.q2.desc': 'Correctifs gratuits et support technique pendant 30 jours après le lancement.',
                     'stats.q3.title': 'Performance Native', 'stats.q3.desc': 'Développé nativement avec Kotlin & Jetpack Compose pour une vitesse et une stabilité maximales.',
                     'stats.q4.title': 'Logiciels Éthiques & Propres', 'stats.q4.desc': 'Garantie zéro contenu contraire à l\'éthique, musique ou publicités douteuses.',
-                    'testi.aurora.desc': 'Lecture sans distractions avec suivi des habitudes et ambiances sonores de la nature pour une concentration accrue et des objectifs ludiques.',
-                    'testi.kaizen.desc': 'Coach IA qui adapte vos séances chaque jour selon vos progrès, avec compteur de calories et plans de repas basés sur votre activité.',
-                    'testi.velora.desc': 'Une plateforme shopping de luxe bâtie avec Kotlin & Jetpack Compose, catalogue élégant, paiement sécurisé et tableau de bord vendeur complet.',
+                    'testi.aurora.desc': 'Une bibliothèque numérique et un suivi de lecture avec système de points et récompenses, sons naturels de concentration et une communauté de lecteurs active.',
+                    'testi.kaizen.desc': 'Un coach IA qui compte les calories, génère des repas intelligents et construit des plans d\'entraînement adaptatifs — illustrations vectorielles 3D clay conformes à la charia.',
+                    'testi.velora.desc': 'Une solution e-commerce complète prête à vendre : multilingue et multi-thèmes, avec catalogue de luxe, paiement sécurisé et tableau de bord vendeur complet.',
                     'testi.demoBtn': 'Voir la Démo Live', 'testi.archBtn': 'Explorer l\'Architecture',
                     'stack.kotlin': 'Kotlin', 'stack.kotlinSub': 'Langage moderne et sûr',
                     'stack.koin': 'Koin', 'stack.koinSub': 'Injection de dépendances légère',
@@ -4442,41 +4786,41 @@
             var projects = {
                 aurora: {
                     name: 'Aurora',
-                    tagline: 'Gamified Reading & Focus Tracker',
+                    tagline: 'Library & Reading Tracker',
                     gradient: 'linear-gradient(135deg, #818CF8, #C084FC, #F0ABFC)',
                     icon: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>',
                     color: '#818CF8',
                     features: [
-                        ['Distraction-Free Reading', 'Immersive reader with zero interruptions, night & sepia modes'],
-                        ['Habit Tracker', 'Track daily reading streaks, focus sessions, and personal goals'],
-                        ['Nature Soundscapes', 'Ambient soundscapes to deepen focus while you read or study'],
-                        ['Progress Sync', 'Gamified milestones and statistics synced across your devices']
+                        ['Reading Points & Rewards', 'Earn points and unlock rewards as you finish books and build reading streaks'],
+                        ['Natural Focus Sounds', 'Calm nature soundscapes for deep, distraction-free reading sessions'],
+                        ['Reading Community', 'Join ongoing challenges and share progress with a community of readers'],
+                        ['Multi-Device Sync', 'Your library and reading progress stay in sync across all your devices']
                     ]
                 },
                 kaizen: {
                     name: 'Kaizen AI',
-                    tagline: 'AI Fitness & Continuous Health Coach',
+                    tagline: 'Fitness & Nutrition AI Coach',
                     gradient: 'linear-gradient(135deg, #A855F7, #6366F1, #818CF8)',
                     icon: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>',
                     color: '#A855F7',
                     features: [
-                        ['Adaptive Workout Modifier', 'AI adjusts exercises daily based on your energy and progress'],
-                        ['Calorie Counter', 'Track meals and calories with a smart food database'],
-                        ['AI Meal Planner', 'Personalized meal plans built from your daily activity and goals'],
-                        ['Continuous Coaching', 'Ongoing AI guidance with trend reports and habit insights']
+                        ['AI Calorie Coach', 'Track calories intelligently with an AI coach that learns your eating habits'],
+                        ['Smart Meal Generator', 'Generate balanced meals tailored to your goals, taste, and diet'],
+                        ['Adaptive Workout Plans', 'Plans that adapt daily to your progress, energy, and schedule'],
+                        ['Weekly Progress Reports', 'Clear weekly insights into your workouts, meals, and personal goals']
                     ]
                 },
                 velora: {
                     name: 'Velora',
-                    tagline: 'Luxury E-commerce Platform',
+                    tagline: 'Complete E-Commerce Solution',
                     gradient: 'linear-gradient(135deg, #F59E0B, #FBBF24, #FDE68A)',
                     icon: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>',
                     color: '#F59E0B',
                     features: [
-                        ['Curated Luxury Catalog', 'Native Kotlin & Jetpack Compose storefront with premium product showcase'],
-                        ['Smooth Cart & Checkout', 'Effortless luxury shopping flow with secure payment options'],
-                        ['Seller Dashboard', 'Manage products, orders, and analytics from a dedicated seller panel'],
-                        ['Elegant Notifications', 'Refined order updates and curated promotional alerts']
+                        ['Multi-Language & Themes', 'Ready to sell with full multi-language and multi-theme support out of the box'],
+                        ['Luxury Catalog & Secure Checkout', 'An elegant product catalog with fast, secure checkout flow'],
+                        ['Seller Dashboard', 'Manage products, orders, and analytics from a complete seller panel'],
+                        ['Instant Order Notifications', 'Real-time alerts the moment a new order is placed']
                     ]
                 }
             };
@@ -4648,6 +4992,62 @@
             }
 
             window.openLightbox = openLightbox;
+
+            var APP_INFO = {
+                aurora: { name: 'Aurora', tagline: 'Library & Reading Tracker', gradient: 'linear-gradient(135deg, #818CF8, #C084FC, #F0ABFC)', color: '#818CF8' },
+                kaizen: { name: 'Kaizen AI', tagline: 'Fitness & Nutrition AI Coach', gradient: 'linear-gradient(135deg, #A855F7, #6366F1, #818CF8)', color: '#A855F7' },
+                velora: { name: 'Velora', tagline: 'Complete E-Commerce Solution', gradient: 'linear-gradient(135deg, #F59E0B, #FBBF24, #FDE68A)', color: '#F59E0B' }
+            };
+
+            function appScreenMock(app, n) {
+                var p = APP_INFO[app];
+                if (!p) return '';
+                var C = p.color;
+                function bar(w, h, o) {
+                    return '<div style="height:' + (h || 10) + 'px;border-radius:5px;background:rgba(255,255,255,' + (o || 0.18) + ');width:' + w + '%;margin-bottom:8px"></div>';
+                }
+                function row() {
+                    return '<div style="display:flex;gap:10px;align-items:center;margin-bottom:10px">' +
+                        '<div style="width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.1);flex-shrink:0"></div>' +
+                        '<div style="flex:1;min-width:0">' + bar(78, 8) + bar(52, 7, 0.12) + '</div></div>';
+                }
+                var head = '<div style="display:flex;align-items:center;gap:10px;padding:14px 16px 12px;background:linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02));border-bottom:1px solid rgba(255,255,255,0.08)">' +
+                    '<div style="width:30px;height:30px;border-radius:9px;background:' + p.gradient + ';flex-shrink:0"></div>' +
+                    '<div style="flex:1"><div style="font-weight:800;font-size:14px">' + p.name + '</div><div style="font-size:9px;opacity:.6;letter-spacing:.04em">' + p.tagline + '</div></div>' +
+                    '<div style="width:18px;height:18px;border-radius:6px;border:2px solid rgba(255,255,255,0.4)"></div></div>';
+                var tile = function(label, sub) {
+                    return '<div style="flex:1;border-radius:12px;padding:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08)">' +
+                        '<div style="font-size:9px;opacity:.65;margin-bottom:6px">' + label + '</div>' +
+                        '<div style="font-weight:800;font-size:13px;color:' + C + '">' + sub + '</div></div>';
+                };
+                var body;
+                if (n === 1) {
+                    body = '<div style="padding:14px 16px;display:flex;gap:8px">' + tile('Overview', 'Stats') + tile('Activity', 'Live') + tile('Progress', '82%') + '</div>' +
+                        '<div style="padding:0 16px">' + row() + row() + row() + row() + '</div>';
+                } else if (n === 2) {
+                    body = '<div style="padding:14px 16px">' +
+                        '<div style="height:150px;border-radius:14px;background:linear-gradient(150deg,rgba(255,255,255,0.14),rgba(255,255,255,0.04));margin-bottom:12px;display:flex;align-items:center;justify-content:center">' +
+                        '<div style="width:56px;height:56px;border-radius:16px;background:' + p.gradient + '"></div></div>' +
+                        bar(60, 12, 0.35) + bar(40, 8, 0.15) + bar(88, 8, 0.15) +
+                        '<div style="margin-top:14px">' + row() + row() + '</div></div>';
+                } else {
+                    body = '<div style="padding:14px 16px">' +
+                        '<div style="display:flex;align-items:center;gap:14px;border-radius:14px;padding:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);margin-bottom:12px">' +
+                        '<div style="width:64px;height:64px;border-radius:50%;border:8px solid ' + C + ';border-right-color:rgba(255,255,255,0.15);flex-shrink:0"></div>' +
+                        '<div style="flex:1">' + bar(92, 10, 0.35) + bar(70, 8, 0.14) + bar(48, 8, 0.14) + '</div></div>' +
+                        row() + row() + row() + '</div>';
+                }
+                return '<div style="height:100%;box-sizing:border-box;display:flex;flex-direction:column;background:linear-gradient(180deg,#0F172A,#111827);color:#fff;font-family:inherit">' +
+                    '<div style="padding:10px 16px 6px;display:flex;justify-content:space-between;align-items:center;font-size:9px;opacity:.55;letter-spacing:.06em"><span>9:41</span><span style="width:26px;height:6px;border-radius:3px;background:rgba(255,255,255,0.25)"></span></div>' +
+                    head + '<div style="flex:1;overflow:hidden">' + body + '</div></div>';
+            }
+
+            function showAppScreen(app, n) {
+                var p = APP_INFO[app];
+                if (!p) return;
+                openLightbox(appScreenMock(app, n), p.name + ' — Screen ' + n);
+            }
+            window.showAppScreen = showAppScreen;
 
             if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
             overlay.addEventListener('click', function(e) { if (e.target === overlay) closeLightbox(); });
@@ -4824,7 +5224,7 @@
                      'Hello SPECTRONIC, I\'d like a quote for:\n- Type: ' + state.type + '\n- Backend: ' + state.backend + '\n- Add-ons: ' + state.addons.join(', ') + '\n- Design: ' + state.design + '\n- Estimate: $' + bRange[0] + ' - $' + bRange[1] + ' USD')
                 );
                 var waLink = document.getElementById('calc-whatsapp');
-                if (waLink) waLink.href = 'https://wa.me/213600000000?text=' + waText;
+                if (waLink) waLink.href = 'https://wa.me/213777566691?text=' + waText;
             }
 
             function setupGroup(groupId, stateKey, multi) {
@@ -5288,7 +5688,7 @@
             function onWABtn(p) {
                 var l = lang();
                 var msg = c('waMsg') + ' — ' + p.kw.archType + ' / ' + p.kw.platform + ' / $' + p.kw.low + '-' + p.kw.high;
-                return 'window.open(\'https://wa.me/213600000000?text=' + encodeURIComponent(msg) + '\',\'_blank\');return false;';
+                return 'window.open(\'https://wa.me/213777566691?text=' + encodeURIComponent(msg) + '\',\'_blank\');return false;';
             }
             var tiers = {
                 mobile: { base:[800,1200], pro:[1000,1600], adv:[1400,2400] },
@@ -5357,7 +5757,7 @@
                 if (leadState) { handleLead(text); return; }
                 if (greet) { addBot(esc(c('welcome'))); renderChips(c('chips')); return; }
                 if (thanks) { addBot(lang()==='ar' ? 'العفو! 😊 سعيد بخدمتك. هل تحتاج شيئاً آخر عن تكلفة أو تصميم مشروعك؟' : 'You\'re welcome! 😊 Anything else about your project cost or design?'); return; }
-                if (waReq) { addBot('<a class="ai-wa-btn" href="https://wa.me/213600000000" target="_blank" rel="noopener" style="text-decoration:none;">' + c('wa') + '</a>'); return; }
+                if (waReq) { addBot('<a class="ai-wa-btn" href="https://wa.me/213777566691" target="_blank" rel="noopener" style="text-decoration:none;">' + c('wa') + '</a>'); return; }
 
                 if (costQ || mvpq) {
                     var pr = buildProposal(text);
@@ -5410,7 +5810,7 @@
                     addBot(esc(c('platformGot') + ' ' + c('qContact')), 400);
                 } else if (leadState === 'contact') {
                     lead.contact = text; leadState = null;
-                    var wa = 'https://wa.me/213600000000?text=' + encodeURIComponent(c('waMsg') + ' | Budget: ' + (lead.budget||'?') + ' | Deadline: ' + (lead.deadline||'?') + ' | Platform: ' + (lead.platform||'?') + ' | Contact: ' + text);
+                    var wa = 'https://wa.me/213777566691?text=' + encodeURIComponent(c('waMsg') + ' | Budget: ' + (lead.budget||'?') + ' | Deadline: ' + (lead.deadline||'?') + ' | Platform: ' + (lead.platform||'?') + ' | Contact: ' + text);
                     addBot(esc(c('contactGot') + '\n' + c('thanks')) + '<br><a class="ai-wa-btn" href="' + wa + '" target="_blank" rel="noopener">' + c('wa') + '</a>', 500);
                 }
             }
@@ -5472,87 +5872,7 @@
         })();
     </script>
 
-    <!-- Video Modal -->
-    <div id="video-modal-overlay" class="video-modal-overlay">
-        <div class="video-modal-content">
-            <button id="video-modal-close" class="video-modal-close" aria-label="Close video">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-            </button>
-            <div class="aspect-video bg-black flex items-center justify-center">
-                <div class="text-center px-8">
-                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full mb-4" style="background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.15)); border: 1px solid rgba(139,92,246,0.3);">
-                        <svg class="w-10 h-10" style="color: #818CF8;" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                    </div>
-                    <p class="text-slate-400 text-sm">Video demo coming soon</p>
-                    <p class="text-slate-500 text-xs mt-1">Replace this section with an embedded YouTube/Vimeo iframe</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Image Lightbox -->
-    <div id="lightbox-overlay" class="lightbox-overlay">
-        <button id="lightbox-close" class="lightbox-close" aria-label="Close lightbox">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-        </button>
-        <img id="lightbox-img" src="" alt="">
-        <div id="lightbox-caption" class="lightbox-caption"></div>
-    </div>
-
-    <!-- Privacy Policy Modal -->
-    <div id="privacy-modal" class="policy-modal-overlay">
-        <div class="policy-modal-glass">
-            <button class="modal-close-btn" onclick="closePolicyModal('privacy')" aria-label="Close">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-            </button>
-            <h3 class="text-2xl font-bold text-white mb-4" data-i18n="footer.privacy">سياسة الخصوصية</h3>
-            <div class="space-y-4 text-slate-400 text-sm leading-relaxed">
-                <p>SPECTRONIC Studio ("نحن") نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية.</p>
-                <h4 class="text-white font-semibold">جمع المعلومات</h4>
-                <p>نجمع فقط المعلومات التي تقدمها طوعاً عبر نموذج التواصل: الاسم وعنوان البريد الإلكتروني وتفاصيل المشروع.</p>
-                <h4 class="text-white font-semibold">استخدام المعلومات</h4>
-                <p>نستخدم معلوماتك فقط للتواصل معك بخصوص استفساراتك ومشاريعك المطلوبة.</p>
-                <h4 class="text-white font-semibold">حماية البيانات</h4>
-                <p>نستخدم إجراءات أمنية مناسبة لحماية بياناتك من الوصول غير المصرح به.</p>
-                <h4 class="text-white font-semibold">التواصل</h4>
-                <p>لأي استفسار بخصوص الخصوصية، تواصل معنا عبر البريد الإلكتروني: spectronic.studio1@gmail.com</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Terms of Service Modal -->
-    <div id="terms-modal" class="policy-modal-overlay">
-        <div class="policy-modal-glass">
-            <button class="modal-close-btn" onclick="closePolicyModal('terms')" aria-label="Close">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-            </button>
-            <h3 class="text-2xl font-bold text-white mb-4" data-i18n="footer.terms">شروط الاستخدام</h3>
-            <div class="space-y-4 text-slate-400 text-sm leading-relaxed">
-                <p>باستخدام موقع SPECTRONIC Studio فإنك توافق على الشروط التالية:</p>
-                <h4 class="text-white font-semibold">الخدمات</h4>
-                <p>نقدم خدمات تطوير تطبيقات الجوال والمواقع الإلكترونية وتصميم الواجهات والهوية البصرية. جميع الأسعار والمدة الزمنية يتم الاتفاق عليها مسبقاً.</p>
-                <h4 class="text-white font-semibold">الملكية الفكرية</h4>
-                <p>بعد الدفع الكامل، ينتقل حق ملكية المشروع النهائي للعميل. نحتفظ بحق عرض الأعمال في معرض أعمالنا ما لم يُطلب خلاف ذلك.</p>
-                <h4 class="text-white font-semibold">الدفع</h4>
-                <p>يتم الدفع وفقاً للجدول الزمني المتفق عليه في العقد. لا يمكن استرداد المدفوعات بعد بدء العمل.</p>
-                <h4 class="text-white font-semibold">المسؤولية</h4>
-                <p>نسعى دائماً لتقديم أعلى جودة، لكن لا نضمن نتائج محددة مثل عدد المستخدمين أو الإيرادات.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Portfolio Modals -->
-    <div id="portfolio-modal-overlay" class="portfolio-modal-overlay">
-        <div class="portfolio-modal-glass">
-            <button id="portfolio-close-btn" class="portfolio-close-btn">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-            </button>
-            <div id="portfolio-modal-content"></div>
-        </div>
-    </div>
-
-    <!-- Toast Container -->
-    <div id="toast-container" class="toast-container"></div>
 
     <!-- Lightweight Analytics & Conversion Tracking -->
     <script>
