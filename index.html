@@ -5872,6 +5872,9 @@
                 s = s.replace(/[‘’`"«»]/g, "'").replace(/\s+/g, ' ').trim();
                 return s;
             }
+            function looseNormalize(s) {
+                return normalize(s).replace(/e/g, 'i').replace(/o/g, 'u');
+            }
 
             /* ---- Fuzzy matching ---- */
             function levenshtein(a, b) {
@@ -5918,14 +5921,14 @@
             var INTENTS = [
                 { id:'identity', min:2, w:{ ar:['من انت','من أنت','من هو سبكترونيك','من فريق','من شركتكم','عرفنا بنفسك','معلومات عنكم','نبذة','من هم','تعريف','ما اسمك','اين تقع','أين تقع','وين تقع','وين راكم'], en:['who are you','about you','your studio','who is spectronic','tell me about yourself','about us','your company','what is your name','whats your name','where are you located','where are you based','where are you from'], fr:['qui etes vous','qui es-tu','c est qui','a propos de vous','presentez vous','votre studio','qui est spectronic','vous etes qui','comment tu t appelles','comment tu tappelles','ou etes vous','vous etes ou','vous etes situe'] } },
                 { id:'services', min:2, w:{ ar:['ماذا تقدمون','ما هي خدماتكم','ما خدماتكم','ماذا تفعلون','خدمات','الخدمات','ماذا تطورون','مجالات عملكم','ماذا تقدم'], en:['what do you do','your services','services','what do you offer','what can you build','your work','what you build'], fr:['quels sont vos services','vos services','ce que vous faites','que proposez vous','vos domaines','votre travail','que faites vous'] } },
-                { id:'pricing', min:1, w:{ ar:['كم تكلف','كم السعر','كم سعر','السعر','التكلفة','كم ميزانية','سعر التطبيق','الأسعار','اسعاركم','كم الثمن','بكم','ميزانية'], en:['how much','price','cost','pricing','budget','how expensive','rates','quote'], fr:['combien coute','combien ca coute','prix','cout','tarif','devis','budget','c est combien'], dz:['ch7al','chhal','sh7al','kam'] } },
+                { id:'pricing', min:1, w:{ ar:['كم تكلف','كم السعر','كم سعر','السعر','التكلفة','كم ميزانية','سعر التطبيق','الأسعار','اسعاركم','كم الثمن','بكم','ميزانية','سعر','تكلفة','ثمن'], en:['how much','price','cost','pricing','budget','how expensive','rates','quote','how much does it cost'], fr:['combien coute','combien ca coute','prix','cout','tarif','devis','budget','c est combien'], dz:['ch7al','chhal','sh7al','kam','ch7alha','شحال'] } },
                 { id:'timeline', min:1, w:{ ar:['كم تستغرق','كم ياخذ','كم يأخذ','متى يكون جاهز','متى يتسلم','كم مدة','المدة','مدة الانجاز','مدة','مدة التسليم','التسليم','تسليم','متى','كم يوم','كم اسبوع','كم شهر','الوقت','متى التسل'], en:['how long','how much time','timeline','when ready','when done','deadline','how many weeks','how many days','delivery time','how fast'], fr:['combien de temps','quel delai','en combien de temps','combien de jours','combien de semaines','sous combien','quand sera pret','delai de livraison'], dz:['ch7al','chhal','sh7al'] } },
                 { id:'process', min:2, w:{ ar:['كيف تتعاملون','كيف تشتغلون','طريقة العمل','كيف تسير','كيف تعملون','المراحل','مراحل المشروع','كيف تبدا','كيف نبدا'], en:['how do you work','your process','process','how it works','how we start','steps','how do you start','workflow'], fr:['comment vous travaillez','votre processus','processus','comment ca marche','comment on commence','les etapes','deroulement'] } },
                 { id:'guarantee', min:1, w:{ ar:['ضمان','ضمانات','مضمون','دعم','صيانة','دعم بعد','تحديثات','تعديلات بعد','حقوق','مصدر الكود','كود المصدر','ملكية','خبرة','عملاء'], en:['guarantee','warranty','support','maintenance','after launch','updates','source code','ownership','secure','experience','clients'], fr:['garantie','support','maintenance','apres le lancement','mises a jour','code source','propriete','securise','experience','clients'] } },
-                { id:'portfolio', min:2, w:{ ar:['اعمالكم','اعمال سابقة','مشاريعكم','مشاريع سابقة','شاهد اعمال','معرض','بورتفوليو','امثلة مشاريع'], en:['your work','previous projects','portfolio','showcase','examples','your projects','past work'], fr:['vos projets','vos realisations','portfolio','exemples','projets precedents','votre portfolio'] } },
-                { id:'whatsapp', min:2, w:{ ar:['واتساب','واطساب','رقم الهاتف','رقمكم','الهاتف','للتواصل','مراسلة','رقم'], en:['whatsapp','phone number','contact number','call you','reach you','phone','message you'], fr:['whatsapp','numero de telephone','votre numero','telephone','vous joindre','message'] } },
+                { id:'portfolio', min:2, w:{ ar:['اعمالكم','اعمال سابقة','مشاريعكم','مشاريع سابقة','شاهد اعمال','معرض','بورتفوليو','امثلة مشاريع','تطبيقاتكم','تطبيقات'], en:['your work','previous projects','portfolio','showcase','examples','your projects','past work','your apps','apps'], fr:['vos projets','vos realisations','portfolio','exemples','projets precedents','votre portfolio','vos applications'] } },
+                { id:'whatsapp', min:2, w:{ ar:['واتساب','واطساب','رقم الهاتف','رقمكم','الهاتف','للتواصل','مراسلة','رقم','تواصل','ايميل','الايميل','اتصل','الاتصال','تواصل معنا'], en:['whatsapp','whats app','phone number','contact number','call you','reach you','phone','message you','email','mail','contact us'], fr:['whatsapp','numero de telephone','votre numero','telephone','vous joindre','message','email','mail','appel'] } },
                 { id:'consult', min:1, w:{ ar:['استشارة','احجز استشارة','استشارة مجانية','مكالمة','تحدث مع','تواصل مع','خدمة عميل','بشري'], en:['consult','consultation','book a call','call me','speak to','human','free consultation'], fr:['consultation','reserver une consultation','rendez-vous','parler a','conseiller','humain'] } },
-                { id:'tweak', min:1, w:{ ar:['تعديل','تغيير','اضافة ميزة','اضافة خاصية','تعديل الميزات','التخصيص','اريد تغيير'], en:['modify','change','customize','customization','adjust','add feature','edit','tweak'], fr:['modifier','changer','personnaliser','ajouter une fonction','ajuster','adapter','modification'] } },
+                { id:'tweak', min:2, w:{ ar:['تعديل','تغيير','اضافة ميزة','اضافة خاصية','تعديل الميزات','التخصيص','اريد تغيير'], en:['modify','change','customize','customization','adjust','add feature','edit','tweak'], fr:['modifier','changer','personnaliser','ajouter une fonction','ajuster','adapter','modification'] } },
                 { id:'howareyou', min:2, w:{ ar:['كيف حالك','كيفك','شحالك','شخبارك','كيف الاحوال'], en:['how are you','how are you doing','how s it going'], fr:['comment vas tu','ca va','comment allez vous'] } }
             ];
 
@@ -5994,6 +5997,97 @@
                 fr: { same:'Une app similaire', describe:'Dites-m\'en plus', consult:'Réserver une consultation gratuite' }
             };
 
+            /* ---- Tech knowledge base & typo-tolerant dictionary ---- */
+            var TECH_KB = {
+                kotlin: {
+                    ar: 'كوتلن (Kotlin) هي اللغة الرسمية والحديثة المعتمدة من Google لتطوير تطبيقات أندرويد الاحترافية (Native). نعتمد عليها في استوديو SPECTRONIC لبناء تطبيقات فائقة السرعة، آمنة، وسلسة جداً في الأداء. هل حابب تبني تطبيقك بـ Kotlin؟',
+                    en: 'Kotlin is the modern, official language endorsed by Google for building professional native Android apps. At SPECTRONIC Studio we rely on it to build apps that are ultra-fast, secure, and extremely smooth. Would you like to build your app with Kotlin?',
+                    fr: 'Kotlin est le langage moderne et officiel adopté par Google pour développer des applications Android natives professionnelles. Chez SPECTRONIC Studio, nous l\'utilisons pour créer des applications ultra-rapides, sécurisées et très fluides. Souhaitez-vous créer votre application avec Kotlin ?'
+                },
+                compose: {
+                    ar: 'Jetpack Compose هي مكتبة Google الحديثة لبناء واجهات أندرويد (UI) بطريقة تصريحية — أسرع وأذكى من الطرق القديمة. نستخدمها في SPECTRONIC مع Kotlin لإنتاج واجهات جميلة وسلسة ومتجاوبة مع كل الشاشات.',
+                    en: 'Jetpack Compose is Google\'s modern toolkit for building Android UI declaratively — smarter and faster than the old XML views. At SPECTRONIC we pair it with Kotlin to craft beautiful, fluid, fully responsive interfaces.',
+                    fr: 'Jetpack Compose est la boîte à outils moderne de Google pour construire l\'interface Android de façon déclarative — plus intelligente et plus rapide que les anciennes vues XML. Chez SPECTRONIC, nous l\'utilisons avec Kotlin pour des interfaces belles, fluides et responsives.'
+                },
+                room: {
+                    ar: 'Room هي قاعدة بيانات محلية (SQLite) أنيقة لتخزين بيانات التطبيق على الجهاز — سريعة وآمنة وتعمل دون إنترنت. نعتمدها في SPECTRONIC لحفظ بيانات مستخدميك بشكل موثوق مع بنية نظيفة وسهلة التوسع.',
+                    en: 'Room is a tidy local database (SQLite) for storing app data on-device — fast, secure, and fully offline. At SPECTRONIC we use it to store your users\' data reliably while keeping a clean, scalable architecture.',
+                    fr: 'Room est une base de données locale (SQLite) élégante pour stocker les données de l\'application sur l\'appareil — rapide, sécurisée et fonctionnant hors ligne. Chez SPECTRONIC, nous l\'utilisons pour stocker les données de vos utilisateurs avec une architecture propre et évolutive.'
+                },
+                cleanarch: {
+                    ar: 'Clean Architecture هي طريقة تنظيم كود تجعل المشروع سهلاً في التطوير والصيانة والاختبار على المدى الطويل. كل مشاريع SPECTRONIC مبنية بها — يعني جودة أعلى وتكاليف تطوير أقل لاحقاً.',
+                    en: 'Clean Architecture is a way of organizing code that keeps projects easy to develop, test, and maintain long-term. Every SPECTRONIC project is built with it — meaning higher quality and lower future development costs.',
+                    fr: 'L\'architecture propre est une méthode d\'organisation du code qui rend les projets faciles à développer, tester et maintenir à long terme. Tous les projets SPECTRONIC l\'utilisent — qualité supérieure et coûts de développement réduits à terme.'
+                },
+                uiux: {
+                    ar: 'UI/UX يعني تصميم الواجهة (UI) وتجربة المستخدم (UX). في SPECTRONIC نوليهما أولوية قصوى: واجهات جميلة وسهلة الاستخدام، وتجربة تبقي المستخدمين راضين وتزيد مبيعاتك.',
+                    en: 'UI/UX means user interface (UI) and user experience (UX) design. At SPECTRONIC we make them a top priority: beautiful, easy-to-use interfaces and an experience that keeps users happy and boosts your sales.',
+                    fr: 'UI/UX désigne la conception de l\'interface utilisateur (UI) et de l\'expérience utilisateur (UX). Chez SPECTRONIC, c\'est une priorité absolue : des interfaces belles et faciles à utiliser, et une expérience qui satisfait vos utilisateurs et augmente vos ventes.'
+                },
+                ai: {
+                    ar: 'الذكاء الاصطناعي (AI) يسمح لتطبيقك بفهم البيانات والتفاعل بذكاء: محادثة، توصيات، تحليل، وأتمتة. ندمجه في SPECTRONIC عند الحاجة (مثل تطبيق كايزن) لجعل منتجك أذكى وأقرب للمستخدم.',
+                    en: 'AI lets your app understand data and interact intelligently: chat, recommendations, analytics, and automation. At SPECTRONIC we integrate it when needed (like in the Kaizen app) to make your product smarter and closer to your users.',
+                    fr: 'L\'IA permet à votre application de comprendre les données et d\'interagir intelligemment : chat, recommandations, analyses et automatisation. Chez SPECTRONIC, nous l\'intégrons si nécessaire (comme dans l\'application Kaizen) pour rendre votre produit plus intelligent.'
+                },
+                flutter: {
+                    ar: 'Flutter هو إطار Google لتطوير تطبيقات متعددة المنصات (أندرويد + iOS + ويب) بكود واحد. لكن في SPECTRONIC نفضّل الأندرويد الأصلي بـ Kotlin للأداء والجودة القصوى — ونرشّح Flutter حسب احتياج مشروعك.',
+                    en: 'Flutter is Google\'s framework for building cross-platform apps (Android + iOS + web) from a single codebase. At SPECTRONIC we prefer native Android with Kotlin for maximum performance and quality — but we recommend Flutter when your project calls for it.',
+                    fr: 'Flutter est le framework de Google pour créer des applications multi-plateformes (Android + iOS + web) avec un seul code. Chez SPECTRONIC, nous préférons Android natif avec Kotlin pour des performances et une qualité maximales — mais nous recommandons Flutter selon les besoins de votre projet.'
+                },
+                java: {
+                    ar: 'Java هي اللغة الكلاسيكية لتطوير أندرويد، لكن Kotlin هي اللغة الرسمية الحديثة — أفضل أداءً وأماناً وسهولة. في SPECTRONIC نبني بالـ Kotlin، ويمكننا نقل مشاريع Java قديمة إليها بسهولة.',
+                    en: 'Java is the classic Android language, but Kotlin is the modern official one — better performance, safety, and ease. At SPECTRONIC we build with Kotlin and can easily migrate legacy Java projects to it.',
+                    fr: 'Java est le langage classique d\'Android, mais Kotlin est le langage officiel moderne — meilleures performances, sécurité et simplicité. Chez SPECTRONIC, nous construisons avec Kotlin et pouvons migrer facilement d\'anciens projets Java.'
+                },
+                android: {
+                    ar: 'أندرويد (Android) هو نظام تشغيل Google للهواتف — المنصة الأولى عالمياً. نبني تطبيقات أندرويد أصلية (Native) بـ Kotlin + Jetpack Compose لسرعة وأمان وأداء لا يُضاهى.',
+                    en: 'Android is Google\'s mobile operating system — the #1 platform worldwide. We build native Android apps with Kotlin + Jetpack Compose for unmatched speed, security, and performance.',
+                    fr: 'Android est le système d\'exploitation mobile de Google — la plateforme n°1 au monde. Nous développons des applications Android natives avec Kotlin + Jetpack Compose pour une vitesse, une sécurité et des performances inégalées.'
+                }
+            };
+            var TECH_ALIASES = [
+                { id:'kotlin',    aliases:['kotlin','kotlen','kotlin','كوتلن','كوتلين'] },
+                { id:'compose',   aliases:['compose','jetpack compose','jetpack','كمبوز','كومبوز','جتياك','جيت باك','جت باك'] },
+                { id:'room',      aliases:['room','روم','قاعدة بيانات محلية'] },
+                { id:'cleanarch', aliases:['clean architecture','clean arch','clean code','البنية النظيفة','بنية نظيفة','بنية الكود','clean'] },
+                { id:'uiux',      aliases:['ui ux','ui/ux','uiux','ui','ux','user experience','تجربة المستخدم','واجهة المستخدم','تصميم الواجهات','واجهات'] },
+                { id:'ai',        aliases:['ai','الذكاء الاصطناعي','ذكاء اصطناعي','ذكاء','machine learning','تعلم الآلة','llm','llms'] },
+                { id:'flutter',   aliases:['flutter','فلاتر','فلتر'] },
+                { id:'java',      aliases:['java','جافا','جافاء'] },
+                { id:'android',   aliases:['android','أندرويد','اندرويد','اندرايد'] }
+            ];
+            function matchTech(text) {
+                var t = looseNormalize(text);
+                for (var i = 0; i < TECH_ALIASES.length; i++) {
+                    var e = TECH_ALIASES[i];
+                    for (var j = 0; j < e.aliases.length; j++) {
+                        var a = looseNormalize(e.aliases[j]);
+                        if (!a) continue;
+                        var ok = false;
+                        if (/^[\u0600-\u06FF]/.test(a)) {
+                            ok = t.indexOf(a) !== -1 || t.indexOf('ال' + a) !== -1 || t.indexOf('بال' + a) !== -1;
+                        } else if (/^[a-z]+$/.test(a)) {
+                            if (a.length <= 3) ok = new RegExp('(^|[^a-z0-9])' + a + '($|[^a-z0-9])').test(t);
+                            else ok = t.indexOf(a) !== -1;
+                        } else {
+                            ok = t.indexOf(a) !== -1;
+                        }
+                        if (ok) return e.id;
+                    }
+                }
+                for (var k = 0; k < TECH_ALIASES.length; k++) {
+                    if (fuzzyScore(text, TECH_ALIASES[k].aliases[0]) >= 1) return TECH_ALIASES[k].id;
+                }
+                return null;
+            }
+            function replyTech(id) {
+                var l = curL || 'ar';
+                var d = TECH_KB[id];
+                if (!d) return;
+                addBot(esc(d[l] || d.en), 500);
+                renderChips([c('chips', l)[3], APP_CTAS[l].consult]);
+            }
+
             /* ---- Reply templates ---- */
             var TMPL = {
                 greet: {
@@ -6057,9 +6151,9 @@
                     fr:['C\'est hors de mon domaine — je suis l\'assistant commercial technique de SPECTRONIC. 😊 Posez-moi des questions sur le coût, les délais ou l\'une de nos applications.']
                 },
                 fallback: {
-                    ar:['😊 لم أفهم تماماً. جرّب مثلاً:','• "كم تكلفة تطبيق جوال؟"','• "أخبرني عن فيلورا"','• "ما هي خدماتكم؟"','• "احجز استشارة مجانية"'],
-                    en:['😊 I didn\'t quite get that. Try e.g.:','• "How much does a mobile app cost?"','• "Tell me about Velora"','• "What services do you offer?"','• "Book a free consultation"'],
-                    fr:['😊 Je n\'ai pas bien compris. Essayez par ex. :','• « Combien coûte une application mobile ? »','• « Parle-moi de Velora »','• « Quels sont vos services ? »','• « Réserver une consultation gratuite »']
+                    ar:['سؤالك مهم! بصفتي المستشار التقني لـ SPECTRONIC، يمكنني مساعدتك في كل ما يخص تطوير التطبيقات والمواقع. هل استفسارك يخص (تطبيق جديد / استشارة تقنية / تسعير مشروع)؟'],
+                    en:['Your question matters! As SPECTRONIC\'s technical advisor, I can help you with everything related to app and website development. Does your inquiry concern (a new app / technical consultation / project pricing)?'],
+                    fr:['Votre question est importante ! En tant que conseiller technique de SPECTRONIC, je peux vous aider pour tout ce qui concerne le développement d\'applications et de sites. Votre demande concerne-t-elle (une nouvelle application / une consultation technique / le devis d\'un projet) ?']
                 },
                 consult: {
                     ar:['🎯 ممتاز! دعني أحضّر استشارتك المجانية.'],
@@ -6196,6 +6290,15 @@
                     return;
                 }
                 if (intent.id === 'howareyou') { replyHowAreYou(); return; }
+                if (intent.id === 'portfolio') {
+                    addBot(linesHtml(TMPL.portfolio[l]) + '<br>' + waCta(l));
+                    renderChips([
+                        { label: APP_KB.velora.name[l], cmd: function(){ replyApp('velora'); } },
+                        { label: APP_KB.aurora.name[l], cmd: function(){ replyApp('aurora'); } },
+                        { label: APP_KB.kaizen.name[l], cmd: function(){ replyApp('kaizen'); } }
+                    ]);
+                    return;
+                }
                 var body = TMPL[intent.id] ? TMPL[intent.id][l] : null;
                 if (body) {
                     addBot(linesHtml(body) + '<br>' + waCta(l));
@@ -6207,6 +6310,7 @@
             var AI_SELF_RX = /هل انت ذكي|هل أنت ذكي|انت بوت|أنت بوت|انت روبوت|أنت روبوت|هل انت انسان|هل أنت إنسان|are you (a |an |)bot|are you human|are you a robot|tu es un bot|tu es un robot|es tu un robot|es-tu un robot|tu es une ia/i;
             var OFFTOPIC_RX = /الطقس|طقس|توقعات|weather|الأخبار|اخبار|news|رياضيات|maths|math|جبر|وصفة|طبخ|recipe|recette|واجب|فرض|homework|devoirs|عاصمة|capital|فيلم|مسلسل|movie|series|مباراة|football|كورة|كرة القدم|كوكب|planet|space|فضاء|علم|شعر|قصيدة|poem|ترجمة|translate|météo|meteo|quel temps fait/i;
             var PROJ_SIGNAL_RX = /تطبيق|ابليكيشن|تطبيقات|أب|موقع|ويب|صفحة|لاندينغ|متجر|متاجر|بوت|شات|لوحة|نظام|خدمة|برنامج|سوفت|سوفتوير|app|application|mobile|android|ios|website|web|site|landing|store|shop|ecommerce|e-comm|platform|dashboard|bot|chatbot/i;
+            var DEF_RX = /ما معنى|ما معني|ماذا تعني|ما هي|ما هو|ماهي|ماهو|ما هذا|تعريف|اشرح|اوضح|شرح|لماذا|ليه|يعني ايه|what is|what's|whats|what does|what do you mean|define|meaning|definition|explain|c'est quoi|quest ce que|qu est ce que|c quoi|definir|explique|qu'est-ce que/i;
 
             /* ---- Ethical guardrails ---- */
             var FORBIDDEN = [
@@ -6228,15 +6332,21 @@
                 renderChips([APP_CTAS[curL].consult]);
             }
 
-            /* ---- App name matcher ---- */
+            /* ---- App name matcher (typo-tolerant aliases) ---- */
             function matchApp(text) {
-                var t = normalize(text);
-                if (/(^|\s)(velora|فيلورا)($|\s)/.test(t)) return 'velora';
-                if (/(^|\s)(aurora|اورورا|أورورا)($|\s)/.test(t)) return 'aurora';
-                if (/(^|\s)(kaizen|كايزن)($|\s)/.test(t)) return 'kaizen';
-                if (t.indexOf('فيلورا') !== -1 || t.indexOf('velora') !== -1) return 'velora';
-                if (t.indexOf('اورورا') !== -1 || t.indexOf('aurora') !== -1) return 'aurora';
-                if (t.indexOf('كايزن') !== -1 || t.indexOf('kaizen') !== -1) return 'kaizen';
+                var t = looseNormalize(text);
+                var groups = {
+                    velora: ['velora', 'فيلورا', 'فلورا'],
+                    aurora: ['aurora', 'اورورا'],
+                    kaizen: ['kaizen', 'كايزن', 'كايزن اي اي']
+                };
+                for (var id in groups) {
+                    var al = groups[id];
+                    for (var i = 0; i < al.length; i++) {
+                        var a = looseNormalize(al[i]);
+                        if (a && t.indexOf(a) !== -1) return id;
+                    }
+                }
                 return null;
             }
 
@@ -6272,8 +6382,26 @@
                 var app = matchApp(text);
                 if (app) { userSession.interestedApp = APP_KB[app].name[curL]; rememberTopic(app); bumpScore(1); addBot(replyApp(app), 700); return; }
 
+                var tech = matchTech(text);
+                if (tech && DEF_RX.test(text)) {
+                    var priorIntent = matchIntent(text);
+                    if (!priorIntent || priorIntent.id !== 'pricing') {
+                        rememberTopic('tech:' + tech);
+                        bumpScore(1);
+                        replyTech(tech);
+                        return;
+                    }
+                }
+
                 var intent = matchIntent(text);
                 if (intent) { rememberTopic(intent.id); replyIntent(intent); return; }
+
+                if (tech && !PROJ_SIGNAL_RX.test(text)) {
+                    rememberTopic('tech:' + tech);
+                    bumpScore(1);
+                    replyTech(tech);
+                    return;
+                }
 
                 var arch = matchKw(text);
                 var plat = detectPlatform(text);
