@@ -2158,6 +2158,28 @@
         .ai-wa-btn { display: inline-flex; margin-top: 12px; padding: 0.55rem 1rem; border: none; cursor: pointer; border-radius: 0.7rem; font-weight: 700; font-size: 0.8rem; color: #062B33; background: linear-gradient(135deg, #00E5FF, #10B981); box-shadow: 0 8px 20px -8px rgba(0,229,255,0.5); transition: transform .25s ease, box-shadow .25s ease; text-decoration: none; }
         .ai-wa-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px rgba(16,185,129,0.5); }
 
+        /* ---------- Sales & Pricing Engine cards ---------- */
+        .ai-brief { margin-top: 0.3rem; border: 1px solid rgba(0,229,255,0.22); border-radius: 0.9rem; padding: 0.7rem 0.8rem; background: rgba(0,229,255,0.04); }
+        .ai-brief-title { font-weight: 800; font-size: 0.82rem; color: #fff; margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+        .ai-brief-row { display: flex; justify-content: space-between; gap: 8px; padding: 3px 0; border-bottom: 1px dashed rgba(148,163,184,0.14); font-size: 0.74rem; }
+        .ai-brief-k { color: #94A3B8; flex-shrink: 0; }
+        .ai-brief-v { color: #E2E8F0; }
+        .ai-brief-feats { margin-top: 0.45rem; }
+        .ai-table { margin-top: 0.55rem; border: 1px solid rgba(16,185,129,0.35); border-radius: 0.7rem; overflow: hidden; background: rgba(16,185,129,0.06); }
+        .ai-tbl-row { display: flex; justify-content: space-between; gap: 8px; padding: 0.42rem 0.6rem; border-bottom: 1px solid rgba(148,163,184,0.14); font-size: 0.74rem; }
+        .ai-tbl-row:last-child { border-bottom: none; }
+        .ai-tbl-k { color: #CBD5E1; }
+        .ai-tbl-v { color: #F8FAFC; font-weight: 700; }
+        .ai-price { color: #34D399; font-weight: 800; }
+        .ai-voucher { margin-top: 0.3rem; border: 1px solid rgba(245,158,11,0.5); border-radius: 0.9rem; padding: 0.7rem 0.8rem; background: linear-gradient(135deg, rgba(245,158,11,0.12), rgba(245,158,11,0.03)); box-shadow: 0 0 22px -10px rgba(245,158,11,0.5); }
+        .ai-voucher-head { font-weight: 800; font-size: 0.8rem; color: #FBBF24; margin-bottom: 0.3rem; }
+        .ai-voucher-body { font-size: 0.74rem; line-height: 1.5; color: #E2E8F0; }
+        .ai-voucher-code { display: inline-block; margin-top: 0.45rem; padding: 0.3rem 0.7rem; border-radius: 0.5rem; border: 1px dashed rgba(245,158,11,0.6); color: #FDE68A; font-size: 0.78rem; letter-spacing: 0.08em; }
+        .ai-voucher-note { margin-top: 0.4rem; font-size: 0.68rem; color: #FBBF24; }
+        .ai-roi { margin-top: 0.3rem; border: 1px solid rgba(139,92,246,0.4); border-radius: 0.9rem; padding: 0.7rem 0.8rem; background: rgba(139,92,246,0.06); }
+        .ai-roi-title { font-weight: 800; font-size: 0.8rem; color: #C4B5FD; margin-bottom: 0.35rem; }
+        .ai-roi-line { margin-top: 0.5rem; padding: 0.45rem 0.6rem; border-radius: 0.6rem; background: rgba(139,92,246,0.12); color: #DDD6FE; font-size: 0.74rem; line-height: 1.5; }
+
         /* ---------- Contact success animation ---------- */
         .form-success-ring {
             width: 64px; height: 64px;
@@ -5560,7 +5582,28 @@
                     qWhat: 'أخبرني ما نوع المشروع الذي تريده؟', qBudget: 'ما هي ميزانيتك التقريبية بالدولار؟', qDeadline: 'ما هو الموعد المطلوب للتسليم؟', qPlatform: 'ما النظام المستهدف؟ (الجوال / الويب / كلاهما)', qContact: 'شاركنا بريدك أو رقم واتساب وسنرسل لك عرضاً تفصيلياً اليوم.',
                     thanks: '🎉 شكراً! تم تسجيل طلبك. مستشار حقيقي من SPECTRONIC سيتواصل معك خلال 24 ساعة.', wa: 'أرسل الطلب عبر واتساب', waMsg: 'طلب عرض سعر من SPECTRONIC AI',
                     budgetGot:'رائع! سجّلت الميزانية.', deadlineGot:'فهمت، سجّلت الموعد.', platformGot:'ممتاز، اخترنا النظام.', contactGot:'شكراً لثقتك! 🚀',
-                    aiNote: 'AI مشروعي توضيحي — لعرض سريع للتكنولوجيا.', plan: 'اتصل بنا مباشرة لتقدير دقيق برسالة على واتساب'
+                    aiNote: 'AI مشروعي توضيحي — لعرض سريع للتكنولوجيا.', plan: 'اتصل بنا مباشرة لتقدير دقيق برسالة على واتساب',
+                    estQ1: '💡 أولاً: ما نوع المشروع الذي تريد بناءه؟ (تطبيق جوال / موقع ويب / متجر إلكتروني / تطبيق ذكاء اصطناعي)',
+                    estQ2: 'ثانياً: ما مدى تعقيد الشاشات والواجهات؟ (بسيطة / متوسطة / متقدمة)',
+                    estQ3: 'وأخيراً: ما اللغات المستهدفة؟ (عربية فقط / عربية + إنجليزية / عربية + فرنسية + إنجليزية)',
+                    estOpts1: ['تطبيق جوال','موقع ويب','متجر إلكتروني','تطبيق ذكاء اصطناعي'],
+                    estOpts2: ['بسيطة','متوسطة','متقدمة'],
+                    estOpts3: ['عربية فقط','عربية + إنجليزية','عربية + فرنسية + إنجليزية'],
+                    briefTitle: '📋 ملخص المشروع (Project Brief)',
+                    briefType: 'نوع المشروع', briefComplex: 'التعقيد', briefLangs: 'اللغات', briefFeats: 'الميزات المقترحة', briefTime: 'المدة', briefPrice: 'التكلفة', briefInc: 'يشمل',
+                    offerRoiChip: '📈 احسب عائد الاستثمار',
+                    voucherChip: '🎟️ عرض خاص',
+                    voucherTitle: '🎟️ عرض خاص — صالح 24 ساعة فقط',
+                    voucherBody: 'نرى استعدادك للمضي قدماً! عند بدء مشروعك خلال 24 ساعة، نحضّر لك إضافة مجانية: إعداد لوحة تحكم مشروعك بالكامل (قيمة $200).',
+                    voucherCodeLabel: 'كود العرض',
+                    voucherNote: '⏰ ينتهي العرض خلال 24 ساعة من الآن',
+                    roiQ1: '📈 ممتاز! حاسبة العائد على الاستثمار — اختر نشاطك التجاري:',
+                    roiQ2: 'ما متوسط قيمة طلبك أو اشتراكك بالدولار؟',
+                    roiDefault: 'استخدم القيمة الافتراضية',
+                    roiTitle: '📈 تقدير العائد على الاستثمار (ROI)',
+                    roiCost: 'تكلفة المشروع',
+                    roiProfit: 'صافي الربح لكل طلب',
+                    roiOrders: 'طلبات لاسترداد التكلفة'
                 },
                 en: {
                     welcome: 'Hi there! 👋 I\'m your SPECTRONIC technical advisor. Describe your project — a mobile app, website, or e-commerce store — or ask about cost and timeline.',
@@ -5577,7 +5620,28 @@
                     qWhat: 'Tell me what kind of project you have in mind?', qBudget: 'What is your approximate budget in USD?', qDeadline: 'What is your desired delivery date?', qPlatform: 'Which platform? (Mobile / Web / Both)', qContact: 'Share your email or WhatsApp and we\'ll send a full proposal today.',
                     thanks: '🎉 Thank you! Your request is recorded. A real SPECTRONIC advisor will contact you within 24 hours.', wa: 'Send request via WhatsApp', waMsg: 'Price quote request from SPECTRONIC AI',
                     budgetGot:'Great! Budget recorded.', deadlineGot:'Got it, deadline recorded.', platformGot:'Perfect, platform selected.', contactGot:'Thanks for your trust! 🚀',
-                    aiNote: 'AI is demo-only — quick showcase of the tech.', plan: 'Contact us directly for an accurate estimate via WhatsApp'
+                    aiNote: 'AI is demo-only — quick showcase of the tech.', plan: 'Contact us directly for an accurate estimate via WhatsApp',
+                    estQ1: '💡 First: what type of project do you want to build? (Mobile app / Website / E-commerce store / AI app)',
+                    estQ2: 'Second: how complex are the screens and interfaces? (Simple / Medium / Advanced)',
+                    estQ3: 'Last: which target languages? (Arabic only / Arabic + English / Arabic + French + English)',
+                    estOpts1: ['Mobile app','Website','E-commerce store','AI app'],
+                    estOpts2: ['Simple','Medium','Advanced'],
+                    estOpts3: ['Arabic only','Arabic + English','Arabic + French + English'],
+                    briefTitle: '📋 Project Brief',
+                    briefType: 'Project type', briefComplex: 'Complexity', briefLangs: 'Languages', briefFeats: 'Suggested features', briefTime: 'Timeline', briefPrice: 'Cost', briefInc: 'Includes',
+                    offerRoiChip: '📈 Calculate ROI',
+                    voucherChip: '🎟️ Special offer',
+                    voucherTitle: '🎟️ Special offer — valid 24 hours only',
+                    voucherBody: 'We see you\'re ready to move forward! Start your project within 24 hours and we\'ll set up your admin panel for free (worth $200).',
+                    voucherCodeLabel: 'Offer code',
+                    voucherNote: '⏰ The offer ends within 24 hours from now',
+                    roiQ1: '📈 Great! ROI calculator — choose your business:',
+                    roiQ2: 'What\'s your average order or subscription value in USD?',
+                    roiDefault: 'Use the default value',
+                    roiTitle: '📈 Return on Investment (ROI) estimate',
+                    roiCost: 'Project cost',
+                    roiProfit: 'Net profit per order',
+                    roiOrders: 'Orders to break even'
                 },
                 fr: {
                     welcome: 'Bonjour ! 👋 Je suis votre conseiller technique SPECTRONIC. Décrivez votre projet — app mobile, site ou e-commerce — ou demandez le coût et les délais.',
@@ -5594,7 +5658,28 @@
                     qWhat: 'Dites-moi quel type de projet vous avez en tête ?', qBudget: 'Quel est votre budget approximatif en USD ?', qDeadline: 'Quelle est la date de livraison souhaitée ?', qPlatform: 'Quelle plateforme ? (Mobile / Web / Les deux)', qContact: 'Partagez votre email ou WhatsApp et nous enverrons une proposition complète aujourd\'hui.',
                     thanks: '🎉 Merci ! Votre demande est enregistrée. Un conseiller SPECTRONIC vous contactera sous 24h.', wa: 'Envoyer via WhatsApp', waMsg: 'Demande de devis depuis SPECTRONIC AI',
                     budgetGot:'Parfait ! Budget enregistré.', deadlineGot:'Compris, date enregistrée.', platformGot:'Excellent, plateforme choisie.', contactGot:'Merci pour votre confiance ! 🚀',
-                    aiNote: 'IA de démonstration uniquement.', plan: 'Contactez-nous directement pour un devis précis via WhatsApp'
+                    aiNote: 'IA de démonstration uniquement.', plan: 'Contactez-nous directement pour un devis précis via WhatsApp',
+                    estQ1: '💡 D\'abord : quel type de projet voulez-vous construire ? (Application mobile / Site web / Boutique e-commerce / Application IA)',
+                    estQ2: 'Ensuite : quelle est la complexité des écrans et interfaces ? (Simple / Moyenne / Avancée)',
+                    estQ3: 'Enfin : quelles langues ciblez-vous ? (Arabe uniquement / Arabe + Anglais / Arabe + Français + Anglais)',
+                    estOpts1: ['Application mobile','Site web','Boutique e-commerce','Application IA'],
+                    estOpts2: ['Simple','Moyenne','Avancée'],
+                    estOpts3: ['Arabe uniquement','Arabe + Anglais','Arabe + Français + Anglais'],
+                    briefTitle: '📋 Résumé du projet (Project Brief)',
+                    briefType: 'Type de projet', briefComplex: 'Complexité', briefLangs: 'Langues', briefFeats: 'Fonctionnalités suggérées', briefTime: 'Délai', briefPrice: 'Coût', briefInc: 'Inclus',
+                    offerRoiChip: '📈 Calculer le ROI',
+                    voucherChip: '🎟️ Offre spéciale',
+                    voucherTitle: '🎟️ Offre spéciale — valable 24 h uniquement',
+                    voucherBody: 'Nous voyons que vous êtes prêt à avancer ! Lancez votre projet sous 24 h et nous configurons votre tableau de bord gratuitement (valeur 200 $).',
+                    voucherCodeLabel: 'Code de l\'offre',
+                    voucherNote: '⏰ L\'offre expire sous 24 h',
+                    roiQ1: '📈 Parfait ! Calculateur de retour sur investissement — choisissez votre activité :',
+                    roiQ2: 'Quelle est la valeur moyenne de votre commande ou abonnement en USD ?',
+                    roiDefault: 'Utiliser la valeur par défaut',
+                    roiTitle: '📈 Estimation du retour sur investissement (ROI)',
+                    roiCost: 'Coût du projet',
+                    roiProfit: 'Bénéfice net par commande',
+                    roiOrders: 'Commandes pour amortir'
                 }
             };
             var c = function(k, l) { l = l || curL || 'ar'; return (copy[l] && copy[l][k] !== undefined) ? copy[l][k] : copy.en[k]; };
@@ -5750,6 +5835,11 @@
             var userSession = { language: 'ar', budgetRange: null, interestedApp: null, leadScore: 1, topics: [] };
             var estimateState = null;
             var estimateLang = 'ar';
+            var estimate = null;
+            var roiState = null;
+            var roiSel = null;
+            var roiResult = null;
+            var voucher = { code: 'SPECTRONIC24', shown: false, expiresAt: null };
             var urgencyShown = false;
             var triggerPortfolioFired = false;
             var triggerCalcFired = false;
@@ -5922,6 +6012,7 @@
                 { id:'identity', min:2, w:{ ar:['من انت','من أنت','من هو سبكترونيك','من فريق','من شركتكم','عرفنا بنفسك','معلومات عنكم','نبذة','من هم','تعريف','ما اسمك','اين تقع','أين تقع','وين تقع','وين راكم'], en:['who are you','about you','your studio','who is spectronic','tell me about yourself','about us','your company','what is your name','whats your name','where are you located','where are you based','where are you from'], fr:['qui etes vous','qui es-tu','c est qui','a propos de vous','presentez vous','votre studio','qui est spectronic','vous etes qui','comment tu t appelles','comment tu tappelles','ou etes vous','vous etes ou','vous etes situe'] } },
                 { id:'services', min:2, w:{ ar:['ماذا تقدمون','ما هي خدماتكم','ما خدماتكم','ماذا تفعلون','خدمات','الخدمات','ماذا تطورون','مجالات عملكم','ماذا تقدم'], en:['what do you do','your services','services','what do you offer','what can you build','your work','what you build'], fr:['quels sont vos services','vos services','ce que vous faites','que proposez vous','vos domaines','votre travail','que faites vous'] } },
                 { id:'pricing', min:1, w:{ ar:['كم تكلف','كم السعر','كم سعر','السعر','التكلفة','كم ميزانية','سعر التطبيق','الأسعار','اسعاركم','كم الثمن','بكم','ميزانية','سعر','تكلفة','ثمن'], en:['how much','price','cost','pricing','budget','how expensive','rates','quote','how much does it cost'], fr:['combien coute','combien ca coute','prix','cout','tarif','devis','budget','c est combien'], dz:['ch7al','chhal','sh7al','kam','ch7alha','شحال'] } },
+                { id:'roi', min:1, w:{ ar:['عائد','استثمار','كم سأربح','كم اربح','مربح','ارباح','الربحية','هل يستحق','كم نجني','roi','العائد على الاستثمار'], en:['roi','return on investment','how much can i earn','profit','profitable','break even','earnings','worth it','payback'], fr:['retour sur investissement','rentabilite','profit','combien puis je gagner','rentable','amortir','payback'] } },
                 { id:'timeline', min:1, w:{ ar:['كم تستغرق','كم ياخذ','كم يأخذ','متى يكون جاهز','متى يتسلم','كم مدة','المدة','مدة الانجاز','مدة','مدة التسليم','التسليم','تسليم','متى','كم يوم','كم اسبوع','كم شهر','الوقت','متى التسل'], en:['how long','how much time','timeline','when ready','when done','deadline','how many weeks','how many days','delivery time','how fast'], fr:['combien de temps','quel delai','en combien de temps','combien de jours','combien de semaines','sous combien','quand sera pret','delai de livraison'], dz:['ch7al','chhal','sh7al'] } },
                 { id:'process', min:2, w:{ ar:['كيف تتعاملون','كيف تشتغلون','طريقة العمل','كيف تسير','كيف تعملون','المراحل','مراحل المشروع','كيف تبدا','كيف نبدا'], en:['how do you work','your process','process','how it works','how we start','steps','how do you start','workflow'], fr:['comment vous travaillez','votre processus','processus','comment ca marche','comment on commence','les etapes','deroulement'] } },
                 { id:'guarantee', min:1, w:{ ar:['ضمان','ضمانات','مضمون','دعم','صيانة','دعم بعد','تحديثات','تعديلات بعد','حقوق','مصدر الكود','كود المصدر','ملكية','خبرة','عملاء'], en:['guarantee','warranty','support','maintenance','after launch','updates','source code','ownership','secure','experience','clients'], fr:['garantie','support','maintenance','apres le lancement','mises a jour','code source','propriete','securise','experience','clients'] } },
@@ -6219,7 +6310,17 @@
                 var l = curL || 'ar';
                 var parts = [];
                 if (userSession.interestedApp) parts.push('App: ' + userSession.interestedApp);
+                if (estimate && estimate.type) {
+                    var t = EST_TYPES[estimate.type], cx = EST_COMPLEX[estimate.complex], lg = EST_LANGS[estimate.langs];
+                    parts.push('Type: ' + (t[l] || t.en));
+                    parts.push('Complexity: ' + (cx[l] || cx.en));
+                    parts.push('Languages: ' + (lg[l] || lg.en));
+                    if (estimate.price) parts.push('Price: $' + estimate.price[0].toLocaleString() + ' - $' + estimate.price[1].toLocaleString());
+                    if (estimate.weeks) parts.push('Timeline: ' + estimate.weeks[0] + ' - ' + estimate.weeks[1] + ' weeks');
+                }
                 if (userSession.budgetRange) parts.push('Budget: ~$' + userSession.budgetRange.toLocaleString());
+                if (roiResult) parts.push('ROI: ' + roiResult.cat + ' (break-even ' + roiResult.orders[0] + '-' + roiResult.orders[1] + ')');
+                if (voucher.shown) parts.push('Voucher: ' + voucher.code);
                 if (userSession.topics.length) parts.push('Topics: ' + userSession.topics.join(', '));
                 parts.push('Lead: ' + userSession.leadScore + '/10');
                 var head = (l === 'ar' ? 'ملخص محادثتي مع SPECTRONIC AI' : l === 'fr' ? 'Résumé de ma conversation avec SPECTRONIC AI' : 'My conversation summary with SPECTRONIC AI');
@@ -6289,6 +6390,11 @@
                     startEstimate();
                     return;
                 }
+                if (intent.id === 'roi') {
+                    addBot(esc(l === 'ar' ? '📈 رائع! دعنا نحسب العائد على استثمارك بذكاء.' : l === 'fr' ? '📈 Parfait ! Calculons intelligemment votre retour sur investissement.' : '📈 Great! Let\'s smartly calculate your return on investment.'), 300);
+                    startRoi();
+                    return;
+                }
                 if (intent.id === 'howareyou') { replyHowAreYou(); return; }
                 if (intent.id === 'portfolio') {
                     addBot(linesHtml(TMPL.portfolio[l]) + '<br>' + waCta(l));
@@ -6309,6 +6415,7 @@
             /* ---- Out-of-scope & self-awareness ---- */
             var AI_SELF_RX = /هل انت ذكي|هل أنت ذكي|انت بوت|أنت بوت|انت روبوت|أنت روبوت|هل انت انسان|هل أنت إنسان|are you (a |an |)bot|are you human|are you a robot|tu es un bot|tu es un robot|es tu un robot|es-tu un robot|tu es une ia/i;
             var OFFTOPIC_RX = /الطقس|طقس|توقعات|weather|الأخبار|اخبار|news|رياضيات|maths|math|جبر|وصفة|طبخ|recipe|recette|واجب|فرض|homework|devoirs|عاصمة|capital|فيلم|مسلسل|movie|series|مباراة|football|كورة|كرة القدم|كوكب|planet|space|فضاء|علم|شعر|قصيدة|poem|ترجمة|translate|météo|meteo|quel temps fait/i;
+            var VOUCHER_RX = /خصم|تخفيض|تخفيضات|كوبون|كوبونات|كود خصم|عرض خاص|عروض حصرية|voucher|discount|coupon|promo code|code promo|reduction|promotion|coupon de reduction/i;
             var PROJ_SIGNAL_RX = /تطبيق|ابليكيشن|تطبيقات|أب|موقع|ويب|صفحة|لاندينغ|متجر|متاجر|بوت|شات|لوحة|نظام|خدمة|برنامج|سوفت|سوفتوير|app|application|mobile|android|ios|website|web|site|landing|store|shop|ecommerce|e-comm|platform|dashboard|bot|chatbot/i;
             var DEF_RX = /ما معنى|ما معني|ماذا تعني|ما هي|ما هو|ماهي|ماهو|ما هذا|تعريف|اشرح|اوضح|شرح|لماذا|ليه|يعني ايه|what is|what's|whats|what does|what do you mean|define|meaning|definition|explain|c'est quoi|quest ce que|qu est ce que|c quoi|definir|explique|qu'est-ce que/i;
 
@@ -6371,6 +6478,8 @@
                     estimateState = null;
                 }
 
+                if (roiState) { handleRoi(text); return; }
+
                 if (AI_SELF_RX.test(text)) { addBot(esc(TMPL.aiSelf[curL][0])); renderChips([c('chips', curL)[3], APP_CTAS[curL].consult]); return; }
                 if (greet) { addBot(linesHtml(TMPL.greet[curL])); renderChips(c('chips', curL)); return; }
                 if (thanks) { addBot(esc(TMPL.thanks[curL][0])); return; }
@@ -6378,6 +6487,8 @@
 
                 var forbidden = matchForbidden(text);
                 if (forbidden) { replyForbidden(forbidden); return; }
+
+                if (VOUCHER_RX.test(text)) { showVoucher(); return; }
 
                 var app = matchApp(text);
                 if (app) { userSession.interestedApp = APP_KB[app].name[curL]; rememberTopic(app); bumpScore(1); addBot(replyApp(app), 700); return; }
@@ -6425,7 +6536,13 @@
                 dispatchRespond(raw);
                 if (userSession.leadScore >= 7 && !urgencyShown) {
                     urgencyShown = true;
-                    addBot(esc(TMPL.urgency[curL][0]) + '<br>' + waCta(curL), 1000);
+                    var extra = '';
+                    if (!voucher.shown) {
+                        voucher.shown = true;
+                        voucher.expiresAt = Date.now() + 86400000;
+                        extra = '<br>' + voucherHtml(curL);
+                    }
+                    addBot(esc(TMPL.urgency[curL][0]) + extra + '<br>' + waCta(curL), 1000);
                 }
             }
 
@@ -6456,43 +6573,223 @@
             function startLead() {
                 if (leadState) return;
                 estimateState = null;
+                roiState = null;
                 leadState = 'budget';
                 addBot(esc(c('qBudget')), 500);
             }
 
-            /* ---------- Instant cost estimator tool ---------- */
+            /* ---------- Sales & Pricing Engine ---------- */
+            var EST_TYPES = {
+                mobile: { ar:'تطبيق جوال', en:'Mobile app', fr:'Application mobile', base:[800,1200], weeks:[3,5] },
+                web:    { ar:'موقع ويب', en:'Website', fr:'Site web', base:[600,1000], weeks:[2,3] },
+                store:  { ar:'متجر إلكتروني', en:'E-commerce store', fr:'Boutique e-commerce', base:[900,1500], weeks:[4,6] },
+                ai:     { ar:'تطبيق ذكاء اصطناعي', en:'AI app', fr:'Application IA', base:[1200,2000], weeks:[5,8] },
+                both:   { ar:'تطبيق + موقع', en:'App + Website', fr:'App + Site', base:[1400,2100], weeks:[4,7] }
+            };
+            var EST_COMPLEX = {
+                simple:   { ar:'بسيطة', en:'Simple', fr:'Simple', mult:1, addon:0 },
+                medium:   { ar:'متوسطة', en:'Medium', fr:'Moyenne', mult:1.15, addon:150 },
+                advanced: { ar:'متقدمة', en:'Advanced', fr:'Avancée', mult:1.35, addon:400 }
+            };
+            var EST_LANGS = {
+                single: { ar:'عربية فقط', en:'Arabic only', fr:'Arabe uniquement', addon:0 },
+                dual:   { ar:'عربية + إنجليزية', en:'Arabic + English', fr:'Arabe + Anglais', addon:150 },
+                multi:  { ar:'عربية + فرنسية + إنجليزية', en:'Arabic + French + English', fr:'Arabe + Français + Anglais', addon:300 }
+            };
+            var EST_FEATS = {
+                mobile: { ar:['تسجيل دخول وملفات مستخدمين','إشعارات فورية','لوحة تحكم بسيطة','وضع ليلي ودعم RTL'], en:['Login & user profiles','Push notifications','Simple admin panel','Dark mode & RTL support'], fr:['Connexion et profils','Notifications push','Panel admin simple','Mode sombre et RTL'] },
+                web:    { ar:['صفحات محسّنة لمحركات البحث','نموذج تواصل','لوحة محتوى بسيطة','سرعة تحميل عالية'], en:['SEO-optimized pages','Contact form','Simple CMS panel','Fast loading'], fr:['Pages optimisées SEO','Formulaire de contact','Panel CMS simple','Chargement rapide'] },
+                store:  { ar:['كتالوج منتجات وبحث','سلة ودفع + دفع عند الاستلام','لوحة تحكم البائع','كوبونات وعروض'], en:['Product catalog & search','Cart, online + COD payments','Seller dashboard','Coupons & promos'], fr:['Catalogue et recherche','Panier, paiement + à la livraison','Dashboard vendeur','Coupons et promos'] },
+                ai:     { ar:['محادثة ذكية (LLM)','سياق خاص ببياناتك (RAG)','لوحة تدريب النموذج','تقارير وتحليلات'], en:['LLM-powered chat','Your data in context (RAG)','Model admin panel','Analytics & reports'], fr:['Chat LLM','Vos données en contexte (RAG)','Panel de gestion du modèle','Analyses et rapports'] },
+                both:   { ar:['تطبيق جوال كامل','موقع متكامل','لوحة تحكم موحدة','تكامل بين المنصتين'], en:['Full mobile app','Complete website','Unified dashboard','Cross-platform sync'], fr:['Application mobile complète','Site web complet','Dashboard unifié','Synchro entre plateformes'] }
+            };
+            var ROI_CATS = [
+                { id:'ecommerce', name:{ ar:'متجر إلكتروني', en:'E-commerce', fr:'E-commerce' }, kw:['متجر','تجارة','بيع','منتجات','ecommerce','e-comm','shop','store','boutique','magasin','vente'], avgOrder:100, margin:0.32,
+                  line:{ ar:'مع متجر إلكتروني (مثل Velora)، 25 طلباً شهرياً تكفي لتغطية كامل تكلفة التطبيق.', en:'With an e-commerce store (like Velora), 25 monthly orders cover the full app cost.', fr:'Avec une boutique e-commerce (comme Velora), 25 commandes mensuelles couvrent le coût total de l\'application.' } },
+                { id:'delivery', name:{ ar:'تطبيق توصيل', en:'Delivery', fr:'Livraison' }, kw:['توصيل','دليفري','مطاعم','delivery','livraison','commande','repas'], avgOrder:40, margin:0.35,
+                  line:{ ar:'مع تطبيق توصيل، حوالي 60 طلباً شهرياً يغطي كامل التكلفة.', en:'With a delivery app, around 60 monthly orders cover the full cost.', fr:'Avec une app de livraison, environ 60 commandes mensuelles couvrent le coût.' } },
+                { id:'booking', name:{ ar:'منصة حجوزات', en:'Booking', fr:'Réservation' }, kw:['حجز','مواعيد','عيادة','صالون','booking','rendez-vous','clinique','salon'], avgOrder:30, margin:0.5,
+                  line:{ ar:'مع منصة حجز مواعيد، 55 موعداً شهرياً يغطي كامل التكلفة.', en:'With a booking platform, 55 monthly appointments cover the full cost.', fr:'Avec une plateforme de réservation, 55 rendez-vous mensuels couvrent le coût.' } },
+                { id:'ai', name:{ ar:'ذكاء اصطناعي', en:'AI subscription', fr:'Abonnement IA' }, kw:['ذكاء','ai','ia','اشتراك','سجل','llm'], avgOrder:15, margin:0.6,
+                  line:{ ar:'مع تطبيق ذكاء اصطناعي باشتراك شهري، 90 مشتركاً يغطي كامل التكلفة.', en:'With an AI app on a monthly subscription, 90 subscribers cover the full cost.', fr:'Avec une app IA par abonnement, 90 abonnés couvrent le coût.' } },
+                { id:'realestate', name:{ ar:'عقارات', en:'Real estate', fr:'Immobilier' }, kw:['عقار','عقارات','إيجار','real estate','immobilier','location'], avgOrder:2000, margin:0.05,
+                  line:{ ar:'مع منصة عقارات، عمولة صفقة واحدة قابلة لتغطية كامل التكلفة.', en:'With a real-estate platform, one closed deal commission can cover the full cost.', fr:'Avec une plateforme immobilière, une seule commission peut couvrir le coût.' } },
+                { id:'fitness', name:{ ar:'لياقة ورياضة', en:'Fitness', fr:'Fitness' }, kw:['لياقة','جيم','رياضة','fitness','gym','sport','salle'], avgOrder:10, margin:0.6,
+                  line:{ ar:'مع تطبيق لياقة باشتراكات شهرية، 135 اشتراكاً يغطي كامل التكلفة.', en:'With a fitness app on monthly plans, 135 subscriptions cover the full cost.', fr:'Avec une app fitness par abonnement, 135 abonnements couvrent le coût.' } },
+                { id:'education', name:{ ar:'منصة تعليمية', en:'Education', fr:'Éducation' }, kw:['تعليم','كورس','دورات','education','course','cours','formation'], avgOrder:20, margin:0.5,
+                  line:{ ar:'مع منصة تعليمية، 80 اشتراكاً شهرياً يغطي كامل التكلفة.', en:'With an education platform, 80 monthly subscriptions cover the full cost.', fr:'Avec une plateforme éducative, 80 abonnements mensuels couvrent le coût.' } },
+                { id:'social', name:{ ar:'شبكة اجتماعية', en:'Social', fr:'Social' }, kw:['شبكة','اجتماعي','منصة','social','réseau','communauté'], avgOrder:5, margin:0.5,
+                  line:{ ar:'مع منصة اجتماعية، يتحدد العائد حسب إعلاناتك أو اشتراكاتك المميزة.', en:'With a social platform, ROI depends on your ads or premium subscriptions.', fr:'Avec une plateforme sociale, le ROI dépend de vos publicités ou abonnements premium.' } }
+            ];
+
+            function detectEstType(text) {
+                if (/متجر|متاجر|مخزن|ecommerce|e-comm|shop|store|boutique|magasin/i.test(text)) return 'store';
+                if (/ذكاء|ai|ia|llm|gpt|توليد|تحليل/i.test(text)) return 'ai';
+                var p = detectPlatform(text);
+                if (p === 'both') return 'both';
+                if (p === 'web') return 'web';
+                if (p === 'mobile') return 'mobile';
+                return null;
+            }
+            function detectEstComplex(text) {
+                var t = normalize(text);
+                if (/بسيط|بسيطه|اساسي|basic|simple|mvp/.test(t)) return 'simple';
+                if (/متقدم|متقدمه|متطور|معقد|عاليه|advanced|complex|high/.test(t)) return 'advanced';
+                return 'medium';
+            }
+            function detectEstLangs(text) {
+                var t = normalize(text);
+                if (/فرنس|french|francais|francaise|ثلاث|3 لغات|كل اللغات|multi|toutes/.test(t)) return 'multi';
+                if (/عرب|arabic|arabe/.test(t) && /انجل|english|anglais|anglaise/.test(t)) return 'dual';
+                if (/عرب|arabic|arabe|واحده|only/.test(t)) return 'single';
+                if (/انجل|english|anglais|anglaise/.test(t)) return 'dual';
+                return 'single';
+            }
+            function estimatePricing() {
+                var t = EST_TYPES[estimate.type], cx = EST_COMPLEX[estimate.complex], lg = EST_LANGS[estimate.langs];
+                var base = t.base[0] + cx.addon + lg.addon;
+                var top = t.base[1] + cx.addon + lg.addon;
+                estimate.price = [ Math.round(base * cx.mult / 50) * 50, Math.round(top * cx.mult / 50) * 50 ];
+                var extraAdv = estimate.complex === 'advanced' ? 1 : 0;
+                var extraLang = estimate.langs === 'multi' ? 1 : 0;
+                estimate.weeks = [ t.weeks[0] + extraAdv, t.weeks[1] + extraAdv + extraLang ];
+            }
+            function matchRoiCat(text) {
+                var t = normalize(text).replace(/[-_]/g, '');
+                for (var i = 0; i < ROI_CATS.length; i++) {
+                    for (var j = 0; j < ROI_CATS[i].kw.length; j++) {
+                        if (t.indexOf(normalize(ROI_CATS[i].kw[j]).replace(/[-_]/g, '')) !== -1) return ROI_CATS[i];
+                    }
+                }
+                return ROI_CATS[0];
+            }
+
+            /* ---------- Instant scope & cost estimator (3 questions) ---------- */
             function startEstimate() {
                 if (estimateState) return;
-                leadState = null;
-                estimateState = 'budget';
+                leadState = null; roiState = null; roiResult = null;
+                estimate = { type: null, complex: null, langs: null, price: null, weeks: null };
+                estimateState = 'type';
                 estimateLang = curL || 'ar';
-                addBot(esc(TMPL.estimateQ1[estimateLang][0]), 400);
+                addBot(esc(c('estQ1', estimateLang)), 400);
+                renderChips(c('estOpts1', estimateLang));
             }
             function handleEstimate(text) {
-                if (estimateState === 'budget') {
+                if (estimateState === 'type') {
                     var appNow = matchApp(text); if (appNow) userSession.interestedApp = APP_KB[appNow].name[curL];
-                    estimateState = 'type';
-                    addBot(esc(TMPL.estimateQ2[estimateLang][0]), 400);
-                } else if (estimateState === 'type') {
-                    var plat = detectPlatform(text) || 'mobile';
-                    userSession.interestedApp = userSession.interestedApp || (matchApp(text) ? APP_KB[matchApp(text)].name[curL] : null);
+                    noteBudget(text);
+                    estimate.type = detectEstType(text) || 'mobile';
+                    estimateState = 'complex';
+                    addBot(esc(c('estQ2', estimateLang)), 400);
+                    renderChips(c('estOpts2', estimateLang));
+                } else if (estimateState === 'complex') {
+                    noteBudget(text);
+                    estimate.complex = detectEstComplex(text);
+                    estimateState = 'langs';
+                    addBot(esc(c('estQ3', estimateLang)), 400);
+                    renderChips(c('estOpts3', estimateLang));
+                } else if (estimateState === 'langs') {
+                    noteBudget(text);
+                    estimate.langs = detectEstLangs(text);
+                    estimatePricing();
                     estimateState = null;
-                    addBot(renderEstimateSummary(plat), 700);
-                    renderChips([APP_CTAS[estimateLang].consult, APP_CTAS[estimateLang].whatsapp]);
+                    rememberTopic('estimate');
+                    bumpScore(1);
+                    addBot(renderBrief(), 700);
+                    renderChips([
+                        { label: c('offerRoiChip', estimateLang), cmd: startRoi },
+                        { label: c('voucherChip', estimateLang), cmd: showVoucher },
+                        APP_CTAS[estimateLang].consult
+                    ]);
                 }
             }
-            function renderEstimateSummary(plat) {
+            function renderBrief() {
                 var l = estimateLang || curL || 'ar';
-                var platLabel = (l === 'ar' ? { mobile: 'تطبيق جوال', web: 'موقع ويب', both: 'تطبيق وموقع ويب' } :
-                                 l === 'fr' ? { mobile: 'application mobile', web: 'site web', both: 'application mobile et site web' } :
-                                 { mobile: 'mobile app', web: 'website', both: 'mobile app & website' })[plat] || plat;
+                var t = EST_TYPES[estimate.type], cx = EST_COMPLEX[estimate.complex], lg = EST_LANGS[estimate.langs];
                 var budgetNote = userSession.budgetRange ? ' (~$' + userSession.budgetRange.toLocaleString() + ')' : '';
-                var out = TMPL.estimateHead[l][0] + '<br>' +
-                          '• ' + TMPL.estimateTime[l] + ': 3 - 5 ' + (l === 'ar' ? 'أسابيع' : l === 'fr' ? 'semaines' : 'weeks') + '<br>' +
-                          '• ' + TMPL.estimateRange[l] + ': $800 - $1,200' + budgetNote + '<br>' +
-                          '• ' + TMPL.estimateInc[l] + '<br>' +
-                          '• ' + TMPL.estimateFor[l] + ': ' + platLabel;
-                return esc(out) + '<br>' + waCta(l);
+                var feats = (EST_FEATS[estimate.type][l] || EST_FEATS[estimate.type].en).map(function(f){
+                    return '<div class="ai-bullet"><span class="ai-bullet-dot"></span>' + esc(f) + '</div>';
+                }).join('');
+                var html = '<div class="ai-brief">'
+                    + '<div class="ai-brief-title">' + esc(c('briefTitle', l)) + '</div>'
+                    + '<div class="ai-brief-row"><span class="ai-brief-k">' + esc(c('briefType', l)) + '</span><span class="ai-brief-v">' + esc(t[l] || t.en) + '</span></div>'
+                    + '<div class="ai-brief-row"><span class="ai-brief-k">' + esc(c('briefComplex', l)) + '</span><span class="ai-brief-v">' + esc(cx[l] || cx.en) + '</span></div>'
+                    + '<div class="ai-brief-row"><span class="ai-brief-k">' + esc(c('briefLangs', l)) + '</span><span class="ai-brief-v">' + esc(lg[l] || lg.en) + '</span></div>'
+                    + '<div class="ai-brief-feats"><div class="ai-prop-sec">' + esc(c('briefFeats', l)) + '</div>' + feats + '</div>'
+                    + '<div class="ai-table">'
+                    + '<div class="ai-tbl-row"><span class="ai-tbl-k">💰 ' + esc(c('briefPrice', l)) + '</span><span class="ai-tbl-v ai-price">$' + estimate.price[0].toLocaleString() + ' - $' + estimate.price[1].toLocaleString() + '</span></div>'
+                    + '<div class="ai-tbl-row"><span class="ai-tbl-k">⏱️ ' + esc(c('briefTime', l)) + '</span><span class="ai-tbl-v">' + estimate.weeks[0] + ' - ' + estimate.weeks[1] + ' ' + (l === 'ar' ? 'أسابيع' : l === 'fr' ? 'semaines' : 'weeks') + '</span></div>'
+                    + '<div class="ai-tbl-row"><span class="ai-tbl-k">📦 ' + esc(c('briefInc', l)) + '</span><span class="ai-tbl-v">' + esc(TMPL.estimateInc[l]) + '</span></div>'
+                    + '</div>'
+                    + budgetNote
+                    + '</div>';
+                return html + '<br>' + waCta(l);
+            }
+
+            /* ---------- Client ROI calculator ---------- */
+            function startRoi() {
+                if (roiState) return;
+                estimateState = null; leadState = null;
+                roiState = 'industry';
+                roiResult = null;
+                estimateLang = curL || 'ar';
+                addBot(esc(c('roiQ1', estimateLang)), 400);
+                renderChips(ROI_CATS.map(function(cat){ return cat.name[estimateLang] || cat.name.en; }));
+            }
+            function handleRoi(text) {
+                if (roiState === 'industry') {
+                    roiSel = matchRoiCat(text);
+                    roiState = 'order';
+                    addBot(esc(c('roiQ2', estimateLang)), 400);
+                    renderChips([{ label: c('roiDefault', estimateLang), cmd: function(){ roiState = 'order'; handleRoi(''); } }]);
+                } else if (roiState === 'order') {
+                    var order = extractBudget(text) || roiSel.avgOrder;
+                    var cost = (estimate && estimate.price) || [800, 1200];
+                    var perOrder = Math.max(1, Math.round(order * roiSel.margin));
+                    var lo = Math.max(1, Math.ceil(cost[0] / perOrder));
+                    var hi = Math.max(lo, Math.ceil(cost[1] / perOrder));
+                    roiResult = { cat: roiSel.id, perOrder: perOrder, orders: [lo, hi] };
+                    roiState = null;
+                    rememberTopic('roi');
+                    bumpScore(1);
+                    addBot(renderRoi(order, perOrder, lo, hi, cost), 700);
+                    renderChips([
+                        { label: c('voucherChip', estimateLang), cmd: showVoucher },
+                        APP_CTAS[estimateLang].consult
+                    ]);
+                }
+            }
+            function renderRoi(order, perOrder, lo, hi, cost) {
+                var l = estimateLang || curL || 'ar';
+                var noun = l === 'ar' ? 'طلب' : l === 'fr' ? 'commande' : 'order';
+                var nounPl = l === 'ar' ? 'طلباً' : l === 'fr' ? 'commandes' : 'orders';
+                var html = '<div class="ai-roi">'
+                    + '<div class="ai-roi-title">' + esc(c('roiTitle', l)) + '</div>'
+                    + '<div class="ai-brief-row"><span class="ai-brief-k">' + esc(c('roiCost', l)) + '</span><span class="ai-brief-v">$' + cost[0].toLocaleString() + ' - $' + cost[1].toLocaleString() + '</span></div>'
+                    + '<div class="ai-brief-row"><span class="ai-brief-k">' + esc(c('roiProfit', l)) + '</span><span class="ai-brief-v">$' + perOrder.toLocaleString() + ' / ' + noun + '</span></div>'
+                    + '<div class="ai-tbl-row"><span class="ai-tbl-k">' + esc(c('roiOrders', l)) + '</span><span class="ai-tbl-v">' + lo + ' - ' + hi + ' ' + nounPl + '</span></div>'
+                    + '<div class="ai-roi-line">' + esc(roiSel.line[l] || roiSel.line.en) + '</div>'
+                    + '</div>';
+                return html + '<br>' + waCta(l);
+            }
+
+            /* ---------- Gamified 24h smart discount voucher ---------- */
+            function voucherHtml(l) {
+                l = l || curL || 'ar';
+                if (!voucher.expiresAt) voucher.expiresAt = Date.now() + 86400000;
+                return '<div class="ai-voucher">'
+                    + '<div class="ai-voucher-head">' + esc(c('voucherTitle', l)) + '</div>'
+                    + '<div class="ai-voucher-body">' + esc(c('voucherBody', l)) + '</div>'
+                    + '<div class="ai-voucher-code">' + esc(c('voucherCodeLabel', l)) + ': <b>' + voucher.code + '</b></div>'
+                    + '<div class="ai-voucher-note">' + esc(c('voucherNote', l)) + '</div>'
+                    + '</div>';
+            }
+            function showVoucher() {
+                var l = curL || 'ar';
+                voucher.shown = true;
+                voucher.expiresAt = Date.now() + 86400000;
+                addBot(voucherHtml(l) + '<br>' + waCta(l), 600);
+                renderChips([APP_CTAS[l].consult]);
             }
             function promptApps() {
                 var l = curL || 'ar';
@@ -6556,9 +6853,11 @@
             window.aiRefresh = refreshLang;
             function resetSession() {
                 userSession.language = 'ar'; userSession.budgetRange = null; userSession.interestedApp = null; userSession.leadScore = 1; userSession.topics = [];
-                estimateState = null; urgencyShown = false; triggerPortfolioFired = false; triggerCalcFired = false;
+                estimateState = null; estimate = null; roiState = null; roiSel = null; roiResult = null;
+                voucher.shown = false; voucher.expiresAt = null;
+                urgencyShown = false; triggerPortfolioFired = false; triggerCalcFired = false;
             }
-            window.aiTest = { showBadge: showBadge, hideBadge: hideBadge, promptApps: promptApps, startEstimate: startEstimate, buildWaSummary: buildWaSummary, resetSession: resetSession, userSession: userSession };
+            window.aiTest = { showBadge: showBadge, hideBadge: hideBadge, promptApps: promptApps, startEstimate: startEstimate, startRoi: startRoi, buildWaSummary: buildWaSummary, resetSession: resetSession, userSession: userSession };
 
             /* ---------- Proactive engagement triggers ---------- */
             function uiLang() { return window.getCurrentLang ? window.getCurrentLang() : 'ar'; }
