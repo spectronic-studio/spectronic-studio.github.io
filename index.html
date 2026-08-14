@@ -2158,6 +2158,123 @@
         .ai-wa-btn { display: inline-flex; margin-top: 12px; padding: 0.55rem 1rem; border: none; cursor: pointer; border-radius: 0.7rem; font-weight: 700; font-size: 0.8rem; color: #062B33; background: linear-gradient(135deg, #00E5FF, #10B981); box-shadow: 0 8px 20px -8px rgba(0,229,255,0.5); transition: transform .25s ease, box-shadow .25s ease; text-decoration: none; }
         .ai-wa-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px rgba(16,185,129,0.5); }
 
+        /* ---------- Visual & Interactive Experience ---------- */
+        .ai-gal { margin-top: 0.6rem; position: relative; border-radius: 0.8rem; overflow: hidden; border: 1px solid rgba(148,163,184,0.2); background: rgba(15,23,42,0.6); }
+        .ai-gal-track { display: flex; transition: transform .45s cubic-bezier(.22,1,.36,1); }
+        .ai-gal-slide { flex: 0 0 100%; min-width: 100%; position: relative; }
+        .ai-gal-screen { position: relative; height: 150px; overflow: hidden; display: flex; flex-direction: column; }
+        .ai-gal-top { padding: 14px 12px 6px; display: flex; align-items: center; gap: 6px; }
+        .ai-gal-top .ph { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.45); }
+        .ai-gal-top .ph.lg { width: 42px; height: 10px; border-radius: 5px; background: rgba(255,255,255,0.55); }
+        .ai-gal-body { flex: 1; padding: 4px 12px; display: flex; flex-direction: column; gap: 7px; }
+        .ai-gal-card { height: 26px; border-radius: 7px; background: rgba(255,255,255,0.16); box-shadow: 0 4px 10px -4px rgba(0,0,0,0.4); }
+        .ai-gal-card .ph { width: 40%; height: 5px; border-radius: 3px; background: rgba(255,255,255,0.5); margin: 10px 8px; }
+        .ai-gal-label { position: absolute; bottom: 0; left: 0; right: 0; text-align: center; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em; color: #fff; padding: 3px 0; background: rgba(2,6,23,0.72); }
+        .ai-gal-nav { position: absolute; top: 64px; z-index: 3; width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.25); background: rgba(2,6,23,0.55); color: #fff; font-size: 0.8rem; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background .2s ease, transform .2s ease; padding: 0; }
+        .ai-gal-nav:hover { background: rgba(0,229,255,0.45); transform: scale(1.12); }
+        .ai-gal-prev { left: 6px; }
+        .ai-gal-next { right: 6px; }
+        .ai-gal-dots { position: absolute; top: 8px; right: 8px; display: flex; gap: 4px; z-index: 3; }
+        .ai-gal-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.35); transition: all .25s ease; }
+        .ai-gal-dot.on { background: var(--ac, #00E5FF); transform: scale(1.25); }
+        .ai-app-pills { display: flex; flex-wrap: wrap; gap: 4px; margin: 0.4rem 0; }
+        .ai-pill { font-size: 0.6rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 999px; border: 1px solid rgba(148,163,184,0.3); color: #CBD5E1; background: rgba(255,255,255,0.05); }
+        .ai-pill.hot { color: #FBBF24; border-color: rgba(245,158,11,0.5); background: rgba(245,158,11,0.1); }
+        .ai-app-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.5rem; }
+        .ai-app-act { font-size: 0.68rem; font-weight: 700; padding: 0.4rem 0.7rem; border-radius: 0.6rem; cursor: pointer; border: 1px solid rgba(0,229,255,0.35); background: rgba(0,229,255,0.08); color: #67E8F9; transition: all .22s ease; }
+        .ai-app-act:hover { background: rgba(0,229,255,0.2); transform: translateY(-1px); }
+        .ai-app-act.solid { background: linear-gradient(135deg, #00E5FF, #10B981); color: #062B33; border-color: transparent; }
+
+        .ai-pal { display: flex; flex-direction: column; gap: 8px; margin-top: 0.4rem; }
+        .ai-pal-block { border-radius: 0.7rem; padding: 0.55rem 0.65rem; border: 1px solid rgba(148,163,184,0.2); animation: palIn .4s ease; }
+        .ai-pal-block.light { background: rgba(255,255,255,0.92); color: #0F172A; }
+        .ai-pal-block.dark { background: rgba(2,6,23,0.92); color: #E2E8F0; }
+        .ai-pal-title { font-size: 0.68rem; font-weight: 800; margin-bottom: 6px; letter-spacing: 0.05em; }
+        .ai-pal-row { display: flex; gap: 6px; flex-wrap: wrap; }
+        .ai-swatch { flex: 1 1 0; min-width: 44px; border-radius: 0.5rem; padding: 5px 4px; text-align: center; font-size: 0.55rem; font-weight: 700; border: 1px solid rgba(148,163,184,0.35); transition: transform .2s ease; }
+        .ai-swatch:hover { transform: translateY(-3px); }
+        .ai-swatch b { display: block; font-size: 0.52rem; letter-spacing: 0.04em; margin-bottom: 3px; }
+        .ai-pal-style { margin-top: 6px; font-size: 0.72rem; line-height: 1.5; }
+        @keyframes palIn { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: none; } }
+
+        .ai-wf { margin-top: 0.5rem; display: flex; flex-direction: column; gap: 8px; }
+        .ai-wf-screen { display: flex; gap: 8px; border: 1px solid rgba(99,102,241,0.3); border-radius: 0.7rem; padding: 0.45rem 0.55rem; background: rgba(99,102,241,0.06); animation: wfIn .4s ease; }
+        .ai-wf-num { flex: 0 0 auto; width: 18px; height: 18px; border-radius: 6px; background: linear-gradient(135deg,#6366F1,#A855F7); color: #fff; font-size: 0.62rem; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+        .ai-wf-info { flex: 1; min-width: 0; }
+        .ai-wf-name { font-size: 0.72rem; font-weight: 800; color: #E2E8F0; margin-bottom: 5px; }
+        .ai-wf-slots { display: flex; flex-direction: column; gap: 4px; }
+        .ai-wf-slot { height: 9px; border-radius: 4px; background: rgba(148,163,184,0.28); }
+        .ai-wf-slot.w { width: 68%; }
+        .ai-wf-slot.s { width: 45%; }
+        .ai-wf-cta { width: 52%; height: 12px; border-radius: 5px; background: linear-gradient(90deg, rgba(99,102,241,0.55), rgba(168,85,247,0.55)); }
+        @keyframes wfIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+        .ai-wf-note { font-size: 0.66rem; color: #94A3B8; margin-top: 4px; }
+
+        .ai-dropzone { display: none; border: 1px solid rgba(0,229,255,0.25); border-radius: 0.9rem; background: rgba(0,229,255,0.05); padding: 0.7rem 0.75rem; margin: 0 1rem 0.5rem; animation: dzIn .3s ease; }
+        .ai-dropzone.show { display: block; }
+        @keyframes dzIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+        .ai-dz-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+        .ai-dz-title { font-size: 0.76rem; font-weight: 800; color: #E2E8F0; }
+        .ai-dz-toggle { border: none; background: none; color: #94A3B8; cursor: pointer; font-size: 0.95rem; line-height: 1; padding: 2px 4px; }
+        .ai-dz-box { border: 1px dashed rgba(0,229,255,0.4); border-radius: 0.7rem; padding: 0.7rem 0.6rem; text-align: center; font-size: 0.68rem; color: #94A3B8; cursor: pointer; transition: all .22s ease; }
+        .ai-dz-box.drag { border-color: #00E5FF; background: rgba(0,229,255,0.12); color: #67E8F9; }
+        .ai-dz-box b { color: #67E8F9; }
+        .ai-dz-file-name { margin-top: 4px; font-size: 0.66rem; color: #34D399; word-break: break-all; }
+        .ai-dz-text { width: 100%; box-sizing: border-box; margin-top: 8px; background: rgba(15,23,42,0.7); border: 1px solid rgba(148,163,184,0.22); border-radius: 0.6rem; padding: 0.5rem 0.6rem; color: #fff; font-size: 0.74rem; min-height: 60px; resize: vertical; outline: none; font-family: inherit; }
+        .ai-dz-text:focus { border-color: #00E5FF; box-shadow: 0 0 0 3px rgba(0,229,255,0.12); }
+        .ai-dz-actions { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+        .ai-dz-btn { font-size: 0.7rem; font-weight: 700; padding: 0.42rem 0.8rem; border-radius: 0.6rem; cursor: pointer; border: 1px solid rgba(0,229,255,0.35); background: rgba(0,229,255,0.08); color: #67E8F9; transition: all .22s ease; }
+        .ai-dz-btn:hover { background: rgba(0,229,255,0.2); }
+        .ai-dz-btn.primary { background: linear-gradient(135deg, #00E5FF, #10B981); color: #062B33; border-color: transparent; }
+        .ai-dz-btn.ghost { border-color: rgba(148,163,184,0.3); color: #94A3B8; background: none; }
+        .ai-attach { border: 1px solid rgba(0,229,255,0.28); background: rgba(0,229,255,0.07); color: #67E8F9; width: 46px; height: 46px; border-radius: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .25s ease; flex: 0 0 auto; }
+        .ai-attach:hover { background: rgba(0,229,255,0.16); box-shadow: 0 0 18px rgba(0,229,255,0.25); }
+        .ai-attach.on { background: rgba(0,229,255,0.2); border-color: #00E5FF; }
+
+        .ai-specs { margin-top: 0.3rem; border: 1px solid rgba(99,102,241,0.35); border-radius: 0.9rem; padding: 0.7rem 0.8rem; background: rgba(99,102,241,0.07); }
+        .ai-specs-title { font-weight: 800; font-size: 0.8rem; color: #fff; margin-bottom: 0.4rem; }
+        .ai-specs-chip { display: inline-block; font-size: 0.64rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 999px; margin: 2px 3px 2px 0; border: 1px solid rgba(0,229,255,0.4); color: #67E8F9; background: rgba(0,229,255,0.08); }
+        .ai-specs-ok { color: #34D399; font-weight: 700; }
+        .ai-specs-warn { color: #FBBF24; }
+
+        /* ---------- Technical Advisory & Ethics cards ---------- */
+        .ai-comp { margin-top: 0.3rem; border: 1px solid rgba(16,185,129,0.35); border-radius: 0.9rem; padding: 0.7rem 0.8rem; background: rgba(16,185,129,0.07); }
+        .ai-comp-title { font-weight: 800; font-size: 0.8rem; color: #fff; margin-bottom: 0.45rem; }
+        .ai-comp-name { color: #34D399; font-weight: 800; }
+        .ai-comp-angle { font-size: 0.7rem; color: #94A3B8; margin-bottom: 0.5rem; line-height: 1.45; }
+        .ai-comp-diff { font-size: 0.7rem; color: #E2E8F0; margin: 0.28rem 0 0.28rem 0; padding-left: 0.15rem; line-height: 1.5; }
+        .ai-comp-diff b { color: #34D399; }
+        .ai-comp-note { font-size: 0.66rem; color: #94A3B8; margin-top: 0.5rem; }
+        .ai-cmp { display: inline-block; font-size: 0.62rem; font-weight: 700; padding: 0.16rem 0.5rem; border-radius: 999px; border: 1px solid rgba(16,185,129,0.45); color: #6EE7B7; background: rgba(16,185,129,0.1); margin-left: 4px; }
+
+        .ai-compare { margin-top: 0.3rem; border: 1px solid rgba(0,229,255,0.3); border-radius: 0.9rem; padding: 0.7rem 0.8rem; background: rgba(0,229,255,0.06); }
+        .ai-compare-title { font-weight: 800; font-size: 0.8rem; color: #fff; margin-bottom: 0.45rem; }
+        .ai-cmp-row { display: flex; align-items: flex-start; gap: 8px; padding: 0.32rem 0; border-bottom: 1px dashed rgba(148,163,184,0.18); }
+        .ai-cmp-row:last-child { border-bottom: none; }
+        .ai-cmp-k { flex: 0 0 78px; font-size: 0.66rem; font-weight: 800; color: #67E8F9; padding-top: 2px; }
+        .ai-cmp-nd { flex: 1; font-size: 0.68rem; color: #E2E8F0; line-height: 1.5; }
+        .ai-cmp-nd b { color: #34D399; }
+        .ai-cmp-cr { flex: 1; font-size: 0.68rem; color: #94A3B8; line-height: 1.5; }
+        .ai-cmp-verdict { font-size: 0.68rem; color: #6EE7B7; margin-top: 0.5rem; font-weight: 700; }
+        .ai-cmp-h { display: inline-block; font-size: 0.62rem; font-weight: 800; padding: 0.14rem 0.5rem; border-radius: 0.5rem; margin-bottom: 0.35rem; }
+        .ai-cmp-h.native { background: rgba(16,185,129,0.16); color: #6EE7B7; }
+        .ai-cmp-h.cross { background: rgba(148,163,184,0.14); color: #94A3B8; }
+
+        .ai-guard { margin-top: 0.3rem; border: 1px solid rgba(248,113,113,0.35); border-radius: 0.9rem; padding: 0.7rem 0.8rem; background: rgba(248,113,113,0.06); }
+        .ai-guard-line { font-size: 0.72rem; color: #FCA5A5; line-height: 1.55; }
+        .ai-guard-alt { font-size: 0.72rem; color: #E2E8F0; line-height: 1.55; margin-top: 0.4rem; }
+
+        .ai-remember { margin-top: 0.4rem; padding: 0.5rem 0.6rem; border: 1px solid rgba(139,92,246,0.3); border-radius: 0.7rem; background: rgba(139,92,246,0.08); font-size: 0.7rem; color: #C4B5FD; line-height: 1.5; }
+
+        /* ---------- (2) AI Consultation Scheduler ---------- */
+        .ai-book { margin-top: 0.3rem; border: 1px solid rgba(16,185,129,0.4); border-radius: 0.9rem; padding: 0.7rem 0.8rem; background: rgba(16,185,129,0.07); }
+        .ai-book-title { font-weight: 800; font-size: 0.82rem; color: #fff; margin-bottom: 0.3rem; }
+        .ai-book-note { font-size: 0.7rem; color: #94A3B8; line-height: 1.5; margin-bottom: 0.5rem; }
+        .ai-book-slots { display: flex; flex-direction: column; gap: 0.35rem; }
+        .ai-book-slot { display: block; width: 100%; text-align: center; padding: 0.5rem 0.6rem; border-radius: 0.6rem; border: 1px solid rgba(16,185,129,0.4); background: rgba(16,185,129,0.12); color: #6EE7B7; font-weight: 700; font-size: 0.78rem; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+        .ai-book-slot:hover, .ai-book-slot:focus-visible { background: rgba(16,185,129,0.25); transform: translateY(-1px); }
+
+
         /* ---------- Sales & Pricing Engine cards ---------- */
         .ai-brief { margin-top: 0.3rem; border: 1px solid rgba(0,229,255,0.22); border-radius: 0.9rem; padding: 0.7rem 0.8rem; background: rgba(0,229,255,0.04); }
         .ai-brief-title { font-weight: 800; font-size: 0.82rem; color: #fff; margin-bottom: 0.4rem; letter-spacing: 0.02em; }
@@ -2481,6 +2598,21 @@
         .ai-badge-txt { flex: 1; }
         .ai-badge-x { flex: 0 0 auto; border: none; background: rgba(255,255,255,0.08); color: #94A3B8; width: 20px; height: 20px; border-radius: 50%; font-size: 0.9rem; line-height: 1; cursor: pointer; padding: 0; }
         .ai-badge-x:hover { color: #fff; background: rgba(255,255,255,0.18); }
+
+        /* Visual & Interactive widgets: mobile hardening */
+        @media (max-width: 420px) {
+            .ai-gal-screen { height: 128px; }
+            .ai-pal-block { padding: 0.5rem 0.5rem; }
+            .ai-swatch { min-width: 38px; font-size: 0.52rem; }
+            .ai-app-act { flex: 1 1 40%; justify-content: center; text-align: center; }
+            .ai-dropzone { margin: 0 0.7rem 0.5rem; padding: 0.6rem 0.6rem; }
+            .ai-wf-screen { padding: 0.4rem 0.45rem; }
+        }
+        @media (max-width: 360px) {
+            .ai-input-row, .ai-quick { gap: 0.4rem; }
+            .ai-voice, .ai-attach, .ai-send { width: 40px; height: 40px; border-radius: 0.75rem; }
+            .ai-gal-screen { height: 112px; }
+        }
 
     </style>
 </head>
@@ -3865,7 +3997,27 @@
                 <div class="ai-quick" id="ai-quick"></div>
             </div>
 
+            <div class="ai-dropzone" id="ai-dropzone" aria-hidden="true">
+                <div class="ai-dz-head">
+                    <span class="ai-dz-title">📄 <span data-i18n="ai.dzTitle">محلل المواصفات والمستندات</span></span>
+                    <button class="ai-dz-toggle" id="ai-dz-toggle" aria-label="Close specs analyzer">&times;</button>
+                </div>
+                <div class="ai-dz-box" id="ai-dz-box">
+                    <span data-i18n="ai.dzHint"><b>ألصق مواصفات مشروعك</b> أو اسحب ملفاً (txt / md)</span>
+                </div>
+                <div class="ai-dz-file-name" id="ai-dz-file-name"></div>
+                <textarea class="ai-dz-text" id="ai-dz-text" placeholder="مثال: تطبيق توصيل للمطاعم في الجزائر، متوفر بالعربية والفرنسية، مع دفع عند الاستلام وتتبع GPS، ميزانية 1500 دولار"></textarea>
+                <input type="file" id="ai-dz-file" accept=".txt,.md,.csv,.json,.js,.ts,.html,.css" style="display:none;">
+                <div class="ai-dz-actions">
+                    <button class="ai-dz-btn primary" id="ai-dz-analyze">⚡ <span data-i18n="ai.dzAnalyze">تحليل المواصفات</span></button>
+                    <button class="ai-dz-btn ghost" id="ai-dz-clear">✕ <span data-i18n="ai.dzClear">مسح</span></button>
+                </div>
+            </div>
+
             <div class="ai-input-row">
+                <button id="ai-attach" class="ai-attach" aria-label="Attach project specs" title="Attach specs">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/></svg>
+                </button>
                 <button id="ai-voice" class="ai-voice" aria-label="Voice input" title="Voice">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-14 0m7 7v4m-4 0h8"/></svg>
                 </button>
@@ -4494,7 +4646,7 @@
                     'testi.t1': 'عملية احترافية من البداية للنهاية. التصميم كان خرافياً والتطبيق يعمل بسلاسة. فريق الاستوديو كان متواصلاً معي في كل مرحلة.',
                     'testi.t2': 'أفضل استوديو تعاملت معه. فهموا فكرة متجري الإلكتروني بدقة ونفذوها بأداء ممتاز. سرعة الاستجابة والدعم بعد الإطلاق لا مثيل لها.',
                     'testi.t3': 'خبرة فنية حقيقية واهتمام بأدق التفاصيل. تطبيق اللياقة أصبح مرجعي اليومي، والتقارير والإحصائيات دقيقة جداً. أنصح بهم بقوة.',
-                    'ai.online': 'مستشار تقني — متصل الآن', 'ai.placeholder': 'اكتب عن مشروعك أو اسألنا...',
+                    'ai.online': 'مستشار تقني — متصل الآن', 'ai.placeholder': 'اكتب عن مشروعك أو اسألنا...', 'ai.dzTitle': 'محلل المواصفات والمستندات', 'ai.dzHint': 'ألصق مواصفات مشروعك أو اسحب ملفاً (txt / md)', 'ai.dzAnalyze': 'تحليل المواصفات', 'ai.dzClear': 'مسح',
                     'stats.badge': 'معايير الجودة', 'stats.title': 'معاييرنا الأساسية للجودة', 'stats.desc': 'ما يميز عملنا في SPECTRONIC — التزام واضح ومسؤول نحو كل مشروع',
                     'stats.q1.title': 'ملكية كاملة للكود والملكية الفكرية', 'stats.q1.desc': 'استلام 100% من الكود المصدري عند اكتمال المشروع.',
                     'stats.q2.title': 'ضمان 30 يوم بعد الإطلاق', 'stats.q2.desc': 'إصلاح مجاني للأخطاء ودعم تقني كامل لمدة 30 يوماً بعد الإطلاق.',
@@ -4639,7 +4791,7 @@
                     'testi.t1': 'A professional process from start to finish. The design was stunning and the app runs smoothly. The studio team stayed in touch at every stage.',
                     'testi.t2': 'The best studio I have worked with. They understood my e-commerce idea precisely and delivered outstanding performance. Response speed and post-launch support are unmatched.',
                     'testi.t3': 'Real technical expertise and attention to the finest details. The fitness app has become my daily reference, and the reports and statistics are very accurate. I strongly recommend them.',
-                    'ai.online': 'Technical advisor — online now', 'ai.placeholder': 'Describe your project or ask us...',
+                    'ai.online': 'Technical advisor — online now', 'ai.placeholder': 'Describe your project or ask us...', 'ai.dzTitle': 'Specs & Documents Analyzer', 'ai.dzHint': 'Paste your project specs or drop a file (txt / md)', 'ai.dzAnalyze': 'Analyze specs', 'ai.dzClear': 'Clear',
                     'stats.badge': 'Quality Standards', 'stats.title': 'Our Core Quality Standards', 'stats.desc': 'What sets SPECTRONIC apart — a clear, responsible commitment to every project',
                     'stats.q1.title': 'Full IP & Code Ownership', 'stats.q1.desc': '100% source code handover upon completion of your project.',
                     'stats.q2.title': '30-Day Post-Launch Warranty', 'stats.q2.desc': 'Free bug fixes and technical support for 30 days post-launch.',
@@ -4784,7 +4936,7 @@
                     'testi.t1': 'Un processus professionnel du début à la fin. Le design était magnifique et l\'application fonctionne parfaitement. L\'équipe du studio est restée en contact à chaque étape.',
                     'testi.t2': 'Le meilleur studio avec lequel j\'ai travaillé. Ils ont parfaitement compris mon idée de boutique en ligne et livré un résultat excellent. La réactivité et le support post-lancement sont inégalés.',
                     'testi.t3': 'Une vraie expertise technique et un souci du détail. L\'application de fitness est devenue ma référence quotidienne, avec des rapports et statistiques très précis. Je les recommande vivement.',
-                    'ai.online': 'Conseiller technique — en ligne', 'ai.placeholder': 'Décrivez votre projet ou posez-nous une question...',
+                    'ai.online': 'Conseiller technique — en ligne', 'ai.placeholder': 'Décrivez votre projet ou posez-nous une question...', 'ai.dzTitle': 'Analyseur de specs & documents', 'ai.dzHint': 'Collez les specs de votre projet ou déposez un fichier (txt / md)', 'ai.dzAnalyze': 'Analyser les specs', 'ai.dzClear': 'Effacer',
                     'stats.badge': 'Normes de Qualité', 'stats.title': 'Nos Normes de Qualité Essentielles', 'stats.desc': 'Ce qui distingue SPECTRONIC — un engagement clair et responsable envers chaque projet',
                     'stats.q1.title': 'Propriété IP & Code Complète', 'stats.q1.desc': 'Remise de 100% du code source à la fin de votre projet.',
                     'stats.q2.title': 'Garantie 30 Jours après Lancement', 'stats.q2.desc': 'Correctifs gratuits et support technique pendant 30 jours après le lancement.',
@@ -5603,7 +5755,25 @@
                     roiTitle: '📈 تقدير العائد على الاستثمار (ROI)',
                     roiCost: 'تكلفة المشروع',
                     roiProfit: 'صافي الربح لكل طلب',
-                    roiOrders: 'طلبات لاسترداد التكلفة'
+                    roiOrders: 'طلبات لاسترداد التكلفة',
+                    dzTitle: 'محلل المواصفات والمستندات',
+                    dzHint: '<b>ألصق مواصفات مشروعك</b> أو اسحب ملفاً (txt / md)',
+                    dzAnalyze: 'تحليل المواصفات', dzClear: 'مسح',
+                    specsIntro: '📄 ممتاز! ألصق هنا ملخص مواصفات مشروعك (أو ارفع ملفاً نصياً) وسأحلله فوراً: النوع، الميزات، التكلفة التقريبية، والنواقص.',
+                    specsHead: '📄 تحليل المواصفات الذكي',
+                    specsType: 'النوع المحدد', specsBudget: 'الميزانية', specsFeats: 'الميزات المطابقة', specsCost: 'التكلفة التقديرية', specsTime: 'المدة التقديرية', specsMissing: 'ما ينقص مواصفاتك', specsOk: 'لا شيء — المواصفات واضحة وجاهزة للتقدير', specsNote: 'اقتراح: دعنا نحوّل هذه المواصفات إلى تقدير وتقديم عرض كامل.',
+                    brandQ1: '🎨 رائع! اختر نشاطك التجاري وسأقترح هوية لونية (فاتح + داكن) ونمط واجهة يناسب جمهورك:',
+                    brandLight: 'النمط الفاتح', brandDark: 'النمط الداكن', brandUi: 'نمط الواجهة المقترح', brandAct: 'طبّق الألوان على تقديري',
+                    wireQ1: '🧱 أخبرني بفكرة تطبيقك بجملة أو جملتين (مثلاً: "تطبيق لطلب الطعام مع توصيل") وسأرسم لك هيكل الشاشات.',
+                    wireHead: '🧱 هيكل الشاشات المقترح', wireNote: 'هيكل مبدئي قابل للتعديل — أخبرني إن أردت تغيير أو إضافة شاشات.',
+                    compTitle: '🏆 تحليل المنافس الذكي', compDiff: '3 ميزات تفاضلية لنسختك (MVP):', compNote: 'يمكننا بناء نسختك من الصفر بـ Kotlin Native بجودة أعلى — لنصمّم مواصفاتك التفاضلية معاً؟', compProbe: 'أيّ منافس تودّ أن نتفوّق عليه؟ (مثال: "تطبيق مثل Glovo" أو "مثل TikTok")',
+                    compareTitle: '⚡ لماذا Kotlin Native أفضل من Cross-Platform؟', compareNative: 'Kotlin Native + Jetpack Compose', compareCross: 'Cross-platform (Flutter / React Native)', compareVerdict: 'الخلاصة: سرعة وأداء وأمان أعلى — وبنفس التكلفة تقريباً للمشاريع المخصّصة.',
+                    memHello: 'أهلاً بعودتك! 👋', memChip: 'تابع مشروعي', memTopic: 'اهتمامك السابق',
+                    bookIntro: 'ممتاز! اختر وقتك المناسب 👇',
+                    bookTitle: '📅 احجز استشارتك المجانية',
+                    bookNote: 'مكالمة 15 دقيقة عبر واتساب مع مهندس SPECTRONIC — بدون أي التزام.',
+                    bookConfirm: 'تم تأكيد طلبك لموعد {slot} ✅ سيتواصل معك المهندس مباشرة لتأكيد المكالمة.',
+                    bookCta: '✅ أكّد عبر واتساب'
                 },
                 en: {
                     welcome: 'Hi there! 👋 I\'m your SPECTRONIC technical advisor. Describe your project — a mobile app, website, or e-commerce store — or ask about cost and timeline.',
@@ -5641,7 +5811,25 @@
                     roiTitle: '📈 Return on Investment (ROI) estimate',
                     roiCost: 'Project cost',
                     roiProfit: 'Net profit per order',
-                    roiOrders: 'Orders to break even'
+                    roiOrders: 'Orders to break even',
+                    dzTitle: 'Document & specs analyzer',
+                    dzHint: '<b>Paste your project specs</b> or drop a file (txt / md)',
+                    dzAnalyze: 'Analyze specs', dzClear: 'Clear',
+                    specsIntro: '📄 Great! Paste your project specs summary here (or upload a text file) and I\'ll analyze it instantly: type, features, estimated cost, and what\'s missing.',
+                    specsHead: '📄 Smart specs analysis',
+                    specsType: 'Detected type', specsBudget: 'Budget', specsFeats: 'Matched features', specsCost: 'Estimated cost', specsTime: 'Estimated timeline', specsMissing: 'Missing from your specs', specsOk: 'Nothing — specs are clear and ready for a quote', specsNote: 'Suggestion: let\'s turn these specs into an estimate and a full proposal.',
+                    brandQ1: '🎨 Great! Choose your business and I\'ll suggest a harmonized brand palette (light + dark) and a UI style that fits your audience:',
+                    brandLight: 'Light theme', brandDark: 'Dark theme', brandUi: 'Suggested UI style', brandAct: 'Apply palette to my estimate',
+                    wireQ1: '🧱 Tell me your app idea in one or two sentences (e.g. "a food ordering app with delivery") and I\'ll sketch the screen structure.',
+                    wireHead: '🧱 Suggested screen structure', wireNote: 'A draft structure that\'s easy to adjust — tell me if you want to change or add screens.',
+                    compTitle: '🏆 Smart competitor analysis', compDiff: '3 differentiating MVP features for your version:', compNote: 'We can build your version from scratch in native Kotlin with higher quality — let\'s design your differentiating specs together?', compProbe: 'Which competitor would you like to outperform? (e.g. "an app like Glovo" or "like TikTok")',
+                    compareTitle: '⚡ Why Kotlin Native beats Cross-Platform', compareNative: 'Kotlin Native + Jetpack Compose', compareCross: 'Cross-platform (Flutter / React Native)', compareVerdict: 'Bottom line: higher speed, performance and security — at roughly the same cost for custom projects.',
+                    memHello: 'Welcome back! 👋', memChip: 'Resume my project', memTopic: 'Your last interest',
+                    bookIntro: 'Great! Pick a time that suits you 👇',
+                    bookTitle: '📅 Book your free consultation',
+                    bookNote: 'A 15-minute WhatsApp call with a SPECTRONIC engineer — no commitment.',
+                    bookConfirm: 'Your request for {slot} is confirmed ✅ The engineer will contact you directly to finalize the call.',
+                    bookCta: '✅ Confirm on WhatsApp'
                 },
                 fr: {
                     welcome: 'Bonjour ! 👋 Je suis votre conseiller technique SPECTRONIC. Décrivez votre projet — app mobile, site ou e-commerce — ou demandez le coût et les délais.',
@@ -5679,7 +5867,25 @@
                     roiTitle: '📈 Estimation du retour sur investissement (ROI)',
                     roiCost: 'Coût du projet',
                     roiProfit: 'Bénéfice net par commande',
-                    roiOrders: 'Commandes pour amortir'
+                    roiOrders: 'Commandes pour amortir',
+                    dzTitle: 'Analyseur de documents et specs',
+                    dzHint: '<b>Collez vos specs</b> ou déposez un fichier (txt / md)',
+                    dzAnalyze: 'Analyser les specs', dzClear: 'Effacer',
+                    specsIntro: '📄 Parfait ! Collez ici le résumé des specs de votre projet (ou déposez un fichier texte) et je l\'analyse immédiatement : type, fonctionnalités, coût estimé et manques.',
+                    specsHead: '📄 Analyse intelligente des specs',
+                    specsType: 'Type détecté', specsBudget: 'Budget', specsFeats: 'Fonctionnalités trouvées', specsCost: 'Coût estimé', specsTime: 'Délai estimé', specsMissing: 'Il manque dans vos specs', specsOk: 'Rien — les specs sont claires et prêtes pour un devis', specsNote: 'Suggestion : transformons ces specs en estimation et en proposition complète.',
+                    brandQ1: '🎨 Parfait ! Choisissez votre activité et je suggérerai une palette de marque harmonisée (clair + sombre) et un style d\'interface adapté à votre audience :',
+                    brandLight: 'Thème clair', brandDark: 'Thème sombre', brandUi: 'Style d\'interface suggéré', brandAct: 'Appliquer la palette à mon estimation',
+                    wireQ1: '🧱 Décrivez votre idée d\'application en une ou deux phrases (ex. « une app de commande de repas avec livraison ») et je dessinerai la structure des écrans.',
+                    wireHead: '🧱 Structure d\'écrans suggérée', wireNote: 'Une structure préliminaire facile à ajuster — dites-moi si vous voulez modifier ou ajouter des écrans.',
+                    compTitle: '🏆 Analyse intelligente du concurrent', compDiff: '3 fonctionnalités différenciantes pour votre MVP :', compNote: 'Nous pouvons construire votre version de zéro en Kotlin natif avec une qualité supérieure — concevons ensemble vos specs différenciantes ?', compProbe: 'Quel concurrent souhaitez-vous surpasser ? (ex. « une app comme Glovo » ou « comme TikTok »)',
+                    compareTitle: '⚡ Pourquoi Kotlin Native bat le Cross-Platform', compareNative: 'Kotlin Native + Jetpack Compose', compareCross: 'Cross-platform (Flutter / React Native)', compareVerdict: 'En résumé : vitesse, performance et sécurité supérieures — au même coût environ pour les projets sur mesure.',
+                    memHello: 'Bon retour ! 👋', memChip: 'Reprendre mon projet', memTopic: 'Votre dernier intérêt',
+                    bookIntro: 'Parfait ! Choisissez l\'heure qui vous convient 👇',
+                    bookTitle: '📅 Réservez votre consultation gratuite',
+                    bookNote: 'Un appel WhatsApp de 15 minutes avec un ingénieur SPECTRONIC — sans engagement.',
+                    bookConfirm: 'Votre demande pour {slot} est confirmée ✅ L\'ingénieur vous contactera directement pour finaliser l\'appel.',
+                    bookCta: '✅ Confirmer sur WhatsApp'
                 }
             };
             var c = function(k, l) { l = l || curL || 'ar'; return (copy[l] && copy[l][k] !== undefined) ? copy[l][k] : copy.en[k]; };
@@ -5830,9 +6036,11 @@
 
             /* ---------- Chat UI ---------- */
             var open = false, leadState = null, lead = { budget:null, deadline:null, platform:null, contact:null };
+            var bookingState = null;
 
             /* ---------- Session memory & lead scoring ---------- */
-            var userSession = { language: 'ar', budgetRange: null, interestedApp: null, leadScore: 1, topics: [] };
+            var userSession = { language: 'ar', budgetRange: null, interestedApp: null, appId: null, dialect: null, leadScore: 1, topics: [] };
+            function toastMsg(m) { if (window.showToast) window.showToast(m, 'error'); }
             var estimateState = null;
             var estimateLang = 'ar';
             var estimate = null;
@@ -5843,6 +6051,11 @@
             var urgencyShown = false;
             var triggerPortfolioFired = false;
             var triggerCalcFired = false;
+            var brandState = null;
+            var brandSel = null;
+            var wireframeState = null;
+            var wireframePreset = null;
+            var wireframeResult = null;
             var HIGH_INTENT_RX = /شراء|اشتري|شرايا|جاهز|جاهزة|تسليم|عقد|buy|buying|purchase|order|custom order|contract|sign the deal|i want to start/i;
             var LOW_INTENT_RX = /أريد فقط|سؤال فقط|مجرد|just asking|just curious|just a question|je demande juste|juste une question|only asking/i;
             var BUDGET_RX = /(\d[\d,]*\.?\d*)\s*(k|K|دج|دينار|da|dzd|€|eur|usd|\$)?/i;
@@ -5954,6 +6167,83 @@
                 return curL || 'ar';
             }
 
+            /* ---- Franco-Arab & local dialect engine ---- */
+            var DZ_MARKERS_EXTRA = ['zid','safi','dok','kifach','ngolik','hna','hnaa','3awn','a3tini','chouf','madritch','ngoul','3lach','3andek','3lih','fih','dir','roh','gol','bghit','hab','haba','nhib','apka','appli','lappli','siteweb','sito','boutique','prix','combien','daba','dorka','wesh','wash','nheb','nchri','rani','bezaf','bzaf','bezzaf','mouch','ma3ndi','kolchi','ykolli','ykol','sme3','chof','wa3r','sa7a','vraiment','mezyen','mlih','7aba','saha'];
+            var DIALECT_LEX = {
+                'ch7al':'كم','chhal':'كم','sh7al':'كم','kam':'كم','combien':'كم','prix':'سعر','price':'سعر','cost':'سعر',
+                'apka':'تطبيق','appli':'تطبيق','lappli':'تطبيق','application':'تطبيق','app':'تطبيق',
+                'siteweb':'موقع','site':'موقع','sito':'موقع',
+                'boutique':'متجر','magasin':'متجر','shop':'متجر','store':'متجر',
+                'livraison':'توصيل','delivery':'توصيل',
+                'daba':'الان','dorka':'الان','dok':'الان','wesh':'ماذا','wash':'ماذا',
+                'nheb':'اريد','nhib':'اريد','hab':'اريد','haba':'اريد','bghit':'اريد','nchri':'اشتري','rani':'انا',
+                'bezaf':'كثيرا','bzaf':'كثيرا','bezzaf':'كثيرا','vraiment':'حقا','mouch':'ليس','ma3ndi':'ليس عندي',
+                'kolchi':'كل شيء','ykolli':'يقول لي','ykol':'يقول','sme3':'اسمع','chof':'شوف','chouf':'شوف',
+                'wa3r':'صعب','sa7a':'صحة','saha':'صحة','zid':'أضف','safi':'حسنا','kifach':'كيف','3lach':'لماذا','dir':'اصنع',
+                'ngolik':'اقول لك','ngoul':'اقول','hna':'هنا','hnaa':'هنا','3awn':'مساعدة','a3tini':'اعطني',
+                '3andek':'عندك','3lih':'عليه','fih':'فيه','roh':'اذهب','gol':'قل','mezyen':'ممتاز','mlih':'جيد'
+            };
+            function francoToAr(text) {
+                var out = text;
+                var toks = text.split(/\s+/);
+                for (var i = 0; i < toks.length; i++) {
+                    var tk = toks[i];
+                    var key = tk.toLowerCase().replace(/[?.!,;:)\]}>]+$/, '');
+                    if (DIALECT_LEX[key]) {
+                        var escTok = tk.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                        var re = new RegExp('(^|[^a-z0-9])' + escTok + '($|[^a-z0-9])', 'i');
+                        out = out.replace(re, '$1' + DIALECT_LEX[key] + '$2');
+                    }
+                }
+                return out;
+            }
+            function isDialectText(text) {
+                var low = ' ' + text.toLowerCase() + ' ';
+                var all = DZ_MARKERS.concat(DZ_MARKERS_EXTRA);
+                for (var i = 0; i < all.length; i++) { if (low.indexOf(' ' + all[i] + ' ') !== -1) return 'dz'; }
+                return null;
+            }
+
+            /* ---- Cross-session visitor memory ---- */
+            var MEM_KEY = 'spectronic-memory-v1';
+            var memory = null;
+            function loadMemory() {
+                try { var raw = localStorage.getItem(MEM_KEY); return raw ? JSON.parse(raw) : null; } catch(e) { return null; }
+            }
+            function saveMemory() {
+                try {
+                    var m = memory || {};
+                    m.language = userSession.language || m.language || 'ar';
+                    m.budgetRange = userSession.budgetRange || m.budgetRange || null;
+                    m.interestedApp = userSession.interestedApp || m.interestedApp || null;
+                    m.appId = userSession.appId || m.appId || null;
+                    m.topics = userSession.topics.slice().length ? userSession.topics.slice() : (m.topics || []);
+                    m.leadScore = Math.max(userSession.leadScore || 1, m.leadScore || 1);
+                    m.dialect = userSession.dialect || m.dialect || null;
+                    m.updated = Date.now();
+                    localStorage.setItem(MEM_KEY, JSON.stringify(m));
+                } catch(e) {}
+            }
+            function clearMemory() {
+                try { localStorage.removeItem(MEM_KEY); } catch(e) {}
+                memory = null;
+            }
+            function countVisit() {
+                var m = memory || {};
+                m.visitCount = (m.visitCount || 0) + 1;
+                m.lastVisit = Date.now();
+                memory = m;
+                saveMemory();
+            }
+            function continueMemory() {
+                var l = curL || 'ar';
+                if (memory && memory.appId && APP_KB[memory.appId]) { addBot(replyApp(memory.appId), 700); return; }
+                addBot(esc(l === 'ar' ? 'سأكمل معك حيث توقفت! أخبرني أين وصل مشروعك:' : l === 'fr' ? 'Je reprends là où vous vous étiez arrêté ! Dites-moi où en est votre projet :' : 'Let\'s pick up where you left off! Tell me where your project stands:'));
+                renderChips([{ label: c('chips', l)[3], cmd: startEstimate }, APP_CTAS[l].consult]);
+            }
+            memory = loadMemory();
+            countVisit();
+
             /* ---- Normalization ---- */
             function normalize(s) {
                 s = (s || '').toLowerCase().replace(/[\u064B-\u0652\u0640]/g, '');
@@ -5986,7 +6276,7 @@
             function tokenScore(token, key) {
                 if (!token || !key) return 0;
                 if (token === key) return 2;
-                if (key.indexOf(token) === 0 || token.indexOf(key) === 0) return 1;
+                if (token.length >= 4 && (key.indexOf(token) === 0 || token.indexOf(key) === 0)) return 1;
                 var maxD = Math.max(1, Math.floor(key.length / 4));
                 return levenshtein(token, key) <= maxD ? 1 : 0;
             }
@@ -5997,7 +6287,7 @@
                 var parts = k.split(' ');
                 if (parts.length > 1) {
                     var hit = 0;
-                    parts.forEach(function(p){ if (t.indexOf(p) !== -1) hit++; });
+                    parts.forEach(function(p){ if (p.length >= 3 && t.indexOf(p) !== -1) hit++; });
                     if (hit >= 2) return 2;
                 }
                 var best = 0;
@@ -6015,30 +6305,37 @@
                 { id:'roi', min:1, w:{ ar:['عائد','استثمار','كم سأربح','كم اربح','مربح','ارباح','الربحية','هل يستحق','كم نجني','roi','العائد على الاستثمار'], en:['roi','return on investment','how much can i earn','profit','profitable','break even','earnings','worth it','payback'], fr:['retour sur investissement','rentabilite','profit','combien puis je gagner','rentable','amortir','payback'] } },
                 { id:'timeline', min:1, w:{ ar:['كم تستغرق','كم ياخذ','كم يأخذ','متى يكون جاهز','متى يتسلم','كم مدة','المدة','مدة الانجاز','مدة','مدة التسليم','التسليم','تسليم','متى','كم يوم','كم اسبوع','كم شهر','الوقت','متى التسل'], en:['how long','how much time','timeline','when ready','when done','deadline','how many weeks','how many days','delivery time','how fast'], fr:['combien de temps','quel delai','en combien de temps','combien de jours','combien de semaines','sous combien','quand sera pret','delai de livraison'], dz:['ch7al','chhal','sh7al'] } },
                 { id:'process', min:2, w:{ ar:['كيف تتعاملون','كيف تشتغلون','طريقة العمل','كيف تسير','كيف تعملون','المراحل','مراحل المشروع','كيف تبدا','كيف نبدا'], en:['how do you work','your process','process','how it works','how we start','steps','how do you start','workflow'], fr:['comment vous travaillez','votre processus','processus','comment ca marche','comment on commence','les etapes','deroulement'] } },
-                { id:'guarantee', min:1, w:{ ar:['ضمان','ضمانات','مضمون','دعم','صيانة','دعم بعد','تحديثات','تعديلات بعد','حقوق','مصدر الكود','كود المصدر','ملكية','خبرة','عملاء'], en:['guarantee','warranty','support','maintenance','after launch','updates','source code','ownership','secure','experience','clients'], fr:['garantie','support','maintenance','apres le lancement','mises a jour','code source','propriete','securise','experience','clients'] } },
+                { id:'guarantee', min:1, w:{ ar:['ضمان','ضمانات','مضمون','دعم','صيانة','دعم بعد','تحديثات','تعديلات بعد','حقوق','مصدر الكود','كود المصدر','ملكية','خبرة','عملاء','شروط','شروط الاستخدام','الأحكام','خصوصية','الخصوصية','رسوم خفية','الثقة','مستند قانوني'], en:['guarantee','warranty','support','maintenance','after launch','updates','source code','ownership','secure','experience','clients','terms','terms of service','privacy','hidden fees','trust','legal'], fr:['garantie','support','maintenance','apres le lancement','mises a jour','code source','propriete','securise','experience','clients','conditions','conditions d utilisation','confidentialite','frais caches','confiance','legal'] } },
                 { id:'portfolio', min:2, w:{ ar:['اعمالكم','اعمال سابقة','مشاريعكم','مشاريع سابقة','شاهد اعمال','معرض','بورتفوليو','امثلة مشاريع','تطبيقاتكم','تطبيقات'], en:['your work','previous projects','portfolio','showcase','examples','your projects','past work','your apps','apps'], fr:['vos projets','vos realisations','portfolio','exemples','projets precedents','votre portfolio','vos applications'] } },
                 { id:'whatsapp', min:2, w:{ ar:['واتساب','واطساب','رقم الهاتف','رقمكم','الهاتف','للتواصل','مراسلة','رقم','تواصل','ايميل','الايميل','اتصل','الاتصال','تواصل معنا'], en:['whatsapp','whats app','phone number','contact number','call you','reach you','phone','message you','email','mail','contact us'], fr:['whatsapp','numero de telephone','votre numero','telephone','vous joindre','message','email','mail','appel'] } },
-                { id:'consult', min:1, w:{ ar:['استشارة','احجز استشارة','استشارة مجانية','مكالمة','تحدث مع','تواصل مع','خدمة عميل','بشري'], en:['consult','consultation','book a call','call me','speak to','human','free consultation'], fr:['consultation','reserver une consultation','rendez-vous','parler a','conseiller','humain'] } },
+                { id:'consult', min:1, w:{ ar:['استشارة','احجز استشارة','استشارة مجانية','مكالمة','تحدث مع','تواصل مع','خدمة عميل','بشري'], en:['consult','consultation','book a call','call me','speak to','human','free consultation'], fr:['consultation','reserver une consultation','parler a','conseiller','humain'] } },
+                { id:'book', strong:true, min:1, w:{ ar:['احجز','حجز','موعد','مكالمة سريعة','أحجز','الحجز','وقت استشارة','نحدد وقت','booking'], en:['book','booking','appointment','schedule','set up a call','reserve a slot'], fr:['réserver','reserver','réservation','reservation','rendez-vous','rdv','prendre rendez-vous'] } },
                 { id:'tweak', min:2, w:{ ar:['تعديل','تغيير','اضافة ميزة','اضافة خاصية','تعديل الميزات','التخصيص','اريد تغيير'], en:['modify','change','customize','customization','adjust','add feature','edit','tweak'], fr:['modifier','changer','personnaliser','ajouter une fonction','ajuster','adapter','modification'] } },
-                { id:'howareyou', min:2, w:{ ar:['كيف حالك','كيفك','شحالك','شخبارك','كيف الاحوال'], en:['how are you','how are you doing','how s it going'], fr:['comment vas tu','ca va','comment allez vous'] } }
+                { id:'howareyou', min:2, w:{ ar:['كيف حالك','كيفك','شحالك','شخبارك','كيف الاحوال'], en:['how are you','how are you doing','how s it going'], fr:['comment vas tu','ca va','comment allez vous'] } },
+                { id:'brand', strong:true, min:1, w:{ ar:['لون','الوان','ألوان','الألوان','هوية','براند','براندينغ','شعار','لوحة الوان','الألوان المناسبة','التصميم البصري'], en:['color','colors','palette','brand','branding','identity','logo','theme color','colour','colours'], fr:['couleur','couleurs','palette','marque','identite','logo','couleur de marque'] } },
+                { id:'wireframe', strong:true, min:1, w:{ ar:['شاشات','هيكل الشاشات','وايرفريم','wireframe','تصميم الشاشات','خريطة التطبيق','سيناريو الشاشات','انواع الشاشات'], en:['wireframe','screen structure','screens','app structure','screen flow','flow of screens','structure of screens'], fr:['wireframe','structure des ecrans','ecrans','maquette ecrans','architecture des ecrans','parcours'] } },
+                { id:'specs', strong:true, min:1, w:{ ar:['تحليل المواصفات','حلل المواصفات','حلل مستند','حلل الوثيقة','حلل مواصفاتي','الوثيقة','مستند المواصفات','أرفق المواصفات','specs'], en:['analyze specs','analyze document','analyze my specs','specs','requirements doc','specification','document'], fr:['analyser les specs','analyser le document','analyser mon cahier des charges','cahier des charges','specs','document'] } },
+                { id:'competitor', strong:true, min:1, w:{ ar:['منافس','منافسة','ننافس','نافس','ننافسهم','نتفوق','التفوق على','منافسنا','فكرة منافسة'], en:['competitor','competitors','compete','competition','outperform','beat them','rival'], fr:['concurrent','concurrents','concurrence','surpasser','rivaliser'] } },
+                { id:'compare', strong:true, min:1, w:{ ar:['مقارنة','الفرق بين','أيهما أفضل','ايهما افضل','native ولا','نيتف ولا','native او','native أو','native ام','native أم','فلاتر ولا','فلاتر او','cross platform','ريأكت ناتيف','react native','لماذا native','ليه native','لماذا فلاتر','ليه فلاتر','أفضل من فلاتر'], en:['compare','comparison','which is better','which one is better','vs flutter','flutter vs','native or flutter','flutter or native','cross platform','react native','why native'], fr:['comparaison','comparer','différence entre','lequel est mieux','natif ou','ou flutter','flutter ou','cross platform','react native','pourquoi natif'] } }
             ];
 
             function scoreIntent(text, intent) {
-                var s = 0;
+                var s = 0, strong = false;
                 ['ar','fr','en','dz'].forEach(function(lk){
                     var ws = intent.w[lk] || [];
                     if (!ws.length) return;
                     var best = 0;
                     ws.forEach(function(kw){ var fs = fuzzyScore(text, kw); if (fs > best) best = fs; });
+                    if (best >= 2) strong = true;
                     s += best * ((lk === curL || lk === 'dz') ? 1 : 0.5);
                 });
-                return s;
+                return { s: s, strong: strong };
             }
             function matchIntent(text) {
                 var best = null, bestS = 0;
                 for (var i = 0; i < INTENTS.length; i++) {
-                    var s = scoreIntent(text, INTENTS[i]);
-                    if (s >= INTENTS[i].min && s > bestS) { best = INTENTS[i]; bestS = s; }
+                    var r = scoreIntent(text, INTENTS[i]);
+                    if (r.s >= INTENTS[i].min && r.s > bestS && (!INTENTS[i].strong || r.strong)) { best = INTENTS[i]; bestS = r.s; }
                 }
                 return best;
             }
@@ -6179,6 +6476,136 @@
                 renderChips([c('chips', l)[3], APP_CTAS[l].consult]);
             }
 
+            /* ---------- (1) AI Competitor & Feature Advisor ---------- */
+            var COMPETITOR_KB = {
+                glovo: { name:{ ar:'Glovo', en:'Glovo', fr:'Glovo' }, arch:'delivery',
+                    angle:{ ar:'يتفوق Glovo بالسرعة وشبكة المندوبين الواسعة، لكن التجربة نفسها مزدحمة والدفع محدود.',
+                            en:'Glovo wins on speed and its huge courier network, but the experience feels cluttered and payment options are limited.',
+                            fr:'Glovo gagne sur la vitesse et son vaste réseau de livreurs, mais l\'expérience est chargée et les paiements limités.' },
+                    diff:{ ar:['توصيل مجدول + تتبع GPS مباشر في الوقت الحقيقي','اشتراكات توصيل بلا حدود مقابل سعر شهري','وضع متاجر محلية + مقارنة شحن بين المندوبين'],
+                            en:['Scheduled delivery + real-time GPS tracking','Unlimited-delivery subscription for a monthly fee','Local-shops mode + courier shipping comparison'],
+                            fr:['Livraison planifiée + suivi GPS en temps réel','Abonnement livraison illimité mensuel','Mode boutiques locales + comparaison des livreurs'] } },
+                tiktok: { name:{ ar:'TikTok', en:'TikTok', fr:'TikTok' }, arch:'social',
+                    angle:{ ar:'يأسر TikTok المستخدمين بالمحتوى القصير، لكن خوارزميته تستهلك الوقت وتهمل خصوصية المحتوى العربي.',
+                            en:'TikTok captivates with short-form video, but its algorithm consumes time and neglects Arabic content culture.',
+                            fr:'TikTok captive avec ses vidéos courtes, mais son algorithme dévore le temps et néglige la culture arabe.' },
+                    diff:{ ar:['محتوى إسلامي وتعليمي منقّى + وضع تركيز يحد من الإدمان','أدوات منتجين محليين وتحقيق أرباح حلال','مجتمع مواضيعي خالٍ من الإعلانات المزعجة'],
+                            en:['Curated Islamic & educational content + a focus mode to limit addiction','Local creator tools with halal monetization','Ad-free topic communities'],
+                            fr:['Contenu islamique et éducatif + mode focus anti-addiction','Outils pour créateurs locaux avec monétisation halal','Communautés thématiques sans publicités intrusives'] } },
+                instagram: { name:{ ar:'Instagram', en:'Instagram', fr:'Instagram' }, arch:'social',
+                    angle:{ ar:'يتميز Instagram بالتسويق البصري، لكن إعلاناته باهظة ووصوله العضوي يتراجع.',
+                            en:'Instagram excels at visual marketing, but ads are pricey and organic reach keeps shrinking.',
+                            fr:'Instagram excelle en marketing visuel, mais ses publicités coûtent cher et la portée organique diminue.' },
+                    diff:{ ar:['توثيق محلي + واجهات عربية فاخرة ومدفوعات مدمجة','تحليلات بسيطة للمتاجر الصغيرة','بث تجريبي تفاعلي + كوبونات فورية داخل التطبيق'],
+                            en:['Local verification + luxury Arabic UI with built-in payments','Simple analytics built for small stores','Interactive live selling + instant in-app coupons'],
+                            fr:['Vérification locale + interface arabe luxueuse avec paiement intégré','Analyses simples pour petites boutiques','Live shopping interactif + coupons instantanés'] } },
+                uber: { name:{ ar:'Uber', en:'Uber', fr:'Uber' }, arch:'delivery',
+                    angle:{ ar:'يضمن Uber نقل سريع عبر تطبيق موثوق، لكن الرسوم والعمولات مرتفعة والتخصيص ضعيف.',
+                            en:'Uber delivers speed through a trusted app, but fees and commissions are high and personalization is weak.',
+                            fr:'Uber assure une course rapide via une app fiable, mais les frais et commissions sont élevés et la personnalisation faible.' },
+                    diff:{ ar:['تسعير شفاف بدون عمولات خفية','توصيل جماعي محجوز + مشاركة الرحلة','وضع عائلي آمن مع مراقبة مباشرة'],
+                            en:['Transparent pricing with no hidden commissions','Pre-booked pooled delivery + trip sharing','Safe family mode with live supervision'],
+                            fr:['Tarification transparente sans commissions cachées','Livraison groupée réservable + partage de course','Mode famille sécurisé avec supervision en direct'] } },
+                bookingcom: { name:{ ar:'Booking', en:'Booking', fr:'Booking' }, arch:'booking',
+                    angle:{ ar:'يوفر Booking آلاف الخيارات لكن سعره يرتفع بالعمولات وتجربة الضيوف الفندقيين تبقى تقليدية.',
+                            en:'Booking offers thousands of options but costs grow through commissions and the guest experience stays generic.',
+                            fr:'Booking offre des milliers d\'options mais coûte cher en commissions et l\'expérience client reste générique.' },
+                    diff:{ ar:['حجز جزائري محلي + مدفوعات عند الوصول','مساعد حجز ذكي مقارنة بالجودة/السعر','ولاء فندقي + كوبونات مباشرة بدون وسطاء'],
+                            en:['Local Algerian booking + pay-at-arrival','Smart booking assistant comparing quality/price','Hotel loyalty + direct coupons with no middlemen'],
+                            fr:['Réservation locale algérienne + paiement à l\'arrivée','Assistant de réservation comparant qualité/prix','Fidélité hôtelière + coupons directs sans intermédiaires'] } },
+                jumia: { name:{ ar:'Jumia', en:'Jumia', fr:'Jumia' }, arch:'ecommerce',
+                    angle:{ ar:'يعرف Jumia السوق الإفريقية جيداً، لكن سرعته وتجربة الهاتف والمدفوعات تحتاج تحسيناً.',
+                            en:'Jumia knows the African market well, but its speed, mobile UX, and payments need work.',
+                            fr:'Jumia connaît bien le marché africain, mais sa vitesse, son UX mobile et ses paiements restent à améliorer.' },
+                    diff:{ ar:['توصيل نفس اليوم في المدن الكبرى + تتبع مباشر','دفع عند الاستلام + تقسيط بدون فوائد','تجربة سلة أسرع مع توصيات محلية'],
+                            en:['Same-day delivery in major cities + live tracking','Cash on delivery + interest-free installments','Faster cart UX with local recommendations'],
+                            fr:['Livraison le jour même dans les grandes villes + suivi direct','Paiement à la livraison + paiement sans intérêts','Panier plus rapide avec recommandations locales'] } },
+                snapchat: { name:{ ar:'Snapchat', en:'Snapchat', fr:'Snapchat' }, arch:'social',
+                    angle:{ ar:'يشتهر Snapchat بالخصوصية والفلاتر، لكن ميزاته محدودة للمحتوى الجاد والتجارة.',
+                            en:'Snapchat is known for privacy and filters, but it\'s limited for serious content and commerce.',
+                            fr:'Snapchat est connu pour sa confidentialité et ses filtres, mais reste limité pour le contenu sérieux et le commerce.' },
+                    diff:{ ar:['رسائل مؤقتة + محتوى تعليمي مسلسل','فلاتر عربية وهوية وطنية','قنوات أعمال آمنة بدون بيانات مسربة'],
+                            en:['Ephemeral messages + serial educational content','Arabic filters and national identity','Secure business channels with no data leaks'],
+                            fr:['Messages éphémères + contenu éducatif en série','Filtres arabes et identité nationale','Canaux professionnels sécurisés sans fuite de données'] } }
+            };
+            var COMPETITOR_ALIASES = [
+                { id:'glovo', al:['glovo','غلوفو','غلوف'] },
+                { id:'tiktok', al:['tiktok','تيك توك','تيكتوك','tik tok','tiktoc'] },
+                { id:'instagram', al:['instagram','انستغرام','انستقرام','انستا','insta','أنستغرام'] },
+                { id:'uber', al:['uber','يوبير','أوبر','اوبر'] },
+                { id:'bookingcom', al:['booking','بوكينغ','بوكينج'] },
+                { id:'jumia', al:['jumia','جوميا','جومية'] },
+                { id:'snapchat', al:['snapchat','سناب شات','سنابشات','سناب'] }
+            ];
+            function matchCompetitor(text) {
+                var t = looseNormalize(text);
+                for (var i = 0; i < COMPETITOR_ALIASES.length; i++) {
+                    var e = COMPETITOR_ALIASES[i];
+                    for (var j = 0; j < e.al.length; j++) {
+                        var a = looseNormalize(e.al[j]);
+                        if (a && t.indexOf(a) !== -1) return e.id;
+                    }
+                }
+                return null;
+            }
+            function replyCompetitor(id, raw) {
+                var l = curL || 'ar';
+                var k = COMPETITOR_KB[id];
+                if (!k) { addBot(esc(c('compProbe', l))); renderChips([c('chips', l)[0], c('chips', l)[1], APP_CTAS[l].consult]); return; }
+                var diffs = k.diff[l] || k.diff.en;
+                var chips = diffs.map(function(d){ return '<div class="ai-comp-diff">✦ ' + esc(d) + '</div>'; }).join('');
+                var html = '<div class="ai-comp">'
+                    + '<div class="ai-comp-title">' + esc(c('compTitle', l)) + ' <span class="ai-cmp">' + esc(k.name[l] || k.name.en) + '</span></div>'
+                    + '<div class="ai-comp-angle">' + esc(k.angle[l] || k.angle.en) + '</div>'
+                    + '<div class="ai-prop-sec">' + esc(c('compDiff', l)) + '</div>'
+                    + chips
+                    + '<div class="ai-comp-note">💡 ' + esc(c('compNote', l)) + '</div>'
+                    + '</div>';
+                addBot(html + '<br>' + waCta(l), 700);
+                renderChips([
+                    { label: c('chips', l)[3], cmd: startEstimate },
+                    { label: c('chips', l)[0], cmd: function(){ startWireframe(); } },
+                    APP_CTAS[l].consult
+                ]);
+            }
+
+            /* ---------- (4) Native vs Cross-Platform Advisor ---------- */
+            function renderCompare() {
+                var l = curL || 'ar';
+                var rows = [
+                    { k: l === 'ar' ? 'السرعة' : l === 'fr' ? 'Vitesse' : 'Speed',
+                      nd: l === 'ar' ? 'كود أصلي مترجم مباشرة — إقلاع فوري وتفاعل بدون تأخير (60fps)' : l === 'fr' ? 'Code natif compilé directement — démarrage instantané et interactions fluides (60fps)' : 'Compiled native code — instant startup and 60fps interactions' ,
+                      cr: l === 'ar' ? 'طبقة جسر بين المنصات تضيف تأخيراً، خصوصاً بالرسوميات والرسوم المتحركة' : l === 'fr' ? 'Une couche de pont entre plateformes ajoute de la latence, surtout en graphique et animations' : 'A bridge layer between platforms adds latency, especially for graphics and animations' },
+                    { k: l === 'ar' ? 'الأمان' : l === 'fr' ? 'Sécurité' : 'Security',
+                      nd: l === 'ar' ? 'تحكم كامل في التخزين المحلي والتشفير — تحديثات فورية من Google Play' : l === 'fr' ? 'Contrôle total du stockage local et du chiffrement — mises à jour immédiates via Google Play' : 'Full control of local storage and encryption — instant updates via Google Play',
+                      cr: l === 'ar' ? 'مكتبات الطرف الثالث أكبر سطح هجوم وتأخر في تحديثات النظام الأساسي' : l === 'fr' ? 'Les librairies tierces élargissent la surface d\'attaque et retardent les mises à jour' : 'Third-party libraries widen the attack surface and delay platform updates' },
+                    { k: l === 'ar' ? 'الأداء' : l === 'fr' ? 'Performance' : 'Performance',
+                      nd: l === 'ar' ? 'استخدام مباشر لموارد الجهاز — مثالي للمدفوعات والخرائط والواقع المعزز' : l === 'fr' ? 'Accès direct aux ressources de l\'appareil — idéal pour paiements, cartes et RA' : 'Direct access to device hardware — ideal for payments, maps and AR',
+                      cr: l === 'ar' ? 'تجميع وسيط يستهلك الذاكرة ويبطئ المهام الثقيلة' : l === 'fr' ? 'Le rendu intermédiaire consomme de la mémoire et ralentit les tâches lourdes' : 'Intermediate rendering eats memory and slows heavy tasks' },
+                    { k: l === 'ar' ? 'الصيانة' : l === 'fr' ? 'Maintenance' : 'Maintenance',
+                      nd: l === 'ar' ? 'بنية نظيفة (Clean Architecture) سهلة التوسع والاختبار' : l === 'fr' ? 'Architecture propre facile à étendre et à tester' : 'Clean Architecture, easy to scale and test',
+                      cr: l === 'ar' ? 'إصلاحات تتضاعف عبر الأنظمة عند كل تحديث جديد' : l === 'fr' ? 'Les correctifs se multiplient sur chaque plateforme à chaque mise à jour' : 'Fixes multiply across platforms on every update' }
+                ];
+                var body = rows.map(function(r){
+                    return '<div class="ai-cmp-row"><span class="ai-cmp-k">' + esc(r.k) + '</span><div class="ai-cmp-nd">' + esc(r.nd) + '</div><div class="ai-cmp-cr">' + esc(r.cr) + '</div></div>';
+                }).join('');
+                var html = '<div class="ai-compare">'
+                    + '<div class="ai-compare-title">' + esc(c('compareTitle', l)) + '</div>'
+                    + '<span class="ai-cmp-h native">' + esc(c('compareNative', l)) + '</span> <span class="ai-cmp-h cross">' + esc(c('compareCross', l)) + '</span>'
+                    + body
+                    + '<div class="ai-cmp-verdict">' + esc(c('compareVerdict', l)) + '</div>'
+                    + '</div>';
+                return html + '<br>' + waCta(l);
+            }
+            function replyCompare() {
+                var l = curL || 'ar';
+                addBot(renderCompare(), 700);
+                renderChips([
+                    { label: c('chips', l)[3], cmd: startEstimate },
+                    APP_CTAS[l].consult
+                ]);
+            }
+
             /* ---- Reply templates ---- */
             var TMPL = {
                 greet: {
@@ -6227,9 +6654,9 @@
                     fr:['🛠️ Comment nous travaillons :','1. Consultation gratuite pour définir les specs','2. Devis + planning clairs','3. Conception et développement par phases','4. Tests complets et assurance qualité','5. Lancement + support après lancement','Vous restez informé à chaque étape.']
                 },
                 guarantee: {
-                    ar:['🛡️ التزامنا:','• ملكية الكود 100% لك — تسلّم الكود كاملاً','• خصوصية بياناتك أولاً','• توافق كامل مع الشريعة الإسلامية (لا موسيقى، لا محتوى مخالف)','• دعم وصيانة بعد الإطلاق لضمان الاستمرارية'],
-                    en:['🛡️ Our commitment:','• 100% source-code ownership — you receive the full code','• Your privacy comes first','• Fully Sharia-compliant (no music, no inappropriate content)','• Post-launch support & maintenance for peace of mind'],
-                    fr:['🛡️ Notre engagement :','• Propriété du code à 100% — vous recevez tout le code','• Votre confidentialité d\'abord','• Conforme à la charia (pas de musique, ni contenu inapproprié)','• Support et maintenance après le lancement']
+                    ar:['🛡️ التزامنا:','• ملكية الكود 100% لك — تسلّم الكود كاملاً','• خصوصية بياناتك أولاً','• بدون أي رسوم خفية — التسعير واضح مسبقاً','• توافق كامل مع الشريعة الإسلامية (لا موسيقى، لا محتوى مخالف)','• دعم وصيانة بعد الإطلاق لضمان الاستمرارية'],
+                    en:['🛡️ Our commitment:','• 100% source-code ownership — you receive the full code','• Your privacy comes first','• No hidden fees — clear upfront pricing','• Fully Sharia-compliant (no music, no inappropriate content)','• Post-launch support & maintenance for peace of mind'],
+                    fr:['🛡️ Notre engagement :','• Propriété du code à 100% — vous recevez tout le code','• Votre confidentialité d\'abord','• Aucuns frais cachés — tarification claire dès le départ','• Conforme à la charia (pas de musique, ni contenu inapproprié)','• Support et maintenance après le lancement']
                 },
                 portfolio: {
                     ar:['🏆 من أعمالنا المميزة:','• فيلورا (Velora) — قالب متجر إلكتروني فاخر','• أورورا (Aurora) — تطبيق قراءة وتركيز محفّز','• كايزن (Kaizen AI) — مدرّب صحة ولياقة بالذكاء الاصطناعي','اسألني عن أي منها وسأعطيك التفاصيل الكاملة.'],
@@ -6299,6 +6726,31 @@
                     ar:['لكن يمكننا بناء بديل متوافق: إدارة الميزانية والمدخرات، الدفع بالتقسيط بدون فوائد، أو منصة تمويل بالمرابحة المتوافقة مع الشريعة.'],
                     en:['But we can build a compliant alternative: budgeting & savings management, interest-free installment payments, or a Sharia-compliant Murabaha financing platform.'],
                     fr:['Mais nous pouvons créer une alternative conforme : gestion de budget et d\'épargne, paiement en plusieurs fois sans intérêts, ou une plateforme de financement Murabaha conforme à la charia.']
+                },
+                altAlcohol: {
+                    ar:['لكن يمكننا بديل صحي ملتزم: تطبيق اكتشاف مقاهي ومطاعم حلال، متتبع عادات صحية، أو دليل أنشطة ورياضة.'],
+                    en:['But we can build a clean, healthy alternative: a halal cafés & restaurants finder, a healthy-habits tracker, or a sports & activities guide.'],
+                    fr:['Mais nous pouvons créer une alternative saine et conforme : un annuaire de cafés et restaurants halal, un suivi de bonnes habitudes, ou un guide de sport et d\'activités.']
+                },
+                altDrugs: {
+                    ar:['لكن يمكننا بناء منصة رفاهية: حفظ القرآن وتحديات تعليمية، متتبع عادات إيجابية، أو مجتمع دعم إقلاع عن العادات الضارة.'],
+                    en:['But we can build a wellness platform: Quran memorization & learning challenges, a positive-habits tracker, or a supportive community for quitting harmful habits.'],
+                    fr:['Mais nous pouvons créer une plateforme de bien-être : mémorisation du Coran et défis d\'apprentissage, un suivi d\'habitudes positives, ou une communauté de soutien pour abandonner les mauvaises habitudes.']
+                },
+                altAdult: {
+                    ar:['لكن يمكننا بديل محترم: منصة تعارف إسلامي جاد للخطبة، محتوى عائلي هادف، أو تطبيق تواصل مجتمعي بأخلاقيات واضحة.'],
+                    en:['But we can build a respectful alternative: a serious Islamic marriage-introduction platform, purposeful family content, or a community app with clear ethics.'],
+                    fr:['Mais nous pouvons créer une alternative respectueuse : une plateforme islamique sérieuse de présentation au mariage, un contenu familial utile, ou une application communautaire éthique.']
+                },
+                altScam: {
+                    ar:['لكن يمكننا بناء مصداقية حقيقية: منصة تقييمات شفافة، أداة إدارة مالية صادقة، أو نظام ولاء حقيقي للعملاء.'],
+                    en:['But we can build real credibility: a transparent reviews platform, an honest money-management tool, or a genuine customer loyalty system.'],
+                    fr:['Mais nous pouvons construire une vraie crédibilité : une plateforme d\'avis transparents, un outil honnête de gestion d\'argent, ou un système de fidélité client authentique.']
+                },
+                altHate: {
+                    ar:['لكن يمكننا بديل إيجابي: مجتمع آمن بإدارة وساطة، منصة توعية وبناء محتوى هادف، أو أداة تواصل محترم.'],
+                    en:['But we can build a positive alternative: a safe, moderated community, an awareness & meaningful-content platform, or a respectful communication tool.'],
+                    fr:['Mais nous pouvons créer une alternative positive : une communauté sûre et modérée, une plateforme de sensibilisation au contenu utile, ou un outil de communication respectueuse.']
                 }
             };
 
@@ -6322,6 +6774,7 @@
                 if (roiResult) parts.push('ROI: ' + roiResult.cat + ' (break-even ' + roiResult.orders[0] + '-' + roiResult.orders[1] + ')');
                 if (voucher.shown) parts.push('Voucher: ' + voucher.code);
                 if (userSession.topics.length) parts.push('Topics: ' + userSession.topics.join(', '));
+                if (userSession.dialect) parts.push('Dialect: ' + userSession.dialect);
                 parts.push('Lead: ' + userSession.leadScore + '/10');
                 var head = (l === 'ar' ? 'ملخص محادثتي مع SPECTRONIC AI' : l === 'fr' ? 'Résumé de ma conversation avec SPECTRONIC AI' : 'My conversation summary with SPECTRONIC AI');
                 return head + ' — ' + parts.join(' | ');
@@ -6342,6 +6795,7 @@
                 var html = '<div class="ai-app" style="--ac:' + a.color + '">'
                     + '<div class="ai-app-head"><img class="ai-app-logo" src="logo-' + app + '.png" alt="' + esc(a.name[l] || a.name.en) + ' logo"><span class="ai-app-name">' + esc(a.name[l] || a.name.en) + '</span><span class="ai-app-tag">' + esc(a.tag[l] || a.tag.en) + '</span></div>'
                     + '<div class="ai-app-desc">' + esc(a.desc[l] || a.desc.en) + '</div>'
+                    + appCardExtra(app)
                     + '<div class="ai-list">' + feats + '</div>'
                     + waCta(l)
                     + '</div>';
@@ -6396,6 +6850,36 @@
                     return;
                 }
                 if (intent.id === 'howareyou') { replyHowAreYou(); return; }
+                if (intent.id === 'brand') {
+                    addBot(esc(l === 'ar' ? '🎨 رائع! دعنا نصمم هويتك البصرية.' : l === 'fr' ? '🎨 Parfait ! Concevons votre identité visuelle.' : '🎨 Great! Let\'s design your visual identity.'), 300);
+                    startBrand();
+                    return;
+                }
+                if (intent.id === 'wireframe') {
+                    addBot(esc(l === 'ar' ? '🧱 فهمت! دعني أتخيل هيكل تطبيقك.' : l === 'fr' ? '🧱 Compris ! Laissez-moi imaginer la structure de votre app.' : '🧱 Got it! Let me imagine your app\'s structure.'), 300);
+                    startWireframe();
+                    return;
+                }
+                if (intent.id === 'specs') {
+                    addBot(esc(c('specsIntro', l)), 300);
+                    showDropzone(true);
+                    return;
+                }
+                if (intent.id === 'book') {
+                    addBot(esc(c('bookIntro', l)), 300);
+                    startBooking();
+                    return;
+                }
+                if (intent.id === 'competitor') {
+                    rememberTopic('competitor');
+                    replyCompetitor(null, '');
+                    return;
+                }
+                if (intent.id === 'compare') {
+                    rememberTopic('compare');
+                    replyCompare();
+                    return;
+                }
                 if (intent.id === 'portfolio') {
                     addBot(linesHtml(TMPL.portfolio[l]) + '<br>' + waCta(l));
                     renderChips([
@@ -6423,12 +6907,17 @@
             var FORBIDDEN = [
                 { rx: /مقامرة|قمار|قمارية|مراهنة|مراهنات|رهان|كازينو|cazino|casino|gambl|betting|poker|slots|روليت|لوتري|يانصيب/i, alt: 'altGambling' },
                 { rx: /موسيقى|موسيقي|أغاني|أغنية|غناء|مشغل موسيقى|music|musique|chanson|songs|song/i, alt: 'altMusic' },
-                { rx: /ربا|ربوي|فائدة ربوية|فوائد ربوية|قرض بفائدة|قرض بفوائد|فائدة بنكية|فوائد بنكية|interest|usury|usurious|interet|interets|pret a interet/i, alt: 'altRiba' }
+                { rx: /ربا|ربوي|فائدة ربوية|فوائد ربوية|قرض بفائدة|قرض بفوائد|فائدة بنكية|فوائد بنكية|interest|usury|usurious|interet|interets|pret a interet/i, alt: 'altRiba' },
+                { rx: /خمر|خمور|كحول|مشروبات كحولية|بيرة|بيره|نبيذ|ويسكي|alcohol|alcool|beer|wine|biere|whiskey|vodka|شراب روحي/i, alt: 'altAlcohol' },
+                { rx: /مخدرات|مخدر|كوكايين|هيروين|قنب|حشيش|ماريجوانا|drugs|cocaine|heroin|marijuana|cannabis|ecstasy|بنسي/i, alt: 'altDrugs' },
+                { rx: /إباحي|إباحية|اباحي|مواعدة|dating|تعارف رومانسي|محتوى للكبار|محتوى جنسي|عري|porn|adult content|نود|chatteing/i, alt: 'altAdult' },
+                { rx: /ثراء سريع|ربح سريع|احتياال|احتيال|نصاب|اسكام|scam|fraud|get rich quick|ثراء|بتكوين مضاربة|عملات مضاربة/i, alt: 'altScam' },
+                { rx: /كراهية|تنمر|تحرش|إساءة|عنف|إساءة معاملة|bullying|harassment|hate speech|violence|trolling/i, alt: 'altHate' }
             ];
             function matchForbidden(text) {
                 var t = normalize(text);
                 for (var i = 0; i < FORBIDDEN.length; i++) {
-                    if (FORBIDDEN[i].rx.test(t)) return FORBIDDEN[i];
+                    if (FORBIDDEN[i].rx.test(t) || FORBIDDEN[i].rx.test(text)) return FORBIDDEN[i];
                 }
                 return null;
             }
@@ -6465,6 +6954,9 @@
                 curL = detectLang(text);
                 userSession.language = curL;
                 updateLeadScore(text);
+                var dtz = isDialectText(text);
+                if (dtz) userSession.dialect = dtz;
+                text = francoToAr(text);
 
                 var greet = /^\s*(مرحبا|سلام|اهلا|أهلا|السلام|hello|hi|hey|bonjour|salut)/i.test(text) && text.length < 30;
                 var thanks = /شكرا|شكراً|thx|thanks|thank you|merci/i.test(text);
@@ -6479,6 +6971,9 @@
                 }
 
                 if (roiState) { handleRoi(text); return; }
+
+                if (brandState) { handleBrand(text); return; }
+                if (wireframeState) { handleWireframe(text); return; }
 
                 if (AI_SELF_RX.test(text)) { addBot(esc(TMPL.aiSelf[curL][0])); renderChips([c('chips', curL)[3], APP_CTAS[curL].consult]); return; }
                 if (greet) { addBot(linesHtml(TMPL.greet[curL])); renderChips(c('chips', curL)); return; }
@@ -6504,8 +6999,24 @@
                     }
                 }
 
+                var salesRx = /كم|ثمن|سعر|تكلفة|التكلفة|حجز|استشارة|استشارات|وقت|مدة|متى|تواصل|واتساب|معرض|أعمالنا|أسعار|روي|عائد|roi|combien|prix|cost|price|consult|book|timeline|deliver|when|how long|portfolio|our work|whatsapp|budget|ميزانية/i;
+                var compId = matchCompetitor(text);
+                if (compId && !salesRx.test(text)) {
+                    rememberTopic('comp:' + compId);
+                    bumpScore(1);
+                    replyCompetitor(compId, text);
+                    return;
+                }
+
                 var intent = matchIntent(text);
-                if (intent) { rememberTopic(intent.id); replyIntent(intent); return; }
+                if (intent) {
+                    if (intent.id === 'specs' && (text.split(' ').length >= 8 || PROJ_SIGNAL_RX.test(text))) {
+                        rememberTopic('specs'); bumpScore(1);
+                        analyzeSpecs(text);
+                        return;
+                    }
+                    rememberTopic(intent.id); replyIntent(intent); return;
+                }
 
                 if (tech && !PROJ_SIGNAL_RX.test(text)) {
                     rememberTopic('tech:' + tech);
@@ -6544,12 +7055,23 @@
                     }
                     addBot(esc(TMPL.urgency[curL][0]) + extra + '<br>' + waCta(curL), 1000);
                 }
+                saveMemory();
             }
 
             function replyGreet() {
                 curL = window.getCurrentLang ? window.getCurrentLang() : 'ar';
-                addBot(linesHtml(TMPL.greet[curL]), 500);
-                renderChips(c('chips', curL));
+                var chips = c('chips', curL).slice();
+                var extra = '';
+                if (memory && memory.visitCount > 1 && (memory.interestedApp || memory.budgetRange || (memory.topics && memory.topics.length))) {
+                    var bits = [];
+                    if (memory.interestedApp) bits.push(memory.interestedApp);
+                    if (memory.budgetRange) bits.push('~$' + memory.budgetRange.toLocaleString());
+                    if (memory.topics && memory.topics.length) bits.push(c('memTopic', curL) + ': ' + memory.topics.slice(-3).join(' • '));
+                    extra = '<div class="ai-remember">' + esc(c('memHello', curL)) + ' <b>' + esc(bits.join(' • ')) + '</b></div>';
+                    chips.push({ label: c('memChip', curL), cmd: continueMemory });
+                }
+                addBot(linesHtml(TMPL.greet[curL]) + extra, 500);
+                renderChips(chips);
             }
 
             /* Lead capture state machine */
@@ -6574,8 +7096,56 @@
                 if (leadState) return;
                 estimateState = null;
                 roiState = null;
+                brandState = null;
+                wireframeState = null;
+                bookingState = null;
                 leadState = 'budget';
                 addBot(esc(c('qBudget')), 500);
+            }
+
+            /* ---------- (2) AI Consultation Scheduler ---------- */
+            function nextSlots(n) {
+                var l = curL || 'ar';
+                var out = [];
+                var now = new Date();
+                var hour = now.getHours();
+                var days = { ar:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'], en:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], fr:['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'] };
+                var today = { ar:'اليوم', en:'today', fr:"aujourd'hui" };
+                for (var i = 0; i < n; i++) {
+                    var h = (hour + 1 + i) % 24;
+                    var dd = new Date(now);
+                    dd.setDate(dd.getDate() + i);
+                    var label = (i === 0 ? today[l] : days[l][dd.getDay()]) + ' ' + h + ':00';
+                    out.push(label);
+                }
+                return out;
+            }
+            function startBooking() {
+                if (bookingState) return;
+                estimateState = null; roiState = null; leadState = null; brandState = null; wireframeState = null;
+                bookingState = true;
+                var l = curL || 'ar';
+                var slots = nextSlots(3);
+                var html = '<div class="ai-book">'
+                    + '<div class="ai-book-title">' + esc(c('bookTitle', l)) + '</div>'
+                    + '<div class="ai-book-note">' + esc(c('bookNote', l)) + '</div>'
+                    + '<div class="ai-book-slots">'
+                    + slots.map(function(s){ return '<button type="button" class="ai-book-slot" data-slot="' + esc(s) + '">' + esc(s) + '</button>'; }).join('')
+                    + '</div></div>';
+                addBot(html, 500);
+                renderChips([c('chips', l)[0], APP_CTAS[l].consult]);
+            }
+            function bookSlot(slot) {
+                var l = curL || 'ar';
+                bookingState = false;
+                addUser('📅 ' + slot);
+                rememberTopic('booking:' + slot);
+                bumpScore(2);
+                var wa = 'https://wa.me/213777566691?text=' + encodeURIComponent(
+                    (l === 'ar' ? 'مرحباً SPECTRONIC، أريد تأكيد موعد استشارة: ' : l === 'fr' ? 'Bonjour SPECTRONIC, je souhaite confirmer mon rendez-vous : ' : 'Hi SPECTRONIC, I want to confirm my consultation slot: ')
+                    + slot + ' | ' + buildWaSummary());
+                addBot(esc(c('bookConfirm', l).replace('{slot}', slot)) + '<br>' + '<a class="ai-wa-btn" href="' + wa + '" target="_blank" rel="noopener">' + esc(c('bookCta', l)) + '</a>', 700);
+                renderChips([c('chips', l)[3], APP_CTAS[l].consult]);
             }
 
             /* ---------- Sales & Pricing Engine ---------- */
@@ -6667,7 +7237,7 @@
             /* ---------- Instant scope & cost estimator (3 questions) ---------- */
             function startEstimate() {
                 if (estimateState) return;
-                leadState = null; roiState = null; roiResult = null;
+                leadState = null; roiState = null; roiResult = null; brandState = null; wireframeState = null; bookingState = null;
                 estimate = { type: null, complex: null, langs: null, price: null, weeks: null };
                 estimateState = 'type';
                 estimateLang = curL || 'ar';
@@ -6729,7 +7299,7 @@
             /* ---------- Client ROI calculator ---------- */
             function startRoi() {
                 if (roiState) return;
-                estimateState = null; leadState = null;
+                estimateState = null; leadState = null; brandState = null; wireframeState = null; bookingState = null;
                 roiState = 'industry';
                 roiResult = null;
                 estimateLang = curL || 'ar';
@@ -6791,6 +7361,339 @@
                 addBot(voucherHtml(l) + '<br>' + waCta(l), 600);
                 renderChips([APP_CTAS[l].consult]);
             }
+
+            /* ============================================================
+               Visual & Interactive Experience
+               (1) In-chat app cards with gallery + badges + quick tests
+               (2) Branding & color palette guide
+               (3) AI wireframe / screen structure suggester
+               (4) Document & specs analyzer (drop zone)
+               ============================================================ */
+
+            /* ---------- (1) Interactive app cards ---------- */
+            var APP_PILLS = {
+                velora: [ { t:{ ar:'أندرويد أصلي', en:'Native Android', fr:'Android natif' }, hot:false },
+                          { t:{ ar:'دفع عند الاستلام + Online', en:'COD + Online', fr:'Paiement + livraison' }, hot:true },
+                          { t:{ ar:'SEO', en:'SEO', fr:'SEO' }, hot:false },
+                          { t:{ ar:'RTL متعدد اللغات', en:'Multi-language RTL', fr:'RTL multilingue' }, hot:false } ],
+                aurora: [ { t:{ ar:'بدون موسيقى', en:'No music', fr:'Sans musique' }, hot:true },
+                          { t:{ ar:'تحديات وإنجازات', en:'Challenges', fr:'Défis' }, hot:false },
+                          { t:{ ar:'أصوات طبيعية', en:'Nature sounds', fr:'Sons naturels' }, hot:false },
+                          { t:{ ar:'إحصائيات تقدم', en:'Progress stats', fr:'Statistiques' }, hot:false } ],
+                kaizen: [ { t:{ ar:'ذكاء اصطناعي', en:'AI-powered', fr:'Propulsé par IA' }, hot:true },
+                          { t:{ ar:'توليد وجبات', en:'Meal generation', fr:'Génération de repas' }, hot:false },
+                          { t:{ ar:'خطط تكيّفية', en:'Adaptive plans', fr:'Plans adaptatifs' }, hot:false },
+                          { t:{ ar:'تصميم 3D', en:'3D design', fr:'Design 3D' }, hot:false } ]
+            };
+            var GAL_KB = {
+                velora: [
+                    { g:'linear-gradient(135deg,#7C2D12,#B45309)', n:{ ar:'الرئيسية', en:'Home', fr:'Accueil' } },
+                    { g:'linear-gradient(135deg,#B45309,#F59E0B)', n:{ ar:'المنتجات', en:'Products', fr:'Produits' } },
+                    { g:'linear-gradient(135deg,#92400E,#D97706)', n:{ ar:'السلة الذكية', en:'Smart Cart', fr:'Panier intelligent' } }
+                ],
+                aurora: [
+                    { g:'linear-gradient(135deg,#3730A3,#6366F1)', n:{ ar:'الرئيسية', en:'Home', fr:'Accueil' } },
+                    { g:'linear-gradient(135deg,#6D28D9,#A855F7)', n:{ ar:'القراءة', en:'Reading', fr:'Lecture' } },
+                    { g:'linear-gradient(135deg,#4C1D95,#818CF8)', n:{ ar:'الإنجازات', en:'Achievements', fr:'Succès' } }
+                ],
+                kaizen: [
+                    { g:'linear-gradient(135deg,#7E22CE,#A855F7)', n:{ ar:'الرئيسية', en:'Home', fr:'Accueil' } },
+                    { g:'linear-gradient(135deg,#4C1D95,#6366F1)', n:{ ar:'الوجبات', en:'Meals', fr:'Repas' } },
+                    { g:'linear-gradient(135deg,#5B21B6,#8B5CF6)', n:{ ar:'التمرين', en:'Workout', fr:'Entraînement' } }
+                ]
+            };
+            function galSlide(app, i, l) {
+                var s = GAL_KB[app][i];
+                return '<div class="ai-gal-slide">'
+                    + '<div class="ai-gal-screen" style="background:' + s.g + '">'
+                    + '<div class="ai-gal-top"><span class="ph"></span><span class="ph lg"></span><span class="ph"></span></div>'
+                    + '<div class="ai-gal-body">'
+                    + '<div class="ai-gal-card"><div class="ph"></div></div>'
+                    + '<div class="ai-gal-card" style="width:86%"><div class="ph"></div></div>'
+                    + '<div class="ai-gal-card" style="width:70%"><div class="ph"></div></div>'
+                    + '<div style="height:16px;border-radius:6px;width:52%;background:rgba(255,255,255,0.4);margin-top:3px"></div>'
+                    + '</div></div>'
+                    + '<div class="ai-gal-label">' + esc(s.n[l] || s.n.en) + '</div>'
+                    + '</div>';
+            }
+            function appCardExtra(app) {
+                var l = curL || 'ar';
+                var pills = (APP_PILLS[app] || []).map(function(p){
+                    return '<span class="ai-pill' + (p.hot ? ' hot' : '') + '">' + esc(p.t[l] || p.t.en) + '</span>';
+                }).join('');
+                var slides = (GAL_KB[app] || []).map(function(_, i){ return galSlide(app, i, l); }).join('');
+                var dots = (GAL_KB[app] || []).map(function(_, i){
+                    return '<span class="ai-gal-dot' + (i === 0 ? ' on' : '') + '"></span>';
+                }).join('');
+                return '<div class="ai-gal">'
+                    + '<div class="ai-gal-dots">' + dots + '</div>'
+                    + '<div class="ai-gal-track">' + slides + '</div>'
+                    + '<button class="ai-gal-nav ai-gal-prev" data-app="' + app + '" aria-label="Previous">&#8249;</button>'
+                    + '<button class="ai-gal-nav ai-gal-next" data-app="' + app + '" aria-label="Next">&#8250;</button>'
+                    + '</div>'
+                    + '<div class="ai-app-pills">' + pills + '</div>'
+                    + '<div class="ai-app-actions">'
+                    + '<button class="ai-app-act solid" data-app="' + app + '" data-act="demo">' + (l === 'ar' ? '⚡ جرّب العرض' : l === 'fr' ? '⚡ Essayer la démo' : '⚡ Try the demo') + '</button>'
+                    + '<button class="ai-app-act" data-app="' + app + '" data-act="screens">' + (l === 'ar' ? '🧱 الشاشات' : l === 'fr' ? '🧱 Écrans' : '🧱 Screens') + '</button>'
+                    + '<button class="ai-app-act" data-app="' + app + '" data-act="similar">' + (l === 'ar' ? '🔁 تطبيق مشابه' : l === 'fr' ? '🔁 App similaire' : '🔁 Similar app') + '</button>'
+                    + '</div>';
+            }
+            function wireGallery(app) {
+                var gal = document.querySelector('.ai-gal-track');
+                if (!gal) return;
+                var max = gal.children.length - 1;
+                var i = parseInt(gal.dataset.i || '0', 10);
+                if (app === 'next') i = Math.min(max, i + 1); else i = Math.max(0, i - 1);
+                gal.dataset.i = i;
+                gal.style.transform = 'translateX(' + (-i * 100) + '%)';
+                var dots = gal.parentNode.querySelectorAll('.ai-gal-dot');
+                dots.forEach(function(d, k){ d.classList.toggle('on', k === i); });
+            }
+            msgsEl.addEventListener('click', function(ev) {
+                var nav = ev.target.closest('.ai-gal-nav');
+                if (nav) { wireGallery(nav.dataset.app === 'next' ? 'next' : 'prev'); ev.preventDefault(); return; }
+                var slotBtn = ev.target.closest('.ai-book-slot');
+                if (slotBtn) { bookSlot(slotBtn.getAttribute('data-slot')); ev.preventDefault(); return; }
+                var act = ev.target.closest('.ai-app-act');
+                if (!act) return;
+                var app = act.dataset.app;
+                if (act.dataset.act === 'demo') {
+                    try { if (window.openPortfolioModal) { window.openPortfolioModal(app); } else { replyAppDescribe(app); } } catch(e) {}
+                } else if (act.dataset.act === 'screens') {
+                    startWireframe(app);
+                } else if (act.dataset.act === 'similar') {
+                    var l = curL || 'ar';
+                    send((l === 'ar' ? 'أريد تطبيق مثل ' : l === 'fr' ? 'Je veux une app comme ' : 'I want an app like ') + (APP_KB[app].name[l] || APP_KB[app].name.en));
+                }
+                ev.preventDefault();
+            });
+
+            /* ---------- (2) Branding & color palette guide ---------- */
+            var BRAND_NICHES = [
+                { id:'ecommerce', name:{ ar:'متجر إلكتروني', en:'E-commerce', fr:'E-commerce' },
+                  style:{ ar:'فاخر ودافئ (Luxury) — مساحات هادئة، خطوط أنيقة، وأزرار ذهبية بارزة.', en:'Luxury & warm — calm spacing, elegant type, standout gold CTAs.', fr:'Luxe et chaleureux — espacements calmes, typographie élégante, CTA dorés.' },
+                  pal:{ light:{ bg:'#FFF7ED', surface:'#FFFFFF', primary:'#F59E0B', accent:'#EA580C', text:'#431407' }, dark:{ bg:'#1C1917', surface:'#292524', primary:'#FBBF24', accent:'#FB923C', text:'#FEF3C7' } } },
+                { id:'delivery', name:{ ar:'توصيل', en:'Delivery', fr:'Livraison' },
+                  style:{ ar:'حيوي وواضح — أخضر طاقة مع أزرار كبيرة وسهلة للطلب السريع.', en:'Energetic & clean — vibrant green with big, tap-friendly order CTAs.', fr:'Énergique et clair — vert dynamique avec de gros boutons de commande.' },
+                  pal:{ light:{ bg:'#F0FDF4', surface:'#FFFFFF', primary:'#22C55E', accent:'#16A34A', text:'#052E16' }, dark:{ bg:'#052E16', surface:'#14532D', primary:'#4ADE80', accent:'#86EFAC', text:'#DCFCE7' } } },
+                { id:'booking', name:{ ar:'حجوزات ومواعيد', en:'Booking', fr:'Réservation' },
+                  style:{ ar:'موثوق وهادئ — أزرق سماوي يعزز الثقة مع تقويم واضح.', en:'Trustworthy & calm — sky blue builds trust with a clear calendar.', fr:'Fiable et calme — bleu ciel qui inspire confiance avec un agenda clair.' },
+                  pal:{ light:{ bg:'#F0F9FF', surface:'#FFFFFF', primary:'#0EA5E9', accent:'#0284C7', text:'#0C4A6E' }, dark:{ bg:'#082F49', surface:'#0C4A6E', primary:'#38BDF8', accent:'#7DD3FC', text:'#E0F2FE' } } },
+                { id:'ai', name:{ ar:'ذكاء اصطناعي', en:'AI / Tech', fr:'IA / Tech' },
+                  style:{ ar:'مستقبلي — بنفسجي وسماوي متدرّجان مع تأثير زجاجي (Glassmorphism).', en:'Futuristic — violet & cyan gradients with glassmorphism.', fr:'Futuriste — dégradés violet et cyan avec glassmorphism.' },
+                  pal:{ light:{ bg:'#FAF5FF', surface:'#FFFFFF', primary:'#A855F7', accent:'#06B6D4', text:'#3B0764' }, dark:{ bg:'#1E1B4B', surface:'#312E81', primary:'#A78BFA', accent:'#22D3EE', text:'#EDE9FE' } } },
+                { id:'realestate', name:{ ar:'عقارات', en:'Real estate', fr:'Immobilier' },
+                  style:{ ar:'فاخر ومتين — تركواز مع رمادي داكن يعكس الاحترافية.', en:'Premium & solid — teal with deep slate conveys professionalism.', fr:'Premium et solide — sarcelle avec gris ardoise profond.' },
+                  pal:{ light:{ bg:'#F0FDFA', surface:'#FFFFFF', primary:'#14B8A6', accent:'#0F766E', text:'#042F2E' }, dark:{ bg:'#042F2E', surface:'#134E4A', primary:'#2DD4BF', accent:'#5EEAD4', text:'#CCFBF1' } } },
+                { id:'fitness', name:{ ar:'لياقة ورياضة', en:'Fitness', fr:'Fitness' },
+                  style:{ ar:'طاقة عالية — ليموني مشرق مع خلفية داكنة وعدّادات رياضية بارزة.', en:'High energy — bright lime on dark backgrounds with bold stat counters.', fr:'Haute énergie — vert citron sur fond sombre avec compteurs sportifs.' },
+                  pal:{ light:{ bg:'#F7FEE7', surface:'#FFFFFF', primary:'#84CC16', accent:'#15803D', text:'#1A2E05' }, dark:{ bg:'#1A2E05', surface:'#365314', primary:'#A3E635', accent:'#BEF264', text:'#F7FEE7' } } },
+                { id:'education', name:{ ar:'تعليم', en:'Education', fr:'Éducation' },
+                  style:{ ar:'مشرق ومرح — نيلي مع سماوي يناسب الطلاب ويشجع التعلم.', en:'Bright & playful — indigo with sky suits students and encourages learning.', fr:'Vif et ludique — indigo avec bleu ciel pour les étudiants.' },
+                  pal:{ light:{ bg:'#EEF2FF', surface:'#FFFFFF', primary:'#6366F1', accent:'#0EA5E9', text:'#1E1B4B' }, dark:{ bg:'#1E1B4B', surface:'#312E81', primary:'#818CF8', accent:'#38BDF8', text:'#E0E7FF' } } },
+                { id:'social', name:{ ar:'شبكة اجتماعية', en:'Social', fr:'Social' },
+                  style:{ ar:'ممتع ومتفاعل — وردي وأحمر شغوف لتجربة حيّة.', en:'Fun & engaging — playful pink and passionate red for a lively feel.', fr:'Amusant et engageant — rose et rouge passion.' },
+                  pal:{ light:{ bg:'#FFF1F2', surface:'#FFFFFF', primary:'#F43F5E', accent:'#EC4899', text:'#4C0519' }, dark:{ bg:'#4C0519', surface:'#881337', primary:'#FB7185', accent:'#F472B6', text:'#FFE4E6' } } }
+            ];
+            function startBrand() {
+                if (brandState) return;
+                estimateState = null; roiState = null; leadState = null; wireframeState = null; bookingState = null;
+                brandState = 'niche';
+                brandSel = null;
+                estimateLang = curL || 'ar';
+                addBot(esc(c('brandQ1', estimateLang)), 400);
+                renderChips(BRAND_NICHES.map(function(n){ return n.name[estimateLang] || n.name.en; }));
+            }
+            function handleBrand(text) {
+                var l = estimateLang || curL || 'ar';
+                if (brandState === 'niche') {
+                    var t = normalize(text);
+                    var sel = null;
+                    for (var i = 0; i < BRAND_NICHES.length; i++) {
+                        var nm = normalize(BRAND_NICHES[i].name[l] || BRAND_NICHES[i].name.en);
+                        if (t.indexOf(nm) !== -1 || fuzzyScore(text, BRAND_NICHES[i].name[l] || BRAND_NICHES[i].name.en) >= 1) { sel = BRAND_NICHES[i]; break; }
+                    }
+                    if (!sel) { for (var j = 0; j < BRAND_NICHES.length; j++) { var n2 = BRAND_NICHES[j].name.en; if (t.indexOf(normalize(n2)) !== -1) { sel = BRAND_NICHES[j]; break; } } }
+                    brandSel = sel || BRAND_NICHES[0];
+                    brandState = null;
+                    rememberTopic('brand');
+                    bumpScore(1);
+                    addBot(renderPalette(brandSel), 700);
+                    renderChips([
+                        { label: c('brandAct', l), cmd: function(){ addBot(esc(l === 'ar' ? '🎨 رائع! الآن لنطبق هذا على مشروعك — أخبرني بنوع مشروعك:' : l === 'fr' ? '🎨 Parfait ! Appliquons cela à votre projet — dites-moi le type de projet :' : '🎨 Great! Now let\'s apply this to your project — what\'s the project type?'), 300); startEstimate(); } },
+                        { label: c('voucherChip', l), cmd: showVoucher },
+                        APP_CTAS[l].consult
+                    ]);
+                }
+            }
+            function swatch(label, hex, fg) {
+                return '<div class="ai-swatch" style="background:' + hex + ';color:' + fg + '"><b>' + label + '</b>' + hex + '</div>';
+            }
+            function renderPalette(n) {
+                var l = estimateLang || curL || 'ar';
+                var L = n.pal.light, D = n.pal.dark;
+                var lightBlock = '<div class="ai-pal-block light"><div class="ai-pal-title">☀️ ' + esc(c('brandLight', l)) + '</div><div class="ai-pal-row">'
+                    + swatch('Bg', L.bg, '#1C1917') + swatch('Surface', L.surface, '#1C1917')
+                    + swatch('Primary', L.primary, '#FFFFFF') + swatch('Accent', L.accent, '#FFFFFF') + swatch('Text', L.text, '#FFFFFF')
+                    + '</div></div>';
+                var darkBlock = '<div class="ai-pal-block dark"><div class="ai-pal-title">🌙 ' + esc(c('brandDark', l)) + '</div><div class="ai-pal-row">'
+                    + swatch('Bg', D.bg, '#FFFFFF') + swatch('Surface', D.surface, '#FFFFFF')
+                    + swatch('Primary', D.primary, '#000000') + swatch('Accent', D.accent, '#000000') + swatch('Text', D.text, '#000000')
+                    + '</div></div>';
+                return '<div class="ai-brief"><div class="ai-brief-title">🎨 ' + esc(n.name[l] || n.name.en) + ' — Brand Palette</div>'
+                    + '<div class="ai-pal">' + lightBlock + darkBlock + '</div>'
+                    + '<div class="ai-pal-style"><b>' + esc(c('brandUi', l)) + ':</b> ' + esc(n.style[l] || n.style.en) + '</div>'
+                    + '</div><br>' + waCta(l);
+            }
+
+            /* ---------- (3) AI wireframe / screen structure ---------- */
+            var WIRE_KB = {
+                delivery:   { ar:['الرئيسية','القائمة والبحث','تتبع الطلب','السلة والدفع','ملفي الشخصي'], en:['Home','Menu & Search','Order Tracking','Cart & Checkout','My Profile'], fr:['Accueil','Menu et recherche','Suivi de commande','Panier et paiement','Mon profil'] },
+                ecommerce:  { ar:['الرئيسية','صفحة المنتج','السلة الذكية','الدفع','طلباتي'], en:['Home','Product Page','Smart Cart','Checkout','My Orders'], fr:['Accueil','Page produit','Panier intelligent','Paiement','Mes commandes'] },
+                ai:         { ar:['الترحيب','المحادثة الذكية','النتائج والتحليلات','الاشتراك والإعدادات'], en:['Welcome','Smart Chat','Results & Analytics','Subscription & Settings'], fr:['Accueil','Chat intelligent','Résultats & analyses','Abonnement & réglages'] },
+                booking:    { ar:['الرئيسية','الحجز','التقويم','التأكيد والإشعارات'], en:['Home','Booking','Calendar','Confirmation & Reminders'], fr:['Accueil','Réservation','Agenda','Confirmation & rappels'] },
+                realestate: { ar:['الرئيسية','قائمة العقارات','تفاصيل العقار','الحجز والمعاينة'], en:['Home','Property Listings','Property Details','Book a Visit'], fr:['Accueil','Liste des biens','Détail du bien','Planifier une visite'] },
+                fitness:    { ar:['الرئيسية','التمرين','الوجبات','التقدم والإحصائيات'], en:['Home','Workout','Meals','Progress & Stats'], fr:['Accueil','Entraînement','Repas','Progrès & stats'] },
+                education:  { ar:['الرئيسية','الدورات','صفحة الدرس','الملف والتقدم'], en:['Home','Courses','Lesson Page','Profile & Progress'], fr:['Accueil','Cours','Page de leçon','Profil & progression'] },
+                social:     { ar:['الرئيسية (المنشورات)','إنشاء منشور','الملف الشخصي','الإشعارات'], en:['Home (Feed)','Create Post','Profile','Notifications'], fr:['Accueil (fil)','Créer un post','Profil','Notifications'] },
+                app:        { ar:['الرئيسية','الميزات','الملف الشخصي','الإعدادات'], en:['Home','Features','Profile','Settings'], fr:['Accueil','Fonctionnalités','Profil','Réglages'] }
+            };
+            function wireIdFor(text) {
+                var id = null;
+                var arch = matchKw(text);
+                if (arch) id = arch.id;
+                if (!id) id = detectEstType(text);
+                if (id === 'mobile') id = 'app';
+                if (id === 'web') id = 'app';
+                if (id === 'both') id = 'app';
+                if (WIRE_KB[id]) return id;
+                return 'app';
+            }
+            function startWireframe(preset) {
+                if (wireframeState) return;
+                estimateState = null; roiState = null; leadState = null; brandState = null; bookingState = null;
+                wireframeState = 'desc';
+                wireframePreset = preset || null;
+                estimateLang = curL || 'ar';
+                if (wireframePreset && APP_KB[wireframePreset]) {
+                    wireframeState = null;
+                    wireframeResult = wireframePreset;
+                    addBot(renderWireframe(wireframePreset), 700);
+                    renderChips([APP_CTAS[estimateLang].consult]);
+                    return;
+                }
+                addBot(esc(c('wireQ1', estimateLang)), 400);
+                renderChips([c('chips', estimateLang)[0], c('chips', estimateLang)[1], c('chips', estimateLang)[2]]);
+            }
+            function handleWireframe(text) {
+                if (wireframeState !== 'desc') return;
+                var archId = matchKw(text);
+                var wid = archId ? archId.id : wireIdFor(text);
+                var l = estimateLang || curL || 'ar';
+                wireframeState = null;
+                wireframeResult = wid;
+                rememberTopic('wireframe');
+                bumpScore(1);
+                addBot(renderWireframe(wid), 700);
+                renderChips([
+                    { label: c('offerRoiChip', l), cmd: startRoi },
+                    APP_CTAS[l].consult
+                ]);
+            }
+            function renderWireframe(wid) {
+                var l = estimateLang || curL || 'ar';
+                var screens = WIRE_KB[wid] || WIRE_KB.app;
+                var rows = screens[l] || screens.en;
+                var blocks = rows.map(function(name, i){
+                    var slots = '<div class="ai-wf-slots">'
+                        + '<div class="ai-wf-slot w"></div><div class="ai-wf-slot"></div>'
+                        + '<div class="ai-wf-slot s"></div><div class="ai-wf-cta"></div>'
+                        + '</div>';
+                    return '<div class="ai-wf-screen"><div class="ai-wf-num">' + (i + 1) + '</div><div class="ai-wf-info"><div class="ai-wf-name">' + esc(name) + '</div>' + slots + '</div></div>';
+                }).join('');
+                return '<div class="ai-brief"><div class="ai-brief-title">' + esc(c('wireHead', l)) + '</div><div class="ai-wf">' + blocks + '</div>'
+                    + '<div class="ai-wf-note">💡 ' + esc(c('wireNote', l)) + '</div></div><br>' + waCta(l);
+            }
+
+            /* ---------- (4) Document & specs analyzer ---------- */
+            var dropzoneEl = document.getElementById('ai-dropzone');
+            var dzBox = document.getElementById('ai-dz-box');
+            var dzText = document.getElementById('ai-dz-text');
+            var dzFile = document.getElementById('ai-dz-file');
+            var dzFileName = document.getElementById('ai-dz-file-name');
+            var dzAnalyze = document.getElementById('ai-dz-analyze');
+            var dzClear = document.getElementById('ai-dz-clear');
+            var dzToggle = document.getElementById('ai-dz-toggle');
+            var attachBtn = document.getElementById('ai-attach');
+            var dzOpen = false;
+            function showDropzone(openIt) {
+                if (!dropzoneEl) return;
+                if (openIt) { dropzoneEl.classList.add('show'); dropzoneEl.setAttribute('aria-hidden', 'false'); dzOpen = true; if (attachBtn) attachBtn.classList.add('on'); }
+                else { dropzoneEl.classList.remove('show'); dropzoneEl.setAttribute('aria-hidden', 'true'); dzOpen = false; if (attachBtn) attachBtn.classList.remove('on'); }
+            }
+            function readFile(f) {
+                if (!f) return;
+                if (f.size > 51200) { toastMsg(curL === 'ar' ? 'الملف كبير جداً (حد أقصى 50KB)' : curL === 'fr' ? 'Fichier trop volumineux (50KB max)' : 'File too large (50KB max)'); return; }
+                var rd = new FileReader();
+                rd.onload = function(){
+                    dzText.value = String(rd.result || '').slice(0, 4000);
+                    dzFileName.textContent = '📎 ' + f.name + ' (' + Math.round(f.size / 1024) + 'KB)';
+                };
+                rd.readAsText(f);
+            }
+            function analyzeSpecs(text) {
+                var l = curL || 'ar';
+                var t = text.trim();
+                if (!t) return;
+                addUser('📄 ' + (t.length > 160 ? t.slice(0, 160) + '…' : t));
+                var arch = matchKw(t);
+                var type = detectEstType(t) || (arch ? arch.id : 'app');
+                var estKey = ({ app:'mobile', mobile:'mobile', web:'web', store:'store', ai:'ai', both:'both', delivery:'mobile', ecommerce:'store', booking:'web', realestate:'web', fitness:'mobile', social:'mobile', education:'web' })[type] || 'mobile';
+                var tInfo = EST_TYPES[estKey];
+                var budget = extractBudget(t);
+                var feats = (EST_FEATS[estKey] ? EST_FEATS[estKey][l] : EST_FEATS[estKey].en) || [];
+                var featsHtml = feats.slice(0, 3).map(function(f){ return '<span class="ai-specs-chip">' + esc(f) + '</span>'; }).join('');
+                var missing = [];
+                if (!budget) missing.push(l === 'ar' ? 'ميزانية تقريبية' : l === 'fr' ? 'budget approximatif' : 'approximate budget');
+                if (!/عربية|عربي|العربية|arabic|arabe|فرنسية|فرنسي|انجليزية|انجليزي|english|français|francais|langues|اللغات/i.test(t)) missing.push(l === 'ar' ? 'اللغات المستهدفة' : l === 'fr' ? 'langues cibles' : 'target languages');
+                if (arch && arch.tl) missing.push(l === 'ar' ? 'تفاصيل الميزات المطلوبة' : l === 'fr' ? 'détails des fonctionnalités' : 'required feature details');
+                var missHtml = missing.length ? missing.map(function(m){ return '<span class="ai-specs-chip">⚠️ ' + esc(m) + '</span>'; }).join('') : '<span class="ai-specs-ok">✅ ' + esc(c('specsOk', l)) + '</span>';
+                var costTxt = tInfo.base ? '$' + tInfo.base[0].toLocaleString() + ' - $' + tInfo.base[1].toLocaleString() : '—';
+                var weekTxt = tInfo.weeks ? tInfo.weeks[0] + ' - ' + tInfo.weeks[1] + ' ' + (l === 'ar' ? 'أسابيع' : l === 'fr' ? 'semaines' : 'weeks') : '—';
+                var html = '<div class="ai-specs"><div class="ai-specs-title">' + esc(c('specsHead', l)) + '</div>'
+                    + '<div class="ai-brief-row"><span class="ai-brief-k">' + esc(c('specsType', l)) + '</span><span class="ai-brief-v">' + esc(tInfo[l] || tInfo.en) + '</span></div>'
+                    + '<div class="ai-brief-row"><span class="ai-brief-k">' + esc(c('specsBudget', l)) + '</span><span class="ai-brief-v">' + (budget ? '~$' + budget.toLocaleString() : '<span class="ai-specs-warn">—</span>') + '</span></div>'
+                    + '<div class="ai-brief-row"><span class="ai-brief-k">' + esc(c('specsCost', l)) + '</span><span class="ai-brief-v ai-price">' + costTxt + '</span></div>'
+                    + '<div class="ai-brief-row"><span class="ai-brief-k">' + esc(c('specsTime', l)) + '</span><span class="ai-brief-v">' + weekTxt + '</span></div>'
+                    + '<div class="ai-prop-sec" style="margin-top:8px">' + esc(c('specsFeats', l)) + '</div><div>' + featsHtml + '</div>'
+                    + '<div class="ai-prop-sec" style="margin-top:8px">' + esc(c('specsMissing', l)) + '</div><div>' + missHtml + '</div>'
+                    + '<div class="ai-prop-note" style="margin-top:6px">💡 ' + esc(c('specsNote', l)) + '</div>'
+                    + '</div>';
+                rememberTopic('specs');
+                bumpScore(1);
+                addBot(html + '<br>' + waCta(l), 700);
+                renderChips([
+                    { label: c('offerRoiChip', l), cmd: startRoi },
+                    APP_CTAS[l].consult
+                ]);
+            }
+            if (attachBtn) attachBtn.addEventListener('click', function(){ showDropzone(!dzOpen); });
+            if (dzToggle) dzToggle.addEventListener('click', function(){ showDropzone(false); });
+            if (dzBox) dzBox.addEventListener('click', function(){ if (dzFile) dzFile.click(); });
+            if (dzFile) dzFile.addEventListener('change', function(){ readFile(dzFile.files && dzFile.files[0]); });
+            if (dzBox) {
+                ['dragenter','dragover'].forEach(function(evt){ dzBox.addEventListener(evt, function(e){ e.preventDefault(); dzBox.classList.add('drag'); }); });
+                ['dragleave','drop'].forEach(function(evt){ dzBox.addEventListener(evt, function(e){ e.preventDefault(); dzBox.classList.remove('drag'); }); });
+                dzBox.addEventListener('drop', function(e){ var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]; readFile(f); });
+            }
+            if (dzAnalyze) dzAnalyze.addEventListener('click', function(){
+                var t = (dzText && dzText.value || '').trim();
+                if (!t) { toastMsg(curL === 'ar' ? 'ألصق المواصفات أولاً ثم اضغط تحليل' : curL === 'fr' ? 'Collez d\'abord les specs puis analysez' : 'Paste your specs first, then analyze'); return; }
+                showDropzone(false);
+                analyzeSpecs(t);
+            });
+            if (dzClear) dzClear.addEventListener('click', function(){ if (dzText) dzText.value = ''; if (dzFileName) dzFileName.textContent = ''; });
+
             function promptApps() {
                 var l = curL || 'ar';
                 addBot(esc(l === 'ar' ? 'بكل سرور! أي تطبيق من تطبيقاتنا تود استكشافه؟' : l === 'fr' ? 'Avec plaisir ! Laquelle de nos applications voulez-vous explorer ?' : 'With pleasure! Which of our apps would you like to explore?'));
@@ -6852,12 +7755,15 @@
             }
             window.aiRefresh = refreshLang;
             function resetSession() {
-                userSession.language = 'ar'; userSession.budgetRange = null; userSession.interestedApp = null; userSession.leadScore = 1; userSession.topics = [];
+                userSession.language = 'ar'; userSession.budgetRange = null; userSession.interestedApp = null; userSession.appId = null; userSession.dialect = null; userSession.leadScore = 1; userSession.topics = [];
                 estimateState = null; estimate = null; roiState = null; roiSel = null; roiResult = null;
+                brandState = null; brandSel = null; wireframeState = null; wireframePreset = null; wireframeResult = null;
                 voucher.shown = false; voucher.expiresAt = null;
                 urgencyShown = false; triggerPortfolioFired = false; triggerCalcFired = false;
+                bookingState = null;
+                showDropzone(false);
             }
-            window.aiTest = { showBadge: showBadge, hideBadge: hideBadge, promptApps: promptApps, startEstimate: startEstimate, startRoi: startRoi, buildWaSummary: buildWaSummary, resetSession: resetSession, userSession: userSession };
+            window.aiTest = { showBadge: showBadge, hideBadge: hideBadge, promptApps: promptApps, startEstimate: startEstimate, startRoi: startRoi, startBrand: startBrand, startWireframe: startWireframe, analyzeSpecs: analyzeSpecs, showDropzone: showDropzone, buildWaSummary: buildWaSummary, startBooking: startBooking, clearMemory: clearMemory, saveMemory: saveMemory, francoToAr: francoToAr, matchCompetitor: matchCompetitor, replyCompetitor: replyCompetitor, replyCompare: replyCompare, voiceSupported: voiceSupported, resetSession: resetSession, userSession: userSession };
 
             /* ---------- Proactive engagement triggers ---------- */
             function uiLang() { return window.getCurrentLang ? window.getCurrentLang() : 'ar'; }
@@ -6891,19 +7797,8 @@
             }
 
             (function() {
-                var section = document.getElementById('portfolio');
-                if (!section) return;
-                var inView = false, dwellStart = 0;
-                var iv = setInterval(function() {
-                    if (open) { clearInterval(iv); return; }
-                    var r = section.getBoundingClientRect();
-                    var vh = window.innerHeight || document.documentElement.clientHeight;
-                    var visible = r.top < vh * 0.7 && r.bottom > vh * 0.3;
-                    var now = Date.now();
-                    if (visible && !inView) { inView = true; dwellStart = now; }
-                    if (!visible && inView) { inView = false; }
-                    if (inView && !triggerPortfolioFired && now - dwellStart > 12000) {
-                        triggerPortfolioFired = true; clearInterval(iv);
+                var targets = [
+                    { id: 'portfolio', firedFlag: 'portfolio', dwellMs: 12000, onFire: function(){
                         var l = uiLang();
                         var t = l === 'ar' ? 'هل تود استكشاف كود Velora أو Kaizen AI والتجربة المباشرة؟' :
                                 l === 'fr' ? 'Aimeriez-vous explorer le code de Velora ou Kaizen AI et l\'essayer en direct ?' :
@@ -6912,7 +7807,48 @@
                             openPanel();
                             setTimeout(promptApps, 500);
                         });
-                    }
+                    } },
+                    { id: 'calculator', firedFlag: 'calc', dwellMs: 12000, onFire: function(){
+                        var l = uiLang();
+                        var t = l === 'ar' ? 'أرى أنك تحسب تكلفة مشروعك — أستطيع إعطاءك تقديراً أدق وتحليلاً شاملاً هنا. نتحدث؟' :
+                                l === 'fr' ? 'Je vois que vous calculez le coût de votre projet — je peux vous donner une estimation plus précise et une analyse complète ici. On en parle ?' :
+                                'I see you\'re calculating your project cost — I can give you a sharper estimate and full analysis here. Shall we talk?';
+                        showBadge(t, function(){
+                            openPanel();
+                            setTimeout(startEstimate, 500);
+                        });
+                    } }
+                ];
+                var states = {};
+                targets.forEach(function(t){ states[t.id] = { inView: false, dwellStart: 0, done: false }; });
+                var maxDepth = 0, lastDepthTier = 0;
+                var iv = setInterval(function() {
+                    if (open) return;
+                    var vh = window.innerHeight || document.documentElement.clientHeight;
+                    var scrollDepth = window.scrollY || document.documentElement.scrollTop || 0;
+                    var maxScroll = (document.documentElement.scrollHeight || 1) - vh;
+                    maxDepth = Math.max(maxDepth, maxScroll > 0 ? (scrollDepth / maxScroll) * 100 : 0);
+                    if (maxDepth >= 25 && lastDepthTier < 25) { lastDepthTier = 25; if (window.trackEvent) window.trackEvent('scroll_depth', { depth: 25 }); }
+                    if (maxDepth >= 50 && lastDepthTier < 50) { lastDepthTier = 50; if (window.trackEvent) window.trackEvent('scroll_depth', { depth: 50 }); }
+                    if (maxDepth >= 75 && lastDepthTier < 75) { lastDepthTier = 75; if (window.trackEvent) window.trackEvent('scroll_depth', { depth: 75 }); }
+                    var now = Date.now();
+                    targets.forEach(function(t) {
+                        var st = states[t.id];
+                        if (st.done) return;
+                        var el = document.getElementById(t.id);
+                        if (!el) { st.done = true; return; }
+                        var r = el.getBoundingClientRect();
+                        var visible = r.top < vh * 0.7 && r.bottom > vh * 0.3;
+                        if (visible && !st.inView) { st.inView = true; st.dwellStart = now; }
+                        if (!visible && st.inView) { st.inView = false; }
+                        if (st.inView && now - st.dwellStart > t.dwellMs) {
+                            st.done = true;
+                            if (t.firedFlag === 'portfolio') triggerPortfolioFired = true; else triggerCalcFired = true;
+                            var still = targets.every(function(x){ return states[x.id].done; });
+                            if (still) clearInterval(iv);
+                            t.onFire();
+                        }
+                    });
                 }, 800);
             })();
 
